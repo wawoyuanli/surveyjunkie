@@ -7,11 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Material Design Lite</title>
     <meta name="mobile-web-app-capable" content="yes">
-
+    <link rel="stylesheet" href="./assets/styles/home.css">
 </head>
 <body>
-    <div>
+    <div class="home-container">
+        <iframe src='./nav/index.html'></iframe>
         <iframe src='./home/index.html'></iframe>
     </div>
+    <script>
+        import getList from './utils/index.js'
+        getList()
+    </script>
 </body>
 </html>
