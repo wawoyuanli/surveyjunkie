@@ -9,27 +9,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Material Design Lite</title>
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/styles/home.css">
     <link rel="stylesheet" href="./assets/styles/footer.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="../lib/jquery/jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
-    <div class="home-container">
-        <iframe src='./pages/nav/index.html' id='navcontent'></iframe>
-        <iframe src='./pages/home/index.html'  id='homecontent'></iframe>
-        <iframe src='./pages/footer/index.html'  id='footercontent'></iframe>
-        
+    <div class="home-container" id='main'>
+        <iframe src='./pages/nav/index.html' id='navcontent' scrolling="no"></iframe>
+        <iframe src='./pages/home/index.html' id='homecontent' scrolling="no"></iframe>
+        <iframe src='./pages/footer/index.html' id='footercontent' scrolling="no"></iframe>
     </div>
     <script type="module">
-        import {initIframeHeight} from '../utils/index.js'
-        initIframeHeight(20,'navcontent')
-        // initIframeHeight(30,'homecontent')
-        initIframeHeight(20,'footercontent')
+        // import {initIframeHeight} from '../utils/index.js'
+        // initIframeHeight(10,'footercontent')
     </script>
-
 </body>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
 </html>

@@ -1,5 +1,5 @@
- 
-function initIframeHeight(height,id) {
+// import $ from 'jquery'
+function initIframeHeight(height, id) {
     var userAgent = navigator.userAgent;
     var iframe = parent.document.getElementById(id);
     var subdoc = iframe.contentDocument || iframe.contentWindow.document;
@@ -8,15 +8,15 @@ function initIframeHeight(height,id) {
     //谷歌浏览器特殊处理
     if (userAgent.indexOf("Chrome") > -1) {
         realHeight = subdoc.documentElement.scrollHeight;
-    }else {
+    } else {
         realHeight = subbody.scrollHeight;
     }
     if (realHeight < height) {
         $(iframe).height(height);
-    }else {
+    } else {
         $(iframe).height(realHeight);
     }
 }
-export { 
+export {
     initIframeHeight
 }
