@@ -1,13 +1,97 @@
-body{
-    overflow:hidden;
+body {
+    overflow-x: hidden;
 }
-.header__ul{
-    li{
-        width: 11rem;
-        font-size: 18px;
-        text-align: center;
+
+header {
+    #logo{
+        width: 18%;
+        height: 10%;
+    }
+    .header__ul {
+        li {
+            font-size: 18px;
+            text-align: left;
+            
+        }
+    }
+    .phone{
+        width: 64px;
+        height: 64px;
+    }
+    .chrome{
+        width: 64px;
+        height: 64px;
+    }
+
+    #_services {
+        display: none;
+        width: 100vw;
+    }
+
+    #_about {
+        display: none;
+        width: 100vw;
+    }
+
+    #_resources {
+        display: none;
+        width: 100vw;
+    }
+
+    #_affiliates {
+        display: none;
+        width: 100vw;
+    }
+
+    #_contact {
+        display: none;
+    }
+
+    .curent_active_show {
+        position: absolute;
+        display: block !important;
+        background-color: #fff;
+        color: rgb(228, 10, 10);
+        transform: translateY(-10px);
+        animation: mymove 3s initial;
+        -webkit-animation: mymove 3s initial;
+        z-index: 100
+    }
+
+    @keyframes mymove {
+        from {
+            top: 0px;
+        }
+
+        to {
+            top: 200px;
+        }
+    }
+
+    @-webkit-keyframes mymove {
+        from {
+            top: 0px;
+        }
+
+        to {
+            top: 200px;
+        }
     }
 }
+
+.main__content {
+    .bottombg {
+        background-image: url('../images/g2.jpeg');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        min-height: 700px;
+    }
+    .left__text{
+        // color: orange;
+        font-size: 30px;
+    }
+}
+
 // .iframe{
 //     border: none;
 // }

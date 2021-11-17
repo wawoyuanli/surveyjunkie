@@ -1,3 +1,10 @@
-footer .footer-nav {
-  display: flex;
+footer {
+  width: 100vw;
+  background-color: #000;
+  color: #fff;
+  margin-top: 10rem;
+}
+footer .nav_title {
+  font-size: 24px;
+  color: #ff004c;
 }
