@@ -1,50 +1,134 @@
 body {
     overflow-x: hidden;
+    iframe{
+        border: none;
+        width: 100%;
+    }
 }
 
 header {
-    #logo{
+    #logo {
         width: 18%;
         height: 10%;
     }
+
     .header__ul {
         li {
             font-size: 18px;
             text-align: left;
-            
+
         }
     }
-    .phone{
+
+    .phone {
         width: 64px;
         height: 64px;
     }
-    .chrome{
+
+    .chrome {
         width: 64px;
         height: 64px;
+    }
+
+    #services:hover {
+        color: #000;
+        background: orange;
+        border-radius: 6px;
+        animation-duration: 1s;
+        font-family: 'Raleway', sans-serif;
+        -webkit-animation-duration: 1s;
     }
 
     #_services {
         display: none;
         width: 100vw;
+
+        #marketplace {
+            cursor: pointer;
+        }
+
+        #technology {
+            cursor: pointer;
+        }
+
+        #make_money {
+            cursor: pointer;
+        }
+    }
+
+    #about:hover {
+        color: #000;
+        background: orange;
+        border-radius: 6px;
+        animation-duration: 1s;
+        font-family: 'Raleway', sans-serif;
+        -webkit-animation-duration: 1s;
     }
 
     #_about {
         display: none;
         width: 100vw;
+
+        #about_us {
+            cursor: pointer;
+        }
+    }
+
+    #resources:hover {
+        color: #000;
+        background: orange;
+        border-radius: 6px;
+        animation-duration: 1s;
+        font-family: 'Raleway', sans-serif;
+        -webkit-animation-duration: 1s;
     }
 
     #_resources {
         display: none;
         width: 100vw;
+
+        #blog {
+            cursor: pointer;
+        }
+
+        #esomar {
+            cursor: pointer;
+        }
+
+        #careers {
+            cursor: pointer;
+        }
+    }
+
+    #affiliates:hover {
+        color: #000;
+        background: orange;
+        border-radius: 6px;
+        animation-duration: 1s;
+        font-family: 'Raleway', sans-serif;
     }
 
     #_affiliates {
         display: none;
         width: 100vw;
+
+        #join_our {
+            cursor: pointer;
+        }
+    }
+
+    #contact:hover {
+        cursor: pointer;
+        color: #000;
+        background: orange;
+        border-radius: 6px;
+        animation-duration: 1s;
+        font-family: 'Raleway', sans-serif;
     }
 
     #_contact {
         display: none;
+
     }
 
     .curent_active_show {
@@ -86,7 +170,8 @@ header {
         background-size: 100% 100%;
         min-height: 700px;
     }
-    .left__text{
+
+    .left__text {
         // color: orange;
         font-size: 30px;
     }

@@ -1,6 +1,10 @@
 body {
   overflow-x: hidden;
 }
+body iframe {
+  border: none;
+  width: 100%;
+}
 header #logo {
   width: 18%;
   height: 10%;
@@ -17,21 +21,84 @@ header .chrome {
   width: 64px;
   height: 64px;
 }
+header #services:hover {
+  color: #000;
+  background: orange;
+  border-radius: 6px;
+  animation-duration: 1s;
+  font-family: 'Raleway', sans-serif;
+  -webkit-animation-duration: 1s;
+}
 header #_services {
   display: none;
   width: 100vw;
+}
+header #_services #marketplace {
+  cursor: pointer;
+}
+header #_services #technology {
+  cursor: pointer;
+}
+header #_services #make_money {
+  cursor: pointer;
+}
+header #about:hover {
+  color: #000;
+  background: orange;
+  border-radius: 6px;
+  animation-duration: 1s;
+  font-family: 'Raleway', sans-serif;
+  -webkit-animation-duration: 1s;
 }
 header #_about {
   display: none;
   width: 100vw;
 }
+header #_about #about_us {
+  cursor: pointer;
+}
+header #resources:hover {
+  color: #000;
+  background: orange;
+  border-radius: 6px;
+  animation-duration: 1s;
+  font-family: 'Raleway', sans-serif;
+  -webkit-animation-duration: 1s;
+}
 header #_resources {
   display: none;
   width: 100vw;
 }
+header #_resources #blog {
+  cursor: pointer;
+}
+header #_resources #esomar {
+  cursor: pointer;
+}
+header #_resources #careers {
+  cursor: pointer;
+}
+header #affiliates:hover {
+  color: #000;
+  background: orange;
+  border-radius: 6px;
+  animation-duration: 1s;
+  font-family: 'Raleway', sans-serif;
+}
 header #_affiliates {
   display: none;
   width: 100vw;
+}
+header #_affiliates #join_our {
+  cursor: pointer;
+}
+header #contact:hover {
+  cursor: pointer;
+  color: #000;
+  background: orange;
+  border-radius: 6px;
+  animation-duration: 1s;
+  font-family: 'Raleway', sans-serif;
 }
 header #_contact {
   display: none;
