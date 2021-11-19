@@ -6,31 +6,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/styles/login.css">
+    <script src="../../../lib/jquery/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../../../lib/bootstrap4.6.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="../../../lib/bootstrap4.6.1/js/bootstrap.js"></script>
     <title>登录</title>
-    <style>
-
-    </style>
 </head>
 
 <body>
-    <div class='login-container'>
-        <div class="login-box">
-            <div class="login-bg">
-            </div>
-        </div>
-        <div class="mask">
-            <div class="login-input">
-                <div class="tab">
-                    <p>登录</p>
-                    <p>注册</p>
+    <div class="login_container">
+        <div class="row pt-5"></div>
+        <div class="container-fluid pt-5">
+            <div class="row d-flex align-items-center justify-content-around">
+                <div class="col-md-6">
+                    <img src="../../assets/images/6_03.png" alt="">
                 </div>
-            
-                <input type="text" placeholder="">
-                <input type="text">
+                <div class="col-md-6">
+                    <div class="card p-4 rounded-lg col-md-9 d-flex justify-content-center align-items-center">
+                        <p class="text-center h3">登陆</p>
+                        <form class="col-md-8">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Username *</label>
+                                <input type="email" class="form-control col-md-12" id="exampleInputEmail1" placeholder="please username">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary col-md-12">Submit</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-          
         </div>
-
     </div>
 </body>
 

@@ -2,9 +2,10 @@ body {
   padding: 0;
   margin: 0;
 }
-.login-container {
+.login_container {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  background-color: #ecf1f7;
 }
 .login-container .login-box {
   margin: 0 auto;
