@@ -1,12 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>新网站</title>
+    <link rel="stylesheet" href="../../assets/styles/home.css">
+    <link rel="stylesheet" href="../../assets/styles/footer.css">
+    <link rel="stylesheet" href="../../../lib/bootstrap4.6.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../lib/font-awesome/css/font-awesome.min.css">
+    <script src="../../../lib/jquery/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="../../../lib/bootstrap4.6.1/js/bootstrap.js"></script>
 </head>
+
 <body>
-    service
+    <header>
+        <div class="d-flex shadow rounded">
+            <img src="../../assets/images/logo-1.png" alt="" id='logo' class="p-4">
+            <ul class="list-unstyled d-flex justify-content-center header__ul pt-5 pb-5">
+                <li class="ml-5 pl-5"></li>
+                <li id='services' class="pl-3 pr-3 text-center d-flex align-items-center">Services</li>
+                <li id='affiliates' class="pl-3 pr-3 text-center d-flex align-items-center">Affiliates & Partners</li>
+                <li id='about' class="pl-3 pr-3 text-center d-flex align-items-center">About</li>
+                <li id='resources' class="pl-3 pr-3 text-center d-flex align-items-center">Resources</li>
+                <li id='contact' class="pl-3 pr-3 text-center d-flex align-items-center">Contact</li>
+                <li id='english' class="pl-5 pr-5 ml-5">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
+                            aria-expanded="false">
+                            English
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Japanese</a>
+                            <a class="dropdown-item" href="#">French</a>
+                            <a class="dropdown-item" href="#">German</a>
+                        </div>
+                    </div>
+                </li>
+                <li id='login' class="pl-4 border pr-4 rounded-lg border-danger d-flex align-items-center">
+                    <a href="../../pages/login/index.html" class="text-dark text-decoration-none">Log in</a>
+                </li>
+            </ul>
+            <img src="../../assets/images/iPhone.png" alt="" class="phone  mt-4 ml-5" id='phone'>
+            <img src="../../assets/images/chrome.png" alt="" class="chrome mt-4 ml-4" id='chrome'>
+        </div>
+        <div class="tab__content text-center pb-5" id='_services'>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 d-flex">
+                        <div style="font-size: 50px;"> <i class="fa fa-cogs" aria-hidden="true"></i></div>
+                        <div class="ml-4 pr-3">
+                            <p class="text-left h2">Services</p>
+                            <p class="text-left">
+                                Lean on Quest to help you with more than just sample and data collection.
+                                Our
+                                team of market
+                                research specialists will assist you from survey design to Q&A—and everything in
+                                between.
+                            </p>
+                        </div>
+                        <div class="border-right border-danger"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled text-left">
+                            <li class="p-2" id='marketplace'>Marketplace</li>
+                            <li class="p-2" id='technology'>Technology</li>
+                            <li class="p-2" id='make_money'>How to make Money</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab__content text-center" id='_affiliates'>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 d-flex">
+                        <div style="font-size: 50px;"> <i class="fa fa-cogs" aria-hidden="true"></i></div>
+                        <div class="ml-4 pr-3">
+                            <p class="text-left h2">Affiliates & Partners</p>
+                            <p class="text-left"> Lean on Quest to help you with more than just sample and data
+                                collection.
+                                Our
+                                team of market
+                                research specialists will assist you from survey design to Q&A—and everything in
+                                between.
+                            </p>
+                        </div>
+                        <div class="border-right border-danger"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled text-left">
+                            <li class="p-2" id='join_our'>Join Our Panel</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab__content text-center" id='_about'>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 d-flex">
+                        <div style="font-size: 50px;"> <i class="fa fa-cogs" aria-hidden="true"></i></div>
+                        <div class="ml-4 pr-3">
+                            <p class="text-left h2">About</p>
+                            <p class="text-left">
+                                Whether you are looking for 500 hair salon owners in Italy or 1000 IT Decision Makers in
+                                Southern California, Quest can access your target for quality insights. Learn more about
+                                our
+                                reach.
+                            </p>
+                        </div>
+                        <div class="border-right border-danger"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled text-left">
+                            <li class="p-2" id='about_us'>About Us</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab__content text-center" id='_resources'>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 d-flex">
+                        <div style="font-size: 50px;"> <i class="fa fa-cogs" aria-hidden="true"></i></div>
+                        <div class="ml-4 pr-3">
+                            <p class="text-left h2">Resources</p>
+                            <p class="text-left">
+                                Quest becomes an extension of your team. We harness the best of human led, technology
+                                powered
+                                support to enable your unique research requirements and fulfill our mission in quality
+                                data
+                                and
+                                insights. Access our resources to assist in your sampling plan and learn more about
+                                Quest’s
+                                unique position on the MR landscape.
+                            </p>
+                        </div>
+                        <div class="border-right border-danger"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled text-left">
+                            <li class="p-2" id='blog'>Blog</li>
+                            <li class="p-2" id='esomar'>ESOMAR 28</li>
+                            <li class="p-2" id='careers'>Careers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab__content text-center" id='_contact'>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 d-flex">
+                        <img src="../../assets/images/service.png" alt="" style="width: 10%;">
+                        <p class="text-right"> Lean on Quest to help you with more than just sample and data collection.
+                            Our
+                            team of market
+                            research specialists will assist you from survey design to Q&A—and everything in between.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li>Marketplace</li>
+                            <li>Technology</li>
+                            <li>How to make Money</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--middle content-->
+    <!-- <div class="text-center main__content mt-3">
+        <div class="bottombg">
+            <div class="row pt-5">
+                <div class="col-md-6">
+                    <p class="pt-5 mt-5"></p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="left__text m-0 text-left">Extract the precise</p>
+                        <p class="left__text m-0 text-left">insights you need,</p>
+                        <p class="left__text text-left">anytime, anywhere.</p>
+                        <p class="text-left m-0">Industry-leading data collection panel, services, and</p>
+                        <p class="m-0 text-left">technology that delivers what you need.</p>
+                        <button class="btn btn-danger text-center mt-5 col-md-4 float-left">
+                            <a href="./pages/login/index.html" class="text-light">Let's Start</a>
+                        </button>
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!--footer 底部-->
+    <footer>
+        <div class="container">
+            <div class="row pt-5">
+                <div class="col-md-4 text-left nav_title">Support</div>
+                <div class="col-md-4 text-left nav_title">Contact</div>
+                <div class="col-md-4 text-left nav_title">Sign up for newsletter</div>
+            </div>
+            <div class="row pt-5">
+                <div class="col-md-4">
+                    <ul class="list-unstyled text-left">
+                        <li class="mt-2">
+                            <a href="../../pages/contact/index.html" class="text-light text-decoration-none">Contact Us</a>
+                        </li>
+                        <li class="mt-2">
+                            <a href="../../pages/terms/index.html" class="text-light text-decoration-none">Terms</a>
+                        </li>
+                        <li class="mt-2">
+                            <a href="../../pages/privacy/index.html" class="text-light text-decoration-none">Privacy
+                                Policy</a>
+                        </li>
+                        <li class="mt-2">Do Not Sell My Personal Information</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-unstyled text-left">
+                        <li>HEADQUARTERS</li>
+                        <li class="mt-2">125 Lakeshore Road E</li>
+                        <li class="mt-2">Suite 305</li>
+                        <li class="mt-2">Oakville, ON</li>
+                        <li class="mt-2">Canada L6J 1H3</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-unstyled text-left">
+                        <li>
+                            <input type="text"><label>Your Email</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    Copyright 2021, Quest Mindshare. All Rights Reserved.
+                </div>
+                <div class="col-md-6 d-flex">
+                    <p>Follow Us:</p>
+                    <a class="h3 ml-4 text-light" href="https://twitter.com/mondegains"><i class="fa fa-twitter"
+                            aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="module">
+        import {addClass,removeClass,showToast,route} from '../../../utils/index.js'
+        addClass('services','_services')
+        addClass('affiliates','_affiliates')
+        addClass('resources','_resources')
+        addClass('about','_about')
+        showToast('phone')
+        showToast('chrome')
+        removeClass('_services')
+        removeClass('_affiliates')
+        removeClass('_resources')
+        removeClass('_about')
+        /*路由跳转*/
+        route('marketplace','../../pages/service/index.html')
+        route('technology','../../pages/service/index.html')
+        route('make_money','../../pages/service/index.html')
+        route('contact','../../pages/contact/index.html')
+        route('services','../../pages/service/index.html')
+        route('about_us','../../pages/about/index.html')
+        route('join_our','../../pages/contact/index.html')
+   </script>
 </body>
+
 </html>
