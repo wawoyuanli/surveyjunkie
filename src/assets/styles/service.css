@@ -1,0 +1,25 @@
+.marketplace__title {
+  min-height: 150px;
+  background-color: #b93539;
+  color: #fff;
+  font-size: 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.service__bg {
+  background-image: url('../images/aboutbg.jpeg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  min-height: 750px;
+}
+.service__bg .__left_text {
+  font-size: 28px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.market__card ._card_text {
+  min-height: 400px;
+  font-size: 18px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.market__card ._card_text ._title {
+  font-size: 20px;
+}
