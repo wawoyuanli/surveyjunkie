@@ -9,6 +9,8 @@ body {
 }
 .login_container .card__bg {
   background: #fff;
+  box-shadow: 0px 0px 10px 10px #1f4c7d;
+  border-radius: 30px;
 }
 .login_container .welcome_back {
   color: #4ba2c9;
