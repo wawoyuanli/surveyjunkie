@@ -1,12 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../../assets/styles/register.css">
+    <link rel="stylesheet" href="../../assets/styles/footer.css">
+    <script src="../../../lib/jquery/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../../../lib/bootstrap4.6.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="../../../lib/bootstrap4.6.1/js/bootstrap.js"></script>
+    <title>register</title>
 </head>
+
 <body>
-    register
+    <div class="register_container">
+        <div class="container d-flex flex-column justify-content-center align-items-center">
+            <div class="form_box d-flex flex-column justify-content-center align-items-center mt-5 col-md-6">
+                <p class="text-light h4 pt-2">register</p>
+                <input type="text" class="col-md-10 border-0 m-3 p-1 rounded-lg" placeholder="Username">
+                <div class="col-md-10 d-flex p-0">
+                    <input type="text" class="col-md-6 border-0 rounded-lg p-1 m-0" placeholder="Email">
+                    <button class="btn btn-warning col-md-6 ml-1">get vertification code</button>
+                </div>
+                <input type="email" class="col-md-10 border-0 m-3 p-1 rounded-lg" placeholder="Email Vertification Code">
+                <input type="password" class="col-md-10 border-0 p-1 rounded-lg" placeholder="Password">
+                <div class="col-md-10 d-flex p-0 m-3">
+                    <input type="text" class="col-md-6 border-0 rounded-lg p-1" placeholder="First Name">
+                    <input type="text" class="col-md-6 border-0 rounded-lg p-1 ml-1" placeholder="Last Name">
+                </div>
+                <div class="col-md-10 d-flex p-0 align-items-center">
+                    <input type="radio" class="col-md-1" value="male">
+                    <label for="" class="col-md-5 m-0 text-light">male</label>
+                    <input type="radio" class="col-md-1" value="female">
+                    <label for="" class="col-md-5 m-0 text-light">female</label>
+                </div>
+                <input type="text" class="col-md-10 border-0 m-3 p-1 rounded-lg" placeholder="birthday">
+                <input type="text" class="col-md-10 border-0 p-1 rounded-lg" placeholder="Referral Links">
+                <input type="text" class="col-md-10 border-0 p-1 m-3 rounded-lg" placeholder="Zip">
+                <p class="col-md-10 text-light">Vertification:</p>
+                <p  class="col-md-10 text-light">Detected country</p>
+                <div class="col-md-10 d-flex p-0 align-items-center flex-column">
+                    <div class="d-flex align-items-center col-md-12">
+                        <input type="checkbox">
+                        <p class="m-0 pl-2 text-light">I have read and accepted
+                            Terms And Conditions *</p>
+                    </div>
+                    <div class="d-flex align-items-center col-md-12">
+                        <input type="checkbox">
+                        <p class="m-0 pl-2 text-light">I have read and accepted
+                            Privacy Policy *</p>
+                    </div>
+                    <div class="d-flex align-items-center col-md-12">
+                        <input type="checkbox">
+                        <p class="m-0 pl-2 text-light">I want to receive marketing communication</p>
+                    </div>
+                </div>
+                <button class="btn btn-warning col-md-10 mt-4 mb-4">register</button>
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                <div class="row pt-5">
+                    <div class="col-md-4 text-left nav_title">Support</div>
+                    <div class="col-md-4 text-left nav_title">Contact</div>
+                    <div class="col-md-4 text-left nav_title">Sign up for newsletter</div>
+                </div>
+                <div class="row pt-5">
+                    <div class="col-md-4">
+                        <ul class="list-unstyled text-left">
+                            <li class="mt-2">
+                                <a href="../../pages/contact/index.html" class="text-light text-decoration-none">Contact Us</a>
+                            </li>
+                            <li class="mt-2">
+                              <a href="../../pages/terms/index.html" class="text-light text-decoration-none">Terms</a>
+                            </li>
+                            <li class="mt-2">
+                              <a href="../../pages/privacy/index.html" class="text-light text-decoration-none">Privacy Policy</a>
+                            </li>
+                            <li class="mt-2">Do Not Sell My Personal Information</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-unstyled text-left">
+                            <li>HEADQUARTERS</li>
+                            <li class="mt-2">125 Lakeshore Road E</li>
+                            <li class="mt-2">Suite 305</li>
+                            <li class="mt-2">Oakville, ON</li>
+                            <li class="mt-2">Canada L6J 1H3</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-unstyled text-left">
+                            <li>
+                                <input type="text"><label>Your Email</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col-md-6">
+                        Copyright 2021, Quest Mindshare. All Rights Reserved.
+                    </div>
+                    <div class="col-md-6 d-flex">
+                        <p>Follow Us:</p>
+                        <a class="h3 ml-4 text-light" href="https://twitter.com/mondegains"><i class="fa fa-twitter"
+                                aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
+
 </html>

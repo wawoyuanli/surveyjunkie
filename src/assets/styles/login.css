@@ -10,3 +10,21 @@ body {
 .login_container .card__bg {
   background: #fff;
 }
+.login_container .welcome_back {
+  color: #4ba2c9;
+  font-size: 24px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.login_container .account {
+  color: #1f4c7d;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.login_container .btn__liner {
+  background-image: linear-gradient(to right, #e45968, #e67167, #ea8868);
+  color: #fff;
+  border: none;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 20px;
+}
