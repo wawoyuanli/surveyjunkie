@@ -28,11 +28,11 @@
                         <p class="col-md-8 account">Login to your account</p>
                         <form class="col-md-8 mt-3">
                             <div class="form-group">
-                                <input type="email" class="form-control col-md-12" id="exampleInputEmail1"
+                                <input type="text" class="form-control col-md-12" id="username"
                                     placeholder="UserName">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="exampleInputPassword1"
+                                <input type="password" class="form-control" id="password"
                                     placeholder="Password">
                             </div>
                             <button type="submit" class="btn__liner col-md-12 mt-3 mb-3" id='login_btn'>Log in</button>
@@ -51,17 +51,15 @@
 </body>
 <script type="module">
     import {requestAjax} from '../../../utils/request.js'
+    import {getInputvalueById} from  '../../../utils/login.js'
     document.getElementById('login_btn').addEventListener('click',function(){
-        // var script=document.createElement('script')
-        // script.src='https://www.salientsurveys.com/manager/authorization/sys/login?username="hyl"&password="123456"'
-        // document.body.appendChild(script);
      requestAjax({
      url : "https://www.salientsurveys.com/manager/authorization/sys/login",  
      async : true,
      method : "POST",
      data : {        //传入信息
-        username : "hyl",
-        password : '123456'
+        username : getInputvalueById('username'),
+        password : getInputvalueById('password')
     },
     success : function(data){   //返回接受信息
         console.log(data);
