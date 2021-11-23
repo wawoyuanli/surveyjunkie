@@ -1,6 +1,5 @@
 /**封装ajax */
 function requestAjax(options) {
-    debugger
     var params = formsParams(options.data);
     var xhr = null
     /**兼容处理 */
