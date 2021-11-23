@@ -32,9 +32,10 @@
                                     placeholder="UserName">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <input type="password" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Password">
                             </div>
-                            <button type="submit" class="btn__liner col-md-12 mt-3 mb-3">Log in</button>
+                            <button type="submit" class="btn__liner col-md-12 mt-3 mb-3" id='login_btn'>Log in</button>
                             <a href="" class="text-decoration-none">
                                 <p>I forgot my password</p>
                             </a>
@@ -48,5 +49,26 @@
         </div>
     </div>
 </body>
+<script type="module">
+    import {requestAjax} from '../../../utils/request.js'
+    document.getElementById('login_btn').addEventListener('click',function(){
+        // var script=document.createElement('script')
+        // script.src='https://www.salientsurveys.com/manager/authorization/sys/login?username="hyl"&password="123456"'
+        // document.body.appendChild(script);
+     requestAjax({
+     url : "https://www.salientsurveys.com/manager/authorization/sys/login",  
+     async : true,
+     method : "POST",
+     data : {        //传入信息
+        username : "hyl",
+        password : '123456'
+    },
+    success : function(data){   //返回接受信息
+        console.log(data);
+    },
+    })
+})
+
+</script>
 
 </html>
