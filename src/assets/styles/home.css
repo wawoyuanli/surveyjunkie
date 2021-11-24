@@ -164,6 +164,9 @@ header .curent_active_show {
   transform: translateY(-10px);
   z-index: 100;
 }
+.main__content {
+  font-family: 'Courier New', Courier, monospace;
+}
 .main__content .bottombg {
   background-image: url("../images/g2.jpeg");
   background-repeat: no-repeat;
@@ -171,5 +174,5 @@ header .curent_active_show {
   min-height: 100vh;
 }
 .main__content .left__text {
-  font-size: 30px;
+  font-size: 40px;
 }

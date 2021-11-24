@@ -3,10 +3,11 @@
 
 <head>
   <meta charset="UTF-8" />
-  <!-- <meta id="i18n_pagename" content="index-common" /> -->
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>新网站</title>
+  <title>Cohesion</title>
+  <link rel="shortcut icon" href="./assets/images/icon.png">
   <link rel="stylesheet" href="./assets/styles/home.css" />
   <link rel="stylesheet" href="./assets/styles/footer.css" />
   <link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.min.css" />
@@ -21,15 +22,15 @@
 
 <body>
   <header>
-    <div class="d-flex shadow rounded">
-      <img src="./assets/images/logo-1.png" alt="" id="logo" class="p-4" />
+    <div class="d-flex shadow rounded align-items-center">
+      <img src="./assets/images/logo.png" alt="" id="logo" class="pl-5 pr-2" />
       <ul class="
             list-unstyled
             d-flex
             justify-content-center
             header__ul
             pt-5
-            pb-5
+           pb-3
           ">
         <li id="services" class="pl-3 pr-3 text-center d-flex align-items-center" data-locale="services">
           Services
@@ -59,9 +60,9 @@
           </div>
         </li>
         <li id="login" class="
-              pl-4
+              pl-3
               border
-              pr-4
+              pr-3
               rounded-lg
               border-danger
               d-flex
@@ -70,8 +71,8 @@
           <a href="./pages/login/index.html" class="text-dark text-decoration-none">Log in</a>
         </li>
       </ul>
-      <img src="./assets/images/iPhone.png" alt="" class="phone mt-4 ml-5" id="phone" />
-      <img src="./assets/images/chrome.png" alt="" class="chrome mt-4 ml-4" id="chrome" />
+      <img src="./assets/images/iPhone.png" alt="" class="phone mr-3" id="phone" />
+      <img src="./assets/images/chrome.png" alt="" class="chrome" id="chrome" />
     </div>
     <div class="tab__content text-center pb-5" id="_services">
       <div class="container">
@@ -219,14 +220,14 @@
             <p class="left__text m-0 text-left">Extract the precise</p>
             <p class="left__text m-0 text-left">insights you need,</p>
             <p class="left__text text-left">anytime, anywhere.</p>
-            <p class="text-left m-0">
+            <p class="text-left m-0 h4">
               Industry-leading data collection panel, services, and
             </p>
-            <p class="m-0 text-left">
+            <p class="m-0 text-left h4">
               technology that delivers what you need.
             </p>
-            <button class="btn btn-danger text-center mt-5 col-md-4 float-left">
-              <a href="./pages/login/index.html" class="text-light">Let's Start</a>
+            <button class="btn btn-danger text-center mt-5 col-md-5 float-left">
+              <a href="./pages/login/index.html" class="text-light h3">Let's Start</a>
             </button>
           </div>
           <div class="col-md-6"></div>
@@ -236,7 +237,7 @@
   </div>
   <!--footer 底部-->
   <footer>
-    <div class="container pt-5">
+    <div class="container pt-5 footer_content">
       <div class="row">
         <div class="col-md-4 text-left nav_title">Support</div>
         <div class="col-md-4 text-left nav_title">Contact</div>
@@ -268,7 +269,7 @@
         </div>
         <div class="col-md-4">
           <ul class="list-unstyled text-left">
-            <li class="mt-5"><input type="text" placeholder="email"/><label class="ml-4">Your Email</label></li>
+            <li class="mt-5"><input type="text" placeholder="email" /><label class="ml-4">Your Email</label></li>
           </ul>
         </div>
       </div>
