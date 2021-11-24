@@ -1,5 +1,6 @@
 body {
   overflow-x: hidden;
+
   iframe {
     border: none;
     width: 100%;
@@ -12,11 +13,19 @@ header {
     height: 10%;
   }
 
+
   .header__ul {
+    width: 100%;
+
     li {
-      font-size: 18px;
+      font-size: 20px;
       text-align: left;
+      font-family: 'Courier New', Courier, monospace;
     }
+  }
+
+  .tab__content {
+    font-family: 'Courier New', Courier, monospace;
   }
 
   .phone {
@@ -34,7 +43,6 @@ header {
     background: orange;
     border-radius: 6px;
     animation-duration: 1s;
-    font-family: "Raleway", sans-serif;
     -webkit-animation-duration: 1s;
   }
 
@@ -42,16 +50,33 @@ header {
     display: none;
     width: 100vw;
 
+    ._services_title {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 600;
+      font-size: 28px;
+    }
+
+    ._services_content {
+      font-size: 24px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
     #marketplace {
       cursor: pointer;
+      font-size: 22px;
+      font-weight: 600;
     }
 
     #technology {
       cursor: pointer;
+      font-size: 22px;
+      font-weight: 600;
     }
 
     #make_money {
       cursor: pointer;
+      font-size: 22px;
+      font-weight: 600;
     }
   }
 
@@ -60,7 +85,6 @@ header {
     background: orange;
     border-radius: 6px;
     animation-duration: 1s;
-    font-family: "Raleway", sans-serif;
     -webkit-animation-duration: 1s;
   }
 
@@ -68,7 +92,20 @@ header {
     display: none;
     width: 100vw;
 
+    ._about_title {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 600;
+      font-size: 28px;
+    }
+
+    ._about_content {
+      font-size: 24px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
     #about_us {
+      font-size: 22px;
+      font-weight: 600;
       cursor: pointer;
     }
   }
@@ -78,23 +115,37 @@ header {
     background: orange;
     border-radius: 6px;
     animation-duration: 1s;
-    font-family: "Raleway", sans-serif;
     -webkit-animation-duration: 1s;
   }
 
   #_resources {
     display: none;
     width: 100vw;
+    ._resources_title {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 600;
+      font-size: 28px;
+    }
+    ._resources_content{
+      font-size: 24px;
+      font-family: 'Courier New', Courier, monospace;
+    }
 
     #blog {
+      font-size: 22px;
+      font-weight: 600;
       cursor: pointer;
     }
 
     #esomar {
+      font-size: 22px;
+      font-weight: 600;
       cursor: pointer;
     }
 
     #careers {
+      font-size: 22px;
+      font-weight: 600;
       cursor: pointer;
     }
   }
@@ -104,15 +155,26 @@ header {
     background: orange;
     border-radius: 6px;
     animation-duration: 1s;
-    font-family: "Raleway", sans-serif;
   }
 
   #_affiliates {
     display: none;
     width: 100vw;
 
+    ._affiliates_title {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 600;
+      font-size: 28px;
+    }
+
+    ._affiliates_content {
+      font-size: 24px;
+    }
+
     #join_our {
       cursor: pointer;
+      font-size: 22px;
+      font-weight: 600;
     }
   }
 
@@ -122,7 +184,6 @@ header {
     background: orange;
     border-radius: 6px;
     animation-duration: 1s;
-    font-family: "Raleway", sans-serif;
   }
 
   #_contact {
@@ -135,29 +196,9 @@ header {
     background-color: #fff;
     color: rgb(228, 10, 10);
     transform: translateY(-10px);
-    animation: mymove 3s initial;
-    -webkit-animation: mymove 3s initial;
+    // animation: mymove 3s initial;
+    // -webkit-animation: mymove 3s initial;
     z-index: 100;
-  }
-
-  @keyframes mymove {
-    from {
-      top: 0px;
-    }
-
-    to {
-      top: 200px;
-    }
-  }
-
-  @-webkit-keyframes mymove {
-    from {
-      top: 0px;
-    }
-
-    to {
-      top: 200px;
-    }
   }
 }
 

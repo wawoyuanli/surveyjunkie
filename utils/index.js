@@ -5,9 +5,6 @@ function addClass(tabId, contentId) {
     _tabId.onmouseover = function () {
         _contentId.classList.add('curent_active_show')
     }
-    // _tabId.onmouseout = function () {
-    //     _contentId.classList.remove('curent_active_show')
-    // }
 }
 function removeClass(contentId) {
     document.getElementById(contentId).onmouseover = function () {
