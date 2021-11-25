@@ -40,7 +40,7 @@ header .chrome {
   width: 64px;
   height: 64px;
 }
-header #services:hover {
+header #services_btn:hover {
   color: #000;
   background: orange;
   border-radius: 6px;
@@ -75,7 +75,7 @@ header #_services #make_money {
   font-size: 22px;
   font-weight: 600;
 }
-header #about:hover {
+header #about_btn:hover {
   color: #000;
   background: orange;
   border-radius: 6px;
@@ -100,7 +100,7 @@ header #_about #about_us {
   font-weight: 600;
   cursor: pointer;
 }
-header #resources:hover {
+header #resources_btn:hover {
   color: #000;
   background: orange;
   border-radius: 6px;
@@ -135,7 +135,7 @@ header #_resources #careers {
   font-weight: 600;
   cursor: pointer;
 }
-header #affiliates:hover {
+header #affiliates_btn:hover {
   color: #000;
   background: orange;
   border-radius: 6px;
@@ -158,7 +158,7 @@ header #_affiliates #join_our {
   font-size: 22px;
   font-weight: 600;
 }
-header #contact:hover {
+header #contact_btn:hover {
   cursor: pointer;
   color: #000;
   background: orange;

@@ -25,22 +25,22 @@
     <p class="pt-3 pb-3 w-100">
       <img src="./assets/images/logo.png" alt="" id="logo" class="pl-5 pr-2 w-10" />
       <button class="btn border-right" type="button" data-toggle="collapse" data-target="#services"
-        aria-expanded="false" aria-controls="services" id='services'>
+        aria-expanded="false" aria-controls="services" id='services_btn'>
         <span> Services</span>
       </button>
       <button class="btn border-right" type="button" data-toggle="collapse" data-target="#affiliates"
-        aria-expanded="false" aria-controls="affiliates" id='affiliates'>
+        aria-expanded="false" aria-controls="affiliates" id='affiliates_btn'>
         <span> Affiliates</span>
       </button>
       <button class="btn border-right" type="button" data-toggle="collapse" data-target="#about" aria-expanded="false"
-        aria-controls="about" id='about'>
+        aria-controls="about" id='about_btn'>
         <span> About</span>
       </button>
       <button class="btn border-right " type="button" data-toggle="collapse" data-target="#resources"
-        aria-expanded="false" aria-controls="resources" id='resources'>
+        aria-expanded="false" aria-controls="resources" id='resources_btn'>
         <span>Resources</span>
       </button>
-      <button class="btn border-right" id="contact">
+      <button class="btn border-right" id="contact_btn">
         <a href="./pages/contact/index.html" class="text-decoration-none text-dark" style="font-size: 20px;">Contact</a>
       </button>
       <select name="" id="" class="w-10">
@@ -49,7 +49,7 @@
       </select>
       <a class="btn btn-danger ml-5" href="./pages/login/index.html" style="width: 8%;">Login</a>
       <img src="./assets/images/iPhone.png" alt="" class="phone ml-4" id="phone" />
-      <img src="./assets/images/chrome.png" alt="" class="chrome ml-4" id="chrome"/>
+      <img src="./assets/images/chrome.png" alt="" class="chrome ml-4" id="chrome" />
     </p>
     <div class="collapse" id="services">
       <div class=" card-body">
@@ -269,6 +269,29 @@
       route("careers", "./pages/resources/careers/index.html");
     </script>
   <script type="text/javascript">
+    $('#services').on('show.bs.collapse', function () {
+      $('#affiliates').collapse('hide')
+      $('#about').collapse('hide')
+      $('#resources').collapse('hide')
+    })
+    $('#affiliates').on('show.bs.collapse', function () {
+      $('#services').collapse('hide')
+      $('#about').collapse('hide')
+      $('#resources').collapse('hide')
+    })
+    $('#about').on('show.bs.collapse', function () {
+      $('#services').collapse('hide')
+      $('#affiliates').collapse('hide')
+      $('#resources').collapse('hide')
+    })
+    $('#resources').on('show.bs.collapse', function () {
+      $('#services').collapse('hide')
+      $('#affiliates').collapse('hide')
+      $('#about').collapse('hide')
+    })
+    /*
+    多语言配置
+    */
     $("#english").click(function () {
       var lang = this.innerText;
       switch (lang) {
@@ -299,9 +322,9 @@
     function loadProperties(lang) {
       $.i18n.properties({
         name: "lang", //属性文件名     命名格式： 文件名_国家代号.properties
-        path: "/utils/lang/", //注意这里路径是你属性文件的所在文件夹
+        path: "/utils/lang/", //这里路径是你属性文件的所在文件夹
         mode: "map",
-        language: lang, //这就是国家代号 name+language刚好组成属性文件名：strings+zh -> strings_zh.properties
+        language: lang, //这就是国家代号 name+language刚好组成属性文件名：lang+zh -> lang_zh.properties
         callback: function () {
           $("[data-locale]").each(function () {
             console.log($(this).data("locale"));
