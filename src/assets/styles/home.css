@@ -47,30 +47,24 @@ header #services_btn:hover {
   animation-duration: 1s;
   -webkit-animation-duration: 1s;
 }
-header #_services {
-  display: none;
-  width: 100vw;
-}
-header #_services ._services_title {
-  font-family: 'Courier New', Courier, monospace;
+header #services ._services_title {
   font-weight: 600;
   font-size: 28px;
 }
-header #_services ._services_content {
-  font-size: 24px;
-  font-family: 'Courier New', Courier, monospace;
+header #services ._services_content {
+  font-size: 22px;
 }
-header #_services #marketplace {
+header #services #marketplace {
   cursor: pointer;
   font-size: 22px;
   font-weight: 600;
 }
-header #_services #technology {
+header #services #technology {
   cursor: pointer;
   font-size: 22px;
   font-weight: 600;
 }
-header #_services #make_money {
+header #services #make_money {
   cursor: pointer;
   font-size: 22px;
   font-weight: 600;
@@ -82,20 +76,14 @@ header #about_btn:hover {
   animation-duration: 1s;
   -webkit-animation-duration: 1s;
 }
-header #_about {
-  display: none;
-  width: 100vw;
-}
-header #_about ._about_title {
-  font-family: 'Courier New', Courier, monospace;
+header #about ._about_title {
   font-weight: 600;
   font-size: 28px;
 }
-header #_about ._about_content {
+header #about ._about_content {
   font-size: 24px;
-  font-family: 'Courier New', Courier, monospace;
 }
-header #_about #about_us {
+header #about #about_us {
   font-size: 22px;
   font-weight: 600;
   cursor: pointer;
@@ -107,30 +95,24 @@ header #resources_btn:hover {
   animation-duration: 1s;
   -webkit-animation-duration: 1s;
 }
-header #_resources {
-  display: none;
-  width: 100vw;
-}
-header #_resources ._resources_title {
-  font-family: 'Courier New', Courier, monospace;
+header #resources ._resources_title {
   font-weight: 600;
   font-size: 28px;
 }
-header #_resources ._resources_content {
+header #resources ._resources_content {
   font-size: 24px;
-  font-family: 'Courier New', Courier, monospace;
 }
-header #_resources #blog {
+header #resources #blog {
   font-size: 22px;
   font-weight: 600;
   cursor: pointer;
 }
-header #_resources #esomar {
+header #resources #esomar {
   font-size: 22px;
   font-weight: 600;
   cursor: pointer;
 }
-header #_resources #careers {
+header #resources #careers {
   font-size: 22px;
   font-weight: 600;
   cursor: pointer;
@@ -141,19 +123,14 @@ header #affiliates_btn:hover {
   border-radius: 6px;
   animation-duration: 1s;
 }
-header #_affiliates {
-  display: none;
-  width: 100vw;
-}
-header #_affiliates ._affiliates_title {
-  font-family: 'Courier New', Courier, monospace;
+header #affiliates ._affiliates_title {
   font-weight: 600;
   font-size: 28px;
 }
-header #_affiliates ._affiliates_content {
+header #affiliates ._affiliates_content {
   font-size: 24px;
 }
-header #_affiliates #join_our {
+header #affiliates #join_our {
   cursor: pointer;
   font-size: 22px;
   font-weight: 600;
@@ -164,9 +141,6 @@ header #contact_btn:hover {
   background: orange;
   border-radius: 6px;
   animation-duration: 1s;
-}
-header #_contact {
-  display: none;
 }
 header .curent_active_show {
   position: absolute;
