@@ -22,113 +22,94 @@
 
 <body>
   <header>
-    <div class="d-flex shadow rounded align-items-center">
-     <img src="./assets/images/logo.png" alt="" id="logo" class="pl-5 pr-2" />
-      <ul class="
-            list-unstyled
-            d-flex
-            justify-content-center
-            header__ul
-            pt-5
-           pb-3
-          ">
-        <li id="services" class="pl-3 pr-3 text-center d-flex align-items-center border-right border-danger" data-locale="services">
-          Services
-        </li>
-        <li id="affiliates" class="d-flex align-items-center ml-2 mr-2 border-right pr-2 border-danger" data-locale="affiliates">
-          Affiliates & Partners
-        </li>
-        <li id="about" class=" pr-3 text-center d-flex align-items-center border-right border-danger" data-locale="about">
-          About
-        </li>
-        <li id="resources" class="pl-3 pr-3 text-center d-flex align-items-center border-right border-danger" data-locale="resources">
-          Resources
-        </li>
-        <li id="contact" class="pl-3 pr-3 text-center d-flex align-items-center border-right border-danger" data-locale="contact">
-          Contact
-        </li>
-        <li class="pl-5 pr-5 ml-5">
-          <div class="btn-group">
-            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
-              data-locale="language">
-              English
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#" id="english">English</a>
-              <a class="dropdown-item" href="#" id="chinese">中文</a>
+    <p class="pt-3 pb-3 w-100">
+      <img src="./assets/images/logo.png" alt="" id="logo" class="pl-5 pr-2 w-10" />
+      <button class="btn border-right" type="button" data-toggle="collapse" data-target="#services"
+        aria-expanded="false" aria-controls="services" id='services'>
+        <span> Services</span>
+      </button>
+      <button class="btn border-right" type="button" data-toggle="collapse" data-target="#affiliates"
+        aria-expanded="false" aria-controls="affiliates" id='affiliates'>
+        <span> Affiliates</span>
+      </button>
+      <button class="btn border-right" type="button" data-toggle="collapse" data-target="#about" aria-expanded="false"
+        aria-controls="about" id='about'>
+        <span> About</span>
+      </button>
+      <button class="btn border-right " type="button" data-toggle="collapse" data-target="#resources"
+        aria-expanded="false" aria-controls="resources" id='resources'>
+        <span>Resources</span>
+      </button>
+      <button class="btn border-right" id="contact">
+        <a href="./pages/contact/index.html" class="text-decoration-none text-dark" style="font-size: 20px;">Contact</a>
+      </button>
+      <select name="" id="" class="w-10">
+        <option value="english">English</option>
+        <option value="chinese">中文</option>
+      </select>
+      <a class="btn btn-danger ml-5" href="./pages/login/index.html" style="width: 8%;">Login</a>
+      <img src="./assets/images/iPhone.png" alt="" class="phone ml-4" id="phone" />
+      <img src="./assets/images/chrome.png" alt="" class="chrome ml-4" id="chrome"/>
+    </p>
+    <div class="collapse" id="services">
+      <div class=" card-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 d-flex">
+              <div style="font-size: 50px">
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+              </div>
+              <div class="ml-4 pr-3">
+                <p class="text-left _services_title" data-locale="services">Services</p>
+                <p class="text-left _services_content">
+                  Lean on Quest to help you with more than just sample and data
+                  collection. Our team of market research specialists will
+                  assist you from survey design to Q&A—and everything in
+                  between.
+                </p>
+              </div>
+              <div class="border-right border-danger"></div>
             </div>
-          </div>
-        </li>
-        <li id="login" class="
-              pl-3
-              border
-              pr-3
-              rounded-lg
-              border-danger
-              d-flex
-              align-items-center
-            ">
-          <a href="./pages/login/index.html" class="text-dark text-decoration-none">Log in</a>
-        </li>
-      </ul>
-      <img src="./assets/images/iPhone.png" alt="" class="phone mr-3" id="phone" />
-      <img src="./assets/images/chrome.png" alt="" class="chrome" id="chrome" />
-    </div>
-    <div class="tab__content text-center pb-5" id="_services">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 d-flex">
-            <div style="font-size: 50px">
-              <i class="fa fa-cogs" aria-hidden="true"></i>
+            <div class="col-md-6 d-flex">
+              <ul class="list-unstyled text-left col-md-8">
+                <li class="p-2" id="marketplace">Marketplace</li>
+                <li class="p-2" id="technology">Technology</li>
+                <li class="p-2" id="make_money">How to make Money</li>
+              </ul>
+              <img src="./assets/images/welcome-one-img-1.png" alt="" style="width: 265px; height: 265px" />
             </div>
-            <div class="ml-4 pr-3">
-              <p class="text-left _services_title" data-locale="services">Services</p>
-              <p class="text-left _services_content">
-                Lean on Quest to help you with more than just sample and data
-                collection. Our team of market research specialists will
-                assist you from survey design to Q&A—and everything in
-                between.
-              </p>
-            </div>
-            <div class="border-right border-danger"></div>
-          </div>
-          <div class="col-md-6 d-flex">
-            <ul class="list-unstyled text-left col-md-8">
-              <li class="p-2" id="marketplace">Marketplace</li>
-              <li class="p-2" id="technology">Technology</li>
-              <li class="p-2" id="make_money">How to make Money</li>
-            </ul>
-            <img src="./assets/images/welcome-one-img-1.png" alt="" style="width: 265px; height: 265px" />
           </div>
         </div>
       </div>
     </div>
-    <div class="tab__content text-center" id="_affiliates">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 d-flex">
-            <div style="font-size: 50px">
-              <i class="fa fa-cogs" aria-hidden="true"></i>
+    <div class="collapse" id="affiliates">
+      <div class="card-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 d-flex">
+              <div style="font-size: 50px">
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+              </div>
+              <div class="ml-4 pr-3">
+                <p class="text-left _affiliates_title">Affiliates & Partners</p>
+                <p class="text-left _affiliates_content">
+                  Whether you are looking for 500 hair salon owners in Italy or 1000 IT Decision Makers in Southern
+                  California, Quest can access your target for quality insights. Learn more about our reach.
+                </p>
+              </div>
+              <div class="border-right border-danger"></div>
             </div>
-            <div class="ml-4 pr-3">
-              <p class="text-left _affiliates_title">Affiliates & Partners</p>
-              <p class="text-left _affiliates_content">
-                Whether you are looking for 500 hair salon owners in Italy or 1000 IT Decision Makers in Southern
-                California, Quest can access your target for quality insights. Learn more about our reach.
-              </p>
+            <div class="col-md-6 d-flex">
+              <ul class="list-unstyled text-left col-md-8">
+                <li class="p-2 border text-center border-danger" id="join_our">Join Our Panel</li>
+              </ul>
+              <img src="./assets/images/welcome-one-img-1.png" alt="" style="width: 265px; height: 265px" />
             </div>
-            <div class="border-right border-danger"></div>
-          </div>
-          <div class="col-md-6 d-flex">
-            <ul class="list-unstyled text-left col-md-8">
-              <li class="p-2 border text-center border-danger" id="join_our">Join Our Panel</li>
-            </ul>
-            <img src="./assets/images/welcome-one-img-1.png" alt="" style="width: 265px; height: 265px" />
           </div>
         </div>
       </div>
     </div>
-    <div class="tab__content text-center" id="_about">
+    <div class="collapse" id="about">
       <div class="container">
         <div class="row">
           <div class="col-md-6 d-flex">
@@ -153,7 +134,7 @@
         </div>
       </div>
     </div>
-    <div class="tab__content text-center" id="_resources">
+    <div class="collapse" id="resources">
       <div class="container">
         <div class="row">
           <div class="col-md-6 d-flex">
@@ -184,28 +165,9 @@
         </div>
       </div>
     </div>
-    <div class="tab__content text-center" id="_contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 d-flex">
-            <img src="./assets/images/service.png" alt="" style="width: 10%" />
-            <p class="text-right">
-              Lean on Quest to help you with more than just sample and data
-              collection. Our team of market research specialists will assist
-              you from survey design to Q&A—and everything in between.
-            </p>
-          </div>
-          <div class="col-md-6">
-            <ul class="list-unstyled">
-              <li>Marketplace</li>
-              <li>Technology</li>
-              <li>How to make Money</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
   </header>
+
+
   <!--middle content-->
   <div class="text-center main__content mt-3">
     <div class="bottombg">
@@ -290,28 +252,16 @@
   <script src="../lib/jquery/jquery.i18n.properties.js"></script>
   <script type="module">
     import {
-        addClass,
-        removeClass,
         showToast,
         route,
       } from "../utils/index.js";
-      addClass("services", "_services");
-      addClass("affiliates", "_affiliates");
-      addClass("resources", "_resources");
-      addClass("about", "_about");
       showToast("phone");
       showToast("chrome");
-      removeClass("_services");
-      removeClass("_affiliates");
-      removeClass("_resources");
-      removeClass("_about");
       /*路由跳转*/
-      route('logo','')
       route("marketplace", "./pages/service/index.html");
       route("technology", "./pages/service/index.html");
       route("make_money", "./pages/service/index.html");
       route("contact", "./pages/contact/index.html");
-      route("services", "./pages/service/index.html");
       route("about_us", "./pages/about/index.html");
       route("join_our", "./pages/contact/index.html");
       route("blog", "./pages/resources/blog/index.html");
