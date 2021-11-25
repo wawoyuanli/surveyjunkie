@@ -15,7 +15,6 @@ header .header__ul {
 header .header__ul li {
   font-size: 20px;
   text-align: left;
-  font-family: 'Courier New', Courier, monospace;
 }
 header .tab__content {
   font-family: 'Courier New', Courier, monospace;
