@@ -7,4 +7,4 @@ docs/out
 /dist
 .drone.sec.yml
 .less
-.prodbuild/*
+/prodbuild/*
