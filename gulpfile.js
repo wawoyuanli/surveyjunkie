@@ -35,7 +35,7 @@ gulp.task('mincss', function () {
 gulp.task('minjs', function () {
     return src('./utils/*.js')
         .pipe(gulpUglify()) //  .pipe(concat('main.min.js'))
-        .pipe(dest('prodbuild/dist/utils'))
+        .pipe(dest('prodbuild/utils'))
         .pipe(connect.reload())
 })
 /**压缩image*/
