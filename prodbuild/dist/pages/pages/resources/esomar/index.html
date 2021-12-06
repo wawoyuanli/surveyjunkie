@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cohesion</title>
+    <link rel="shortcut icon" href="../../../assets/images/icon.png">
+    <link rel="stylesheet" href="../../../assets/styles/esomar.css">
+    <link rel="stylesheet" href="../../../assets/styles/home.css">
+    <link rel="stylesheet" href="../../../assets/styles/footer.css">
+    <link rel="stylesheet" href="../../../../lib/bootstrap4.6.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../lib/font-awesome/css/font-awesome.min.css">
+    <script src="../../../../lib/jquery/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="../../../../lib/bootstrap4.6.1/js/bootstrap.js"></script>
+</head>
+
+<body>
+    <header>
+        <p class="pt-3 pb-3 w-100">
+            <img src="../../../assets/images/logo.png" alt="" id="logo" class="pl-5 pr-2 w-10" />
+            <button class="btn border-right" type="button" data-toggle="collapse" data-target="#services"
+                aria-expanded="false" aria-controls="services" id='services_btn'>
+                <span> Services</span>
+            </button>
+            <button class="btn border-right" type="button" data-toggle="collapse" data-target="#affiliates"
+                aria-expanded="false" aria-controls="affiliates" id='affiliates_btn'>
+                <span> Affiliates</span>
+            </button>
+            <button class="btn border-right" type="button" data-toggle="collapse" data-target="#about"
+                aria-expanded="false" aria-controls="about" id='about_btn'>
+                <span> About</span>
+            </button>
+            <button class="btn border-right " type="button" data-toggle="collapse" data-target="#resources"
+                aria-expanded="false" aria-controls="resources" id='resources_btn'>
+                <span>Resources</span>
+            </button>
+            <button class="btn border-right" id="contact_btn">
+                <a href="../../contact/index.html" class="text-decoration-none text-dark"
+                    style="font-size: 20px;">Contact</a>
+            </button>
+            <select name="" id="" class="w-10">
+                <option value="english">English</option>
+                <option value="chinese">中文</option>
+            </select>
+            <a class="btn btn-danger ml-5" href="../../login/index.html" style="width: 8%;">Login</a>
+            <img src="../../../assets/images/iPhone.png" alt="" class="phone ml-4" id="phone" />
+            <img src="../../../assets/images/chrome.png" alt="" class="chrome ml-4" id="chrome" />
+        </p>
+        <div class="collapse" id="services">
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 d-flex">
+                            <div style="font-size: 50px;color: rgb(190, 32, 32);">
+                                <i class="fa fa-cogs" aria-hidden="true"></i>
+                            </div>
+                            <div class="ml-4 pr-3">
+                                <p class="text-left _services_title" data-locale="services">Services</p>
+                                <p class="text-left _services_content">
+                                    Lean on Quest to help you with more than just sample and data
+                                    collection. Our team of market research specialists will
+                                    assist you from survey design to Q&A—and everything in
+                                    between.
+                                </p>
+                            </div>
+                            <div class="border-right border-danger"></div>
+                        </div>
+                        <div class="col-md-6 d-flex">
+                            <ul class="list-unstyled text-left col-md-8">
+                                <li class="p-2" id="marketplace">Marketplace</li>
+                                <li class="p-2" id="technology">Technology</li>
+                                <li class="p-2" id="make_money">How to make Money</li>
+                            </ul>
+                            <img src="../../../assets/images/welcome-one-img-1.png" alt=""
+                                style="width: 265px; height: 265px" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="collapse" id="affiliates">
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 d-flex">
+                            <div style="font-size: 50px;color: rgb(190, 32, 32);">
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                            </div>
+                            <div class="ml-4 pr-3">
+                                <p class="text-left _affiliates_title">Affiliates & Partners</p>
+                                <p class="text-left _affiliates_content">
+                                    Whether you are looking for 500 hair salon owners in Italy or 1000 IT Decision
+                                    Makers in Southern
+                                    California, Quest can access your target for quality insights. Learn more about our
+                                    reach.
+                                </p>
+                            </div>
+                            <div class="border-right border-danger"></div>
+                        </div>
+                        <div class="col-md-6 d-flex">
+                            <ul class="list-unstyled text-left col-md-8">
+                                <li class="p-2 border text-center border-danger" id="join_our">Join Our Panel</li>
+                            </ul>
+                            <img src="../../../assets/images/welcome-one-img-1.png" alt=""
+                                style="width: 265px; height: 265px" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="collapse" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 d-flex">
+                        <div style="font-size: 50px;color:rgb(190, 32, 32) ;">
+                            <i class="fa fa-handshake-o" aria-hidden="true"></i>
+                        </div>
+                        <div class="ml-4 pr-3">
+                            <p class="text-left _about_title">About</p>
+                            <p class="text-left _about_content">
+                                Quest is all about people — from our member-based panels to the intelligent market
+                                research
+                                professionals on our team. Work with the industry's best to achieve outstanding results.
+                            </p>
+                        </div>
+                        <div class="border-right border-danger"></div>
+                    </div>
+                    <div class="col-md-6 d-flex">
+                        <ul class="list-unstyled text-left col-md-5">
+                            <li class="p-2" id="about_us">About Us</li>
+                        </ul>
+                        <img src="../../../assets/images/welcome-one-img-1.png" alt=""
+                            style="width: 265px; height: 265px" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="collapse" id="resources">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 d-flex">
+                        <div style="font-size: 50px;color: rgb(190, 32, 32) ;">
+                            <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                        </div>
+                        <div class="ml-4 pr-3">
+                            <p class="text-left _resources_title">Resources</p>
+                            <p class="text-left _resources_content">
+                                Quest becomes an extension of your team. We harness the best
+                                of human led, technology powered support to enable your unique
+                                research requirements and fulfill our mission in quality data
+                                and insights. Access our resources to assist in your sampling
+                                plan and learn more about Quest’s unique position on the MR
+                                landscape.
+                            </p>
+                        </div>
+                        <div class="border-right border-danger"></div>
+                    </div>
+                    <div class="col-md-6 d-flex">
+                        <ul class="list-unstyled text-left col-md-5">
+                            <li class="p-2" id="blog">Blog</li>
+                            <li class="p-2" id="esomar">ESOMAR 28</li>
+                            <li class="p-2" id="careers">Careers</li>
+                        </ul>
+                        <img src="../../../assets/images/welcome-one-img-1.png" alt=""
+                            style="width: 265px; height: 265px" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--middle content-->
+    <div class="esomar__content  d-flex  align-items-center">
+        <p class="col-md-3 text-right">ESOMAR 28</p>
+    </div>
+    <div class="container mt-5">
+        <p class="text-left h4 pt-3 pb-4">
+            What is ESOMAR 28?
+        </p>
+        <p class="text-left">
+            ESOMAR 28 is a set of questions, standardized by ESOMAR, to help buyers evaluate the offerings of different
+            online sample providers. The purpose of these 28 questions and answers is to start a conversation between
+            prospective sample buyers and Lucid.
+        </p>
+        <p class="border-danger border-bottom col-md-6 mt-5 mb-5" style="margin:0 auto"></p>
+    </div>
+    <div class="container mb-5">
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left text-danger text-decoration-none" type="button"
+                            data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                            aria-controls="collapseOne">
+                            <p class="h6"> 1. What experience does your company have in providing online samples for
+                                market research?</p>
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                    data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>Founded in 2010, Lucid revolutionized the sampling industry with our creation of the first
+                            global, programmatic marketplace. Through Lucid’s technology and innovation, the Marketplace
+                            now connects buyers and sellers of survey sample across the world. Since inception,
+                            thousands of sample buyers have managed over 5 million projects, for over 250 million
+                            completes, in 112 countries, among 350 sample suppliers. </p>
+                        <p>
+                            The strengths of Lucid lie within the dynamics of a true marketplace – our demand and
+                            supply-sides benefit from the transparent and open nature of the model. Lucid’s automated
+                            platform creates ongoing opportunities for buyers and sellers to connect with unprecedented
+                            reach – via multi-sourcing. It instantly connects buyers to hundreds of panels, identifies
+                            the exact respondents needed, and matches them to surveys immediately. Our Marketplace also
+                            reduces sampling bias because buyers know that their sample is coming from the widest pool
+                            of respondents.
+                        </p>
+                        <p>
+                            The Lucid Marketplace allows users to set up detailed project specifications and launch
+                            within minutes. Many of the Marketplace’s unique functionalities are enabled by automation:
+                            its multi-panel feasibility; deduplication technology; blending capabilities; push-button
+                            fielding; and real-time analytics that enable informed decision making.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed text-danger text-decoration-none"
+                            type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                            aria-controls="collapseTwo">
+                            <div class="h6">
+                                2. Do you have staff with responsibility for developing and monitoring the performance
+                                of
+                                the sampling algorithms and related automated functions who also have knowledge and
+                                experience in this area? What sort of training in sampling techniques do you provide to
+                                your
+                                frontline staff?
+                            </div>
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>
+                            Lucid has a global team of product and software engineering experts that oversee the
+                            development, implementation, and maintenance of all sampling functionality in the Lucid
+                            Marketplace. Our team has expertise in multiple technical disciplines, with a particular
+                            focus on automation, AI, and Machine Learning techniques.
+                        </p>
+                        <p>
+                            Additionally, Lucid trains its frontline staff in a variety of sampling methodologies
+                            including market sizing, quota balancing, and pacing. This includes Customer Success,
+                            Project Success, Integrations, and Product team members.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed text-danger text-decoration-none"
+                            type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                            aria-controls="collapseThree">
+                            <p class="h6">
+                                3. What other services do you offer? Do you cover sample-only, or do you offer a broad
+                                range
+                                of data collection and analysis services?
+                            </p>
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        In addition to Lucid sampling services, Lucid provides programming and hosting and data
+                        processing services. Beyond sampling, we also offer media measurement services via Lucid’s
+                        Impact Measurement product, as well as data-set measurement services with Data Score.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingFour">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed text-danger text-decoration-none"
+                            type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
+                            aria-controls="collapseFour">
+                            <p class="h6">
+                                4. Using the broad classifications above, from what sources of online sample do you
+                                derive participants?
+                            </p>
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>
+                            Buyers in the Lucid Marketplace are given full autonomy to select the vendors or types of
+                            sources they want to utilize. To ensure a diversity of choice, Lucid’s supply partners
+                            include double opt-in panels, publishing networks, social media, and other types of online
+                            communities.
+                        </p>
+                        <p>
+                            Over the past 12 months, the Lucid Marketplace has managed 350+ sample suppliers in 112
+                            countries. Of the 400 million interviews conducted, 85% were delivered by double-opt in
+                            panels. The remaining 15% were sourced for supplying to panel builds and community recruits
+                            from publishing networks, social media and non-incentivized sample sources that are uniquely
+                            suited.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingFive">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed text-danger text-decoration-none"
+                            type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false"
+                            aria-controls="collapseFive">
+                            <p class="h6">
+                                5. Which of these sources are proprietary or exclusive and what is the percent share of
+                                each in the total sample provided to a buyer?
+                            </p>
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>
+                            (Assume proprietary to mean that the sample provider owns the asset. Assume exclusive to
+                            mean that the sample provider has an exclusive agreement to manage/provide access to sample
+                            originally collected by another entity.)
+                        </p>
+                        <p>
+                            Lucid has exclusive agreements with each sample supplier that provides access to survey
+                            respondents via the Marketplace. Thus, 100% of the sample procured through Lucid is
+                            exclusive, as Lucid does not own or operate any online panels or other sample sources.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingSix">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed text-danger text-decoration-none"
+                            type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false"
+                            aria-controls="collapseSix">
+                            <p class="h6">
+                                6. What recruitment channels are you using for each of the sources you have described?
+                                Is the recruitment process ‘open to all’ or by invitation only? Are you using
+                                probabilistic methods? Are you using affiliate networks and referral programs and in
+                                what proportions? How does your use of these channels vary by geography?
+                            </p>
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>
+                            Survey invitations are handled by the Lucid Marketplace suppliers and can take many forms,
+                            including:
+                        </p>
+                        <ul>
+                            <li>Targeted email invitation</li>
+                            <li>Survey link within a respondent-facing platform</li>
+                            <li>In-app notification from a webpage/offerwall of surveys </li>
+                            <li>SMS notification</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingSeven">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed text-danger text-decoration-none"
+                            type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false"
+                            aria-controls="collapseSeven">
+                            <p class="h6">
+                                7. What form of validation do you use in recruitment to ensure that participants are
+                                real, unique, and are who they say they are?
+                            </p>
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>
+                            Describe this both in terms of the practical steps you take within your own organisation and
+                            the technologies you are using. Please try to be as specific and quantify as much as you
+                            can.
+                        </p>
+                        <p>
+                            We employ various deduplication methods with security options at the buyer account, survey
+                            group (e.g. multiple waves for tracker and wave studies), and individual survey (e.g. ad hoc
+                            projects) level:
+                        </p>
+                        <ul>
+                            <li>IP address </li>
+                            <li>Unique Respondent identifier </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingEight">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed text-danger text-decoration-none"
+                            type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false"
+                            aria-controls="collapseEight">
+                            <p class="h6">
+                                8. What brand (domain) and/or app are you using with proprietary sources?
+                            </p>
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>
+                            Summarize, by source, the proportion of sample accessing surveys by mobile app, email or
+                            other specified means.
+                        </p>
+                        <p>
+                            Lucid does not have any proprietary sample sources.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingNine">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed text-danger text-decoration-none"
+                            type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false"
+                            aria-controls="collapseNine">
+                            <p class="h6">
+                                9. Which model(s) do you offer to deliver sample? Managed service, self-serve, or API
+                                integration?
+                            </p>
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>
+                            Lucid offers all of these methods of sample delivery, based on individual customers’ needs.
+                        </p>
+                        <p>
+                            For Managed Services projects, Marketplace customers work with the project success team,
+                            which handles the fielding strategy, inputting quotas, managing CPI, and monitoring the
+                            study as it fields.
+                        </p>
+                        <p>
+                            In our ProServe model, customers outsource the project in full to Lucid. The project success
+                            team works from the customer’s account, handling the fielding strategy, inputting quotas,
+                            managing CPI, and monitoring the study as it fields. In this scenario, survey-completes
+                            count against the customer contract.
+                        </p>
+                        <p>
+                            Self-serve (software) accounts are handled by the customer success team, which helps to
+                            support Marketplace users as they manage and field their own studies.
+                        </p>
+                        <p>
+                            Marketplace APIs enable users to access the Marketplace from their own platform. An API
+                            integration is implemented by the customer’s or Lucid’s development resources in
+                            coordination with Lucid’s Marketplace integrations team. These integrations can also be
+                            customized.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTen">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed text-danger text-decoration-none"
+                            type="button" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false"
+                            aria-controls="collapseTen">
+                            <p class="h6">
+                                10. If offering intercepts, or providing access to more than one source, what level of
+                                transparency do you offer over the composition of your sample (sample sources, sample
+                                providers included in the blend). Do you let buyers control which sources of sample to
+                                include in their projects, and if so how? Do you have any integration mechanisms with
+                                third-party sources offered?
+                            </p>
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>
+                            Transparency is the foundation of the Lucid Marketplace, which acts as a Demand Side
+                            Platform (DSP) for buyers and gives full control and transparency into sample suppliers.
+                        </p>
+                        <p>
+                            The supplier blend can be determined on a survey-by-survey basis or at the account level.
+                            Sample blends are easily duplicated over time with blend templates that can be applied at
+                            both the survey level and account level – providing the same suppliers an identical or
+                            similar allocation of completes each time. Lucid Supplier Quality Scores can help ensure
+                            consistent and replicable sampling.
+                        </p>
+                        <p>
+                            Our Marketplace users fully control which suppliers are allowed to access the project via
+                            the Marketplace software as well as passthrough supplier identifiers so that the sample mix
+                            can be tracked within the survey platform. While in-field, suppliers can be added or removed
+                            according to project requirements with complete transparency.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingEleven">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed text-danger text-decoration-none"
+                            type="button" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false"
+                            aria-controls="collapseEleven">
+                            <p class="h6">
+                                11. Of the sample sources you have available, how would you describe the suitability of
+                                each for different research applications? For example, Is there sample suitable for
+                                product testing or other recruit/recall situations where the buyer may need to go back
+                                again to the same sample? Is the sample suitable for shorter or longer questionnaires?
+                                For mobile-only or desktop-only questionnaires? Is it suitable to recruit for
+                                communities? For online focus groups?
+                            </p>
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven"
+                    data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>
+                            The Lucid Marketplace can be used for a range of research purposes. Sample procured through
+                            the Marketplace is suitable for general market research, product testing, recontact studies
+                            (also known as recruit/recall), academic research, brand lift studies, brand trackers, and
+                            more.
+                        </p>
+                        <p>
+                            The Marketplace is best suited for shorter questionnaires, as we consider lower interview
+                            lengths to be a research best practice – particularly for online surveys. Our platform is
+                            suited for both mobile and desktop surveys.
+                        </p>
+                        <p>
+                            Lucid is not optimized for panel recruits, but is well-suited for community builds. Please
+                            note that the Lucid Marketplace is used solely for market research. Under no circumstances
+                            do we use our system to advertise or market to survey respondents.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--footer 底部-->
+    <footer>
+        <div class="container">
+            <div class="row pt-5">
+                <div class="col-md-4 text-left nav_title">Support</div>
+                <div class="col-md-4 text-left nav_title">Contact</div>
+                <div class="col-md-4 text-left nav_title">Sign up for newsletter</div>
+            </div>
+            <div class="row pt-5">
+                <div class="col-md-4">
+                    <ul class="list-unstyled text-left">
+                        <li class="mt-2">
+                            <a href="../../../pages/contact/index.html" class="text-light text-decoration-none">Contact
+                                Us</a>
+                        </li>
+                        <li class="mt-2">
+                            <a href="../../../pages/terms/index.html" class="text-light text-decoration-none">Terms</a>
+                        </li>
+                        <li class="mt-2">
+                            <a href="../../../pages/privacy/index.html" class="text-light text-decoration-none">Privacy
+                                Policy</a>
+                        </li>
+                        <li class="mt-2">Do Not Sell My Personal Information</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-unstyled text-left">
+                        <li>HEADQUARTERS</li>
+                        <li class="mt-2">125 Lakeshore Road E</li>
+                        <li class="mt-2">Suite 305</li>
+                        <li class="mt-2">Oakville, ON</li>
+                        <li class="mt-2">Canada L6J 1H3</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-unstyled text-left">
+                        <li>
+                            <input type="text"><label>Your Email</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    Copyright 2021, Quest Mindshare. All Rights Reserved.
+                </div>
+                <div class="col-md-6 d-flex">
+                    <p>Follow Us:</p>
+                    <a class="h3 ml-4 text-light" href="https://twitter.com/mondegains"><i class="fa fa-twitter"
+                            aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="module">
+        import {showToast,route} from '../../../../utils/index.js'
+        showToast('phone')
+        showToast('chrome')
+        /*路由跳转*/
+        route('logo','../../../index.html')
+        route('marketplace','../../../pages/service/index.html')
+        route('technology','../../../pages/service/index.html')
+        route('make_money','../../../pages/service/index.html')
+        // route('contact','../../../pages/contact/index.html')
+        route('services','../../../pages/service/index.html')
+        route('about_us','../../../pages/about/index.html')
+        route('join_our','../../../pages/contact/index.html')
+        route('blog','../../../pages/resources/blog/index.html')
+        route('esomar','../../../pages/resources/esomar/index.html')
+        route('careers','../../../pages/resources/careers/index.html')
+   </script>
+    <script>
+        $('#services').on('show.bs.collapse', function () {
+            $('#affiliates').collapse('hide')
+            $('#about').collapse('hide')
+            $('#resources').collapse('hide')
+        })
+        $('#affiliates').on('show.bs.collapse', function () {
+            $('#services').collapse('hide')
+            $('#about').collapse('hide')
+            $('#resources').collapse('hide')
+        })
+        $('#about').on('show.bs.collapse', function () {
+            $('#services').collapse('hide')
+            $('#affiliates').collapse('hide')
+            $('#resources').collapse('hide')
+        })
+        $('#resources').on('show.bs.collapse', function () {
+            $('#services').collapse('hide')
+            $('#affiliates').collapse('hide')
+            $('#about').collapse('hide')
+        })
+    </script>
+</body>
+
+</html>
