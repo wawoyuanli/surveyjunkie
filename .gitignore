@@ -1,12 +1,5 @@
 node_modules
- dist/
- dist/*
+dist
 .tmp
-gulp-cache
 .DS_Store
 docs/out
-.publish
-
-.drone.sec.yml
-.less
-prodbuild/*
