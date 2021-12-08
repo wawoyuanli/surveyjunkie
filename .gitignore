@@ -4,7 +4,7 @@ gulp-cache
 .DS_Store
 docs/out
 .publish
-/dist
+ dist/
 .drone.sec.yml
 .less
 prodbuild/*
