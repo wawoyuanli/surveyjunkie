@@ -20,9 +20,14 @@ task('handleHtml', function () {
 task('pages', function () {
     return src('src/pages/*')
         .pipe(gulpHtmlmin({
-            collapseWhitespace: true,
-            removeAttributeQuotes: true,
-            removeEmptyAttributes: true
+            collapseWhitespace: true, //移除空格
+            removeAttributeQuotes: true, //移除属性双引号
+            removeEmptyAttributes: true, // 移除空属性
+            collapseBooleanAttributes: true,//移除类似checked boolean值属性,
+            minifyJS: true,
+            minifyCSS: true,
+            removeStyleLinkTypeAttributes: true,
+            removeScriptTypeAttributes:true
         }))
         .pipe(dest('dist/pages'))
 })
@@ -102,7 +107,7 @@ task('rev', function () {
         .pipe(revCollector({ replaceReved: true }))
         .pipe(dest('dist/pages'));
 });
-// task('default', function () {
-//     // 将你的默认的任务代码放在这
-// });
+task('default', function () {
+    // 将你的默认的任务代码放在这
+});
 exports.default = parallel('handleHtml', 'copylib', 'minjs', 'minImage', 'minLess', 'pages', 'watchFileChange', 'connect')
