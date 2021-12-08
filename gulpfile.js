@@ -18,7 +18,7 @@ task('handleHtml', function () {
         .pipe(dest('dist'))
 })
 task('pages', function () {
-    return src('src/pages/*')
+    return src('src/pages/**/*')
         .pipe(gulpHtmlmin({
             collapseWhitespace: true, //移除空格
             removeAttributeQuotes: true, //移除属性双引号
