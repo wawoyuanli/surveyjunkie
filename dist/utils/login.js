@@ -1,1 +1,0 @@
-function getInputvalueById(e){return document.getElementById(e).value}export{getInputvalueById};
