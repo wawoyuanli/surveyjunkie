@@ -1,79 +1,86 @@
-var gulp = require('gulp')
-var less = require('gulp-less')
-var { series, parallel, src, dest } = require('gulp')
+
+var gulpLess = require('gulp-less')
+var { parallel, src, dest, task, watch } = require('gulp')
 const gulpUglify = require('gulp-uglify') //压缩js文件
 const gulpCssmin = require('gulp-minify-css') //css压缩
 var gulpImagem = require('gulp-imagemin')//图片压缩
 const concat = require('gulp-concat')
-const gulpHtmlmin = require('gulp-htmlmin')
+const gulpHtmlmin = require('gulp-htmlmin') //压缩html文件
 const clean = require('gulp-clean')
 const revCollector = require('gulp-rev-collector')
 const connect = require('gulp-connect')
-
-gulp.task('handleHtml', function () {
-    return src('src/*.html').pipe(dest('dist'))
+const prefixer = require('gulp-autoprefixer')
+/**压缩index.html */
+task('handleHtml', function () {
+    return src('src/*.html')
+        .pipe(gulpHtmlmin())
+        .pipe(dest('dist'))
 })
-gulp.task('pages', function () {
-    return src('src/pages/**')
+task('pages', function () {
+    return src('src/pages/*')
+        .pipe(gulpHtmlmin())
         .pipe(dest('dist/pages'))
 })
 /**压缩less */
-gulp.task('minLess', function () {
-    return gulp.src('src/assets/styles/*.less')
-        .pipe(less())
-        .pipe(gulp.dest('dist/assets/styles'))
+task('minLess', function () {
+    return src('src/assets/styles/*.less')
+        .pipe(gulpLess()) //转码
+        .pipe(prefixer()) //加前缀
+        .pipe(gulpCssmin()) //压缩
+        .pipe(dest('dist/assets/styles'))
         .pipe(connect.reload())
 });
 /**压缩css */
-gulp.task('mincss', function () {
+task('mincss', function () {
     return src('src/assets/styles/*.css')
+        .pipe(prefixer()) //加前缀
         .pipe(gulpCssmin()) //   .pipe(concat('main.min.css'))
         .pipe(dest('dist/assets/styles'))
         .pipe(connect.reload())
 })
 /**压缩js */
-gulp.task('minjs', function () {
+task('minjs', function () {
     return src('src/utils/*.js')
         .pipe(gulpUglify()) //  .pipe(concat('main.min.js'))
         .pipe(dest('dist/utils'))
         .pipe(connect.reload())
 })
 /**压缩image*/
-gulp.task('minImage', function () {
+task('minImage', function () {
     return src('src/assets/images/*') //所有图片
         .pipe(gulpImagem({ progressive: true }))
         .pipe(dest('dist/assets/images'))
         .pipe(connect.reload())
 })
 /**lib */
-gulp.task('copylib', function () {
+task('copylib', function () {
     return src('src/lib/**')
         .pipe(dest('dist/lib'))
         .pipe(connect.reload())
 })
 
 /**监听文件变化 */
-gulp.task('watchFileChange', async () => {
+task('watchFileChange', async () => {
     console.log('---**监听文件是否变化**---')
-    gulp.watch('src/*.html', gulp.task('concatHtml'))
-    gulp.watch('src/assets/styles/*.less', gulp.task('minLess'))
-    gulp.watch('src/assets/styles/*.css', gulp.task('mincss'))
-    gulp.watch('src/utils/*.js', gulp.task('minjs'))
-    gulp.watch('src/assets/images/*', gulp.task('minImage'))
+    watch('src/*.html', task('concatHtml'))
+    watch('src/assets/styles/*.less', task('minLess'))
+    // watch('src/assets/styles/*.css', task('mincss'))
+    watch('src/utils/*.js', task('minjs'))
+    watch('src/assets/images/*', task('minImage'))
 })
 
 /**清空dist文件夹 */
-gulp.task('clean', function () {
-    return gulp.src(['dist/*'])
+task('clean', function () {
+    return src(['dist/*'])
         .pipe(clean());
 });
 
 /**压缩 */
-gulp.task('zip', function () {
+task('zip', function () {
     return src('dist').pipe()
 })
 /**启动服务器 */
-gulp.task("connect", function () {
+task("connect", function () {
     console.log('---启动服务---')
     connect.server({
         root: "dist",
@@ -82,9 +89,10 @@ gulp.task("connect", function () {
     });
 });
 
-gulp.task('rev', function () {
-    return gulp.src(['src/pages/**'], { base: 'src' })
+task('rev', function () {
+    return src(['src/pages/*'], { base: 'src' })
         .pipe(revCollector({ replaceReved: true }))
-        .pipe(gulp.dest('dist/pages'));
+        .pipe(dest('dist/pages'));
 });
-exports.default = parallel('handleHtml', 'copylib', 'mincss', 'minjs', 'minImage', 'pages', 'watchFileChange','connect')
+
+exports.default = parallel('handleHtml', 'copylib', 'minjs', 'minImage', 'minLess', 'pages', 'watchFileChange', 'connect')
