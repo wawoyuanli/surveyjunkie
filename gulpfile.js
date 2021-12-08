@@ -10,6 +10,7 @@ const clean = require('gulp-clean')
 const revCollector = require('gulp-rev-collector')
 const connect = require('gulp-connect')
 const prefixer = require('gulp-autoprefixer')
+const gulpBabel = require('gulp-babel')
 /**压缩index.html */
 task('handleHtml', function () {
     return src('src/*.html')
@@ -18,7 +19,11 @@ task('handleHtml', function () {
 })
 task('pages', function () {
     return src('src/pages/*')
-        .pipe(gulpHtmlmin())
+        .pipe(gulpHtmlmin({
+            collapseWhitespace: true,
+            removeAttributeQuotes: true,
+            removeEmptyAttributes: true
+        }))
         .pipe(dest('dist/pages'))
 })
 /**压缩less */
@@ -41,7 +46,10 @@ task('mincss', function () {
 /**压缩js */
 task('minjs', function () {
     return src('src/utils/*.js')
-        .pipe(gulpUglify()) //  .pipe(concat('main.min.js'))
+        .pipe(gulpBabel({
+            presets: ['es2015']
+        })) //转码
+        .pipe(gulpUglify()) //压缩
         .pipe(dest('dist/utils'))
         .pipe(connect.reload())
 })
@@ -94,5 +102,7 @@ task('rev', function () {
         .pipe(revCollector({ replaceReved: true }))
         .pipe(dest('dist/pages'));
 });
-
+// task('default', function () {
+//     // 将你的默认的任务代码放在这
+// });
 exports.default = parallel('handleHtml', 'copylib', 'minjs', 'minImage', 'minLess', 'pages', 'watchFileChange', 'connect')
