@@ -1,16 +1,16 @@
 
-var gulpLess = require('gulp-less')
-var { parallel, src, dest, task, watch } = require('gulp')
+const gulpLess = require('gulp-less')
+const { parallel, series, src, dest, task, watch } = require('gulp')
 const gulpUglify = require('gulp-uglify') //压缩js文件
 const gulpCssmin = require('gulp-minify-css') //css压缩
-var gulpImagem = require('gulp-imagemin')//图片压缩
-const concat = require('gulp-concat')
+const gulpImagem = require('gulp-imagemin')//图片压缩
 const gulpHtmlmin = require('gulp-htmlmin') //压缩html文件
 const clean = require('gulp-clean')
-const revCollector = require('gulp-rev-collector')
-const connect = require('gulp-connect')
+// const connect = require('gulp-connect')
 const prefixer = require('gulp-autoprefixer')
 const gulpBabel = require('gulp-babel')
+const del = require('del')
+const webserver = require('gulp-webserver')
 /**压缩index.html */
 task('handleHtml', function () {
     return src('src/*.html')
@@ -27,7 +27,7 @@ task('pages', function () {
             minifyJS: true,
             minifyCSS: true,
             removeStyleLinkTypeAttributes: true,
-            removeScriptTypeAttributes:true
+            removeScriptTypeAttributes: true
         }))
         .pipe(dest('dist/pages'))
 })
@@ -38,7 +38,7 @@ task('minLess', function () {
         .pipe(prefixer()) //加前缀
         .pipe(gulpCssmin()) //压缩
         .pipe(dest('dist/assets/styles'))
-        .pipe(connect.reload())
+
 });
 /**压缩css */
 task('mincss', function () {
@@ -46,7 +46,7 @@ task('mincss', function () {
         .pipe(prefixer()) //加前缀
         .pipe(gulpCssmin()) //   .pipe(concat('main.min.css'))
         .pipe(dest('dist/assets/styles'))
-        .pipe(connect.reload())
+
 })
 /**压缩js */
 task('minjs', function () {
@@ -56,20 +56,20 @@ task('minjs', function () {
         })) //转码
         .pipe(gulpUglify()) //压缩
         .pipe(dest('dist/utils'))
-        .pipe(connect.reload())
+
 })
 /**压缩image*/
 task('minImage', function () {
     return src('src/assets/images/*') //所有图片
         .pipe(gulpImagem({ progressive: true }))
         .pipe(dest('dist/assets/images'))
-        .pipe(connect.reload())
+
 })
 /**lib */
 task('copylib', function () {
     return src('src/lib/**')
         .pipe(dest('dist/lib'))
-        .pipe(connect.reload())
+
 })
 
 /**监听文件变化 */
@@ -92,22 +92,38 @@ task('clean', function () {
 task('zip', function () {
     return src('dist').pipe()
 })
+
 /**启动服务器 */
-task("connect", function () {
-    console.log('---启动服务---')
-    connect.server({
-        root: "dist",
-        livereload: true,
-        port: '8030'
-    });
+task('connect', function () {
+    src('./dist')
+        .pipe(webserver({
+            host: 'localhost',
+            port: '8080',
+            livereload: true, //实时刷新 (热加载)
+            directoryListing: { //访问的路径是否显示
+                enable: false,
+            },
+            open: './index.html', //默认打开页面
+            proxies: [
+                {
+                    'source': 'hyl',
+                    'target': 'www.salientsurveys.com',
+                    'options': {}
+                }
+            ]
+        }));
 });
 
-task('rev', function () {
-    return src(['src/pages/*'], { base: 'src' })
-        .pipe(revCollector({ replaceReved: true }))
-        .pipe(dest('dist/pages'));
+/**创建删除dist文件夹的任务 */
+task('deleteHandler', async function () {
+    await del(['dist/'])
 });
-task('default', function () {
-    // 将你的默认的任务代码放在这
-});
-exports.default = parallel('handleHtml', 'copylib', 'minjs', 'minImage', 'minLess', 'pages', 'watchFileChange', 'connect')
+
+
+
+//执行所有任务
+exports.default = series(
+    'deleteHandler', //删除dist
+    parallel('handleHtml', 'copylib', 'minjs', 'minImage', 'minLess', 'pages'),
+    'connect', 'watchFileChange'
+)
