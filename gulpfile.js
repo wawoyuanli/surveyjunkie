@@ -10,6 +10,7 @@ const connect = require("gulp-connect");
 const prefixer = require("gulp-autoprefixer");
 const gulpBabel = require("gulp-babel");
 const webserver = require("gulp-webserver");
+const del = require("del");
 /**压缩index.html */
 task("handleHtml", function () {
   return src("src/*.html").pipe(gulpHtmlmin()).pipe(dest("dist"));
@@ -102,7 +103,7 @@ task("rev", function () {
 });
 
 task("webserver", function () {
-  src("./dist").pipe(
+  return src("./dist").pipe(
     webserver({
       port: "8080",
       livereload: true,
@@ -111,8 +112,11 @@ task("webserver", function () {
     })
   );
 });
+task("delHandler", async function () {
+  await del(["./dist"]);
+});
 exports.default = series(
-  "clean",
+  "delHandler",
   parallel(
     "handleHtml",
     "copylib",
