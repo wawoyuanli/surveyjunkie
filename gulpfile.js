@@ -73,19 +73,17 @@ task('copylib', function () {
 })
 
 /**监听文件变化 */
-task('watchFileChange', async () => {
-    console.log('---**监听文件是否变化**---')
-    watch('src/*.html', task('concatHtml'))
-    watch('src/assets/styles/*.less', task('minLess'))
-    // watch('src/assets/styles/*.css', task('mincss'))
-    watch('src/utils/*.js', task('minjs'))
-    watch('src/assets/images/*', task('minImage'))
-})
+task("watchFileChange", async () => {
+  console.log("---**监听文件是否变化**---");
+  watch("src/*.html", task("concatHtml"));
+  watch("src/assets/styles/*.less", task("minLess"));
+  watch("src/utils/*.js", task("minjs"));
+  watch("src/assets/images/*", task("minImage"));
+});
 
 /**清空dist文件夹 */
-task('clean', function () {
-    return src(['dist/*'])
-        .pipe(clean());
+task("clean", function () {
+  return src(["dist/*"]).pipe(clean());
 });
 
 /**压缩 */
