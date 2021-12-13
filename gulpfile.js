@@ -83,7 +83,7 @@ function copyLib() {
 }
 
 /**监听文件变化 */
-function watchFileChange() {
+async function watchFileChange() {
   console.log("---**监听文件是否变化**---");
   watch("src/*.html", handleHtml);
   watch("src/pages/**/*", handlePages);
@@ -142,6 +142,6 @@ module.exports.default = series(
     lessHandle,
     handlePages
   ),
-  connect,
-  watchFileChange
+  watchFileChange,
+  connect
 );
