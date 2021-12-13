@@ -1,6 +1,3 @@
-function getInputvalueById(id) {
-return   document.getElementById(id).value
-}
-export {
-    getInputvalueById
+export function getInputvalueById(id) {
+  return document.getElementById(id).value;
 }

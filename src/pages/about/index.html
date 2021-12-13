@@ -1,352 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cohesion</title>
-    <link rel="shortcut icon" href="../../assets/images/icon.png">
+    <link rel="shortcut icon" href="../../assets/images/icon.png" />
 
-    <link rel="stylesheet" href="../../assets/styles/about.css">
-    <link rel="stylesheet" href="../../assets/styles/footer.css">
-    <link rel="stylesheet" href="../../lib/bootstrap4.6.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../lib/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../assets/styles/home.css">
+    <link rel="stylesheet" href="../../assets/styles/about.css" />
+    <link rel="stylesheet" href="../../assets/styles/footer.css" />
+    <link
+      rel="stylesheet"
+      href="../../lib/bootstrap4.6.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../lib/font-awesome/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../../assets/styles/home.css" />
     <script src="../../lib/jquery/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
     <script src="../../lib/bootstrap4.6.1/js/bootstrap.js"></script>
-</head>
+  </head>
 
-<body>
-    <header>
-        <p class="pt-3 pb-3 w-100">
-            <img src="../../assets/images/logo.png" alt="" id="logo" class="pl-5 pr-2 w-10" />
-            <button class="btn border-right" type="button" data-toggle="collapse" data-target="#services"
-                aria-expanded="false" aria-controls="services" id='services_btn'>
-                <span> Services</span>
-            </button>
-            <button class="btn border-right" type="button" data-toggle="collapse" data-target="#affiliates"
-                aria-expanded="false" aria-controls="affiliates" id='affiliates_btn'>
-                <span> Affiliates</span>
-            </button>
-            <button class="btn border-right" type="button" data-toggle="collapse" data-target="#about"
-                aria-expanded="false" aria-controls="about" id='about_btn'>
-                <span> About</span>
-            </button>
-            <button class="btn border-right " type="button" data-toggle="collapse" data-target="#resources"
-                aria-expanded="false" aria-controls="resources" id='resources_btn'>
-                <span>Resources</span>
-            </button>
-            <button class="btn border-right" id="contact_btn">
-                <a href="../contact/index.html" class="text-decoration-none text-dark"
-                    style="font-size: 20px;">Contact</a>
-            </button>
-            <select name="" id="" class="w-10">
-                <option value="english">English</option>
-                <option value="chinese">中文</option>
-            </select>
-            <a class="btn btn-danger ml-5" href="../login/index.html" style="width: 8%;">Login</a>
-            <img src="../../assets/images/iPhone.png" alt="" class="phone ml-4" id="phone" />
-            <img src="../../assets/images/chrome.png" alt="" class="chrome ml-4" id="chrome" />
-        </p>
-        <div class="collapse" id="services" >
-            <div class="card-body" >
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 d-flex">
-                            <div style="font-size: 50px;color: rgb(190, 32, 32);">
-                                <i class="fa fa-cogs" aria-hidden="true"></i>
-                            </div>
-                            <div class="ml-4 pr-3">
-                                <p class="text-left _services_title" data-locale="services">Services</p>
-                                <p class="text-left _services_content">
-                                    Lean on Quest to help you with more than just sample and data
-                                    collection. Our team of market research specialists will
-                                    assist you from survey design to Q&A—and everything in
-                                    between.
-                                </p>
-                            </div>
-                            <div class="border-right border-danger"></div>
-                        </div>
-                        <div class="col-md-6 d-flex">
-                            <ul class="list-unstyled text-left col-md-8">
-                                <li class="p-2" id="marketplace">Marketplace</li>
-                                <li class="p-2" id="technology">Technology</li>
-                                <li class="p-2" id="make_money">How to make Money</li>
-                            </ul>
-                            <img src="../../assets/images/welcome-one-img-1.png" alt=""
-                                style="width: 265px; height: 265px" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="collapse" id="affiliates">
-            <div class="card-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 d-flex">
-                            <div style="font-size: 50px;color: rgb(190, 32, 32);">
-                                <i class="fa fa-users" aria-hidden="true"></i>
-                            </div>
-                            <div class="ml-4 pr-3">
-                                <p class="text-left _affiliates_title">Affiliates & Partners</p>
-                                <p class="text-left _affiliates_content">
-                                    Whether you are looking for 500 hair salon owners in Italy or 1000 IT Decision
-                                    Makers in Southern
-                                    California, Quest can access your target for quality insights. Learn more about our
-                                    reach.
-                                </p>
-                            </div>
-                            <div class="border-right border-danger"></div>
-                        </div>
-                        <div class="col-md-6 d-flex">
-                            <ul class="list-unstyled text-left col-md-8">
-                                <li class="p-2 border text-center border-danger" id="join_our">Join Our Panel</li>
-                            </ul>
-                            <img src="../../assets/images/welcome-one-img-1.png" alt=""
-                                style="width: 265px; height: 265px" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="collapse" id="about">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 d-flex">
-                        <div style="font-size: 50px;color:rgb(190, 32, 32) ;">
-                            <i class="fa fa-handshake-o" aria-hidden="true"></i>
-                        </div>
-                        <div class="ml-4 pr-3">
-                            <p class="text-left _about_title">About</p>
-                            <p class="text-left _about_content">
-                                Quest is all about people — from our member-based panels to the intelligent market
-                                research
-                                professionals on our team. Work with the industry's best to achieve outstanding results.
-                            </p>
-                        </div>
-                        <div class="border-right border-danger"></div>
-                    </div>
-                    <div class="col-md-6 d-flex">
-                        <ul class="list-unstyled text-left col-md-5">
-                            <li class="p-2" id="about_us">About Us</li>
-                        </ul>
-                        <img src="../../assets/images/welcome-one-img-1.png" alt=""
-                            style="width: 265px; height: 265px" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="collapse" id="resources">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 d-flex">
-                        <div style="font-size: 50px;color: rgb(190, 32, 32) ;">
-                            <i class="fa fa-hand-o-right" aria-hidden="true"></i>
-                        </div>
-                        <div class="ml-4 pr-3">
-                            <p class="text-left _resources_title">Resources</p>
-                            <p class="text-left _resources_content">
-                                Quest becomes an extension of your team. We harness the best
-                                of human led, technology powered support to enable your unique
-                                research requirements and fulfill our mission in quality data
-                                and insights. Access our resources to assist in your sampling
-                                plan and learn more about Quest’s unique position on the MR
-                                landscape.
-                            </p>
-                        </div>
-                        <div class="border-right border-danger"></div>
-                    </div>
-                    <div class="col-md-6 d-flex">
-                        <ul class="list-unstyled text-left col-md-5">
-                            <li class="p-2" id="blog">Blog</li>
-                            <li class="p-2" id="esomar">ESOMAR 28</li>
-                            <li class="p-2" id="careers">Careers</li>
-                        </ul>
-                        <img src="../../assets/images/welcome-one-img-1.png" alt=""
-                            style="width: 265px; height: 265px" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+  <body>
+    <!-- header组件引入 -->
+    @-@include('./header.html', { logo:'../../assets/images/logo.png' ,
+    contact:'../contact/index.html', iPhone:'../../assets/images/iPhone.png',
+    chrome:'../../assets/images/chrome.png',
+    welcome:'../../assets/images/welcome-one-img-1.png',
+    login:'../login/index.html' })
     <!--middle content-->
-    <div class="about__title  d-flex  align-items-center">
-        <p class="col-md-3 text-right">About Us</p>
+    <div class="about__title d-flex align-items-center">
+      <p class="col-md-3 text-right">About Us</p>
     </div>
     <div class="about__bg mt-5">
-        <div class="container">
-            <div class="row pt-5 pb-5">
-                <div class="col-md-12">
-                    <p class="text-center">付出行动，获取一份收益</p>
-                    <p class="text-center">我们将你与各大品牌联系起来</p>
-                    <p class="text-center">请将你的意见分享在每一个产品中</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 d-flex flex-column align-items-center ">
-                    <img src="../../assets/images/share-opinion.png" alt="">
-                    <p class="text-center mt-4">Share Your Opinion</p>
-                </div>
-                <div class="col-md-4 d-flex flex-column align-items-center">
-                    <img src="../../assets/images/influence-change.png" alt="">
-                    <p class="text-center mt-4">Influence Change</p>
-                </div>
-                <div class="col-md-4 d-flex flex-column align-items-center">
-                    <img src="../../assets/images/get-paid.png" alt="">
-                    <p class="text-center mt-4">Get Paid</p>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-md-12">
-                    <p class="text-left"> We open the window of communication between you and the brands you love.
-                        See your opinions and suggestions reflected in the products and services of tomorrow.</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row pt-5 pb-5">
+          <div class="col-md-12">
+            <p class="text-center">付出行动，获取一份收益</p>
+            <p class="text-center">我们将你与各大品牌联系起来</p>
+            <p class="text-center">请将你的意见分享在每一个产品中</p>
+          </div>
         </div>
+        <div class="row">
+          <div class="col-md-4 d-flex flex-column align-items-center">
+            <img src="../../assets/images/share-opinion.png" alt="" />
+            <p class="text-center mt-4">Share Your Opinion</p>
+          </div>
+          <div class="col-md-4 d-flex flex-column align-items-center">
+            <img src="../../assets/images/influence-change.png" alt="" />
+            <p class="text-center mt-4">Influence Change</p>
+          </div>
+          <div class="col-md-4 d-flex flex-column align-items-center">
+            <img src="../../assets/images/get-paid.png" alt="" />
+            <p class="text-center mt-4">Get Paid</p>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-12">
+            <p class="text-left">
+              We open the window of communication between you and the brands you
+              love. See your opinions and suggestions reflected in the products
+              and services of tomorrow.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="container mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="border p-4">
-                    <p class="h4 pt-3 pb-3">Complete profiles to
-                        get matching surveys</p>
-                    <p>“Even though I've only been with Survey Junkie a short time, I've already fallen in love with
-                        their surveys. And plan to stay with them for a very long time...”
-                        Kathleen Buda-Gozy</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="border p-4">
-                    <p class="h4 pt-3 pb-3">Take online surveys anywhere,
-                        anytime, and on any device.</p>
-                    <p></p>
-                </div>
-            </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="border p-4">
+            <p class="h4 pt-3 pb-3">
+              Complete profiles to get matching surveys
+            </p>
+            <p>
+              “Even though I've only been with Survey Junkie a short time, I've
+              already fallen in love with their surveys. And plan to stay with
+              them for a very long time...” Kathleen Buda-Gozy
+            </p>
+          </div>
         </div>
-        <div class="row mt-5">
-            <div class="col-md-6">
-                <div class="border p-4">
-                    <p class="h4 pt-3 pb-3">Take online surveys anywhere,
-                        <p>Earn points by successfully
-                            completing each survey.</p>
-                        <p>
-                            “They give you points where deserved and respect and care for your opinion.”
-                            Cassie Patton
-                        </p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="border p-4">
-                    <p class="h4 pt-3 pb-3">Take online surveys anywhere,
-                        <p>Redeem your points instantly
-                            for cash via PayPal or e-Giftcards.</p>
-                        <p>
-                            “The surveys aren't complicated, and Im very comfortable with this service.”
-                            Bobbie J.
-                        </p>
-                </div>
-            </div>
+        <div class="col-md-6">
+          <div class="border p-4">
+            <p class="h4 pt-3 pb-3">
+              Take online surveys anywhere, anytime, and on any device.
+            </p>
+            <p></p>
+          </div>
         </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-md-6">
+          <div class="border p-4">
+            <p class="h4 pt-3 pb-3">Take online surveys anywhere,</p>
+            <p>Earn points by successfully completing each survey.</p>
+            <p>
+              “They give you points where deserved and respect and care for your
+              opinion.” Cassie Patton
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="border p-4">
+            <p class="h4 pt-3 pb-3">Take online surveys anywhere,</p>
+            <p>
+              Redeem your points instantly for cash via PayPal or e-Giftcards.
+            </p>
+            <p>
+              “The surveys aren't complicated, and Im very comfortable with this
+              service.” Bobbie J.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
     <!--footer 底部-->
-    <footer>
-        <div class="container">
-            <div class="row pt-5">
-                <div class="col-md-4 text-left nav_title">Support</div>
-                <div class="col-md-4 text-left nav_title">Contact</div>
-                <div class="col-md-4 text-left nav_title">Sign up for newsletter</div>
-            </div>
-            <div class="row pt-5">
-                <div class="col-md-4">
-                    <ul class="list-unstyled text-left">
-                        <li class="mt-2">
-                            <a href="../../pages/contact/index.html" class="text-light text-decoration-none">Contact
-                                Us</a>
-                        </li>
-                        <li class="mt-2">
-                            <a href="../../pages/terms/index.html" class="text-light text-decoration-none">Terms</a>
-                        </li>
-                        <li class="mt-2">
-                            <a href="../../pages/privacy/index.html" class="text-light text-decoration-none">Privacy
-                                Policy</a>
-                        </li>
-                        <li class="mt-2">Do Not Sell My Personal Information</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-unstyled text-left">
-                        <li>HEADQUARTERS</li>
-                        <li class="mt-2">125 Lakeshore Road E</li>
-                        <li class="mt-2">Suite 305</li>
-                        <li class="mt-2">Oakville, ON</li>
-                        <li class="mt-2">Canada L6J 1H3</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-unstyled text-left">
-                        <li>
-                            <input type="text"><label>Your Email</label>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row mt-5">
-                <div class="col-md-6">
-                    Copyright 2021, Quest Mindshare. All Rights Reserved.
-                </div>
-                <div class="col-md-6 d-flex">
-                    <p>Follow Us:</p>
-                    <a class="h3 ml-4 text-light" href="https://twitter.com/mondegains"><i class="fa fa-twitter"
-                            aria-hidden="true"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script type="module">
-        import {showToast,route} from '../../utils/index.js'
-        showToast('phone')
-        showToast('chrome')
-        /*路由跳转*/
-        route('logo','../../index.html')
-        route('marketplace','../../pages/service/index.html')
-        route('technology','../../pages/service/index.html')
-        route('make_money','../../pages/service/index.html')
-        route('services','../../pages/service/index.html')
-        route('about_us','../../pages/about/index.html')
-        route('join_our','../../pages/contact/index.html')
-        route('blog','../../pages/resources/blog/index.html')
-        route('esomar','../../pages/resources/esomar/index.html')
-        route('careers','../../pages/resources/careers/index.html')
-   </script>
-    <script>
-        $('#services').on('show.bs.collapse', function () {
-            $('#affiliates').collapse('hide')
-            $('#about').collapse('hide')
-            $('#resources').collapse('hide')
-        })
-        $('#affiliates').on('show.bs.collapse', function () {
-            $('#services').collapse('hide')
-            $('#about').collapse('hide')
-            $('#resources').collapse('hide')
-        })
-        $('#about').on('show.bs.collapse', function () {
-            $('#services').collapse('hide')
-            $('#affiliates').collapse('hide')
-            $('#resources').collapse('hide')
-        })
-        $('#resources').on('show.bs.collapse', function () {
-            $('#services').collapse('hide')
-            $('#affiliates').collapse('hide')
-            $('#about').collapse('hide')
-        })
-    </script>
-</body>
+    @-@include('./footer.html')
 
+    <!-- <footer>
+      <div class="container">
+        <div class="row pt-5">
+          <div class="col-md-4 text-left nav_title">Support</div>
+          <div class="col-md-4 text-left nav_title">Contact</div>
+          <div class="col-md-4 text-left nav_title">Sign up for newsletter</div>
+        </div>
+        <div class="row pt-5">
+          <div class="col-md-4">
+            <ul class="list-unstyled text-left">
+              <li class="mt-2">
+                <a
+                  href="../../pages/contact/index.html"
+                  class="text-light text-decoration-none"
+                  >Contact Us</a
+                >
+              </li>
+              <li class="mt-2">
+                <a
+                  href="../../pages/terms/index.html"
+                  class="text-light text-decoration-none"
+                  >Terms</a
+                >
+              </li>
+              <li class="mt-2">
+                <a
+                  href="../../pages/privacy/index.html"
+                  class="text-light text-decoration-none"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li class="mt-2">Do Not Sell My Personal Information</li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-unstyled text-left">
+              <li>HEADQUARTERS</li>
+              <li class="mt-2">125 Lakeshore Road E</li>
+              <li class="mt-2">Suite 305</li>
+              <li class="mt-2">Oakville, ON</li>
+              <li class="mt-2">Canada L6J 1H3</li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-unstyled text-left">
+              <li><input type="text" /><label>Your Email</label></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row mt-5">
+          <div class="col-md-6">
+            Copyright 2021, Quest Mindshare. All Rights Reserved.
+          </div>
+          <div class="col-md-6 d-flex">
+            <p>Follow Us:</p>
+            <a class="h3 ml-4 text-light" href="https://twitter.com/mondegains"
+              ><i class="fa fa-twitter" aria-hidden="true"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer> -->
+    <script type="module">
+      import { showToast, route } from "../../utils/index.js";
+      showToast("phone");
+      showToast("chrome");
+
+      route("logo", "../../index.html");
+      route("marketplace", "../../pages/service/index.html");
+      route("technology", "../../pages/service/index.html");
+      route("make_money", "../../pages/service/index.html");
+      route("services", "../../pages/service/index.html");
+      route("about_us", "../../pages/about/index.html");
+      route("join_our", "../../pages/contact/index.html");
+      route("blog", "../../pages/resources/blog/index.html");
+      route("esomar", "../../pages/resources/esomar/index.html");
+      route("careers", "../../pages/resources/careers/index.html");
+    </script>
+    <script>
+      $("#services").on("show.bs.collapse", function () {
+        $("#affiliates").collapse("hide");
+        $("#about").collapse("hide");
+        $("#resources").collapse("hide");
+      });
+      $("#affiliates").on("show.bs.collapse", function () {
+        $("#services").collapse("hide");
+        $("#about").collapse("hide");
+        $("#resources").collapse("hide");
+      });
+      $("#about").on("show.bs.collapse", function () {
+        $("#services").collapse("hide");
+        $("#affiliates").collapse("hide");
+        $("#resources").collapse("hide");
+      });
+      $("#resources").on("show.bs.collapse", function () {
+        $("#services").collapse("hide");
+        $("#affiliates").collapse("hide");
+        $("#about").collapse("hide");
+      });
+    </script>
+  </body>
 </html>
