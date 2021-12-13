@@ -5,19 +5,18 @@ const gulpUglify = require('gulp-uglify') //压缩js文件
 const gulpCssmin = require('gulp-minify-css') //css压缩
 const gulpImagem = require('gulp-imagemin')//图片压缩
 const gulpHtmlmin = require('gulp-htmlmin') //压缩html文件
-const clean = require('gulp-clean')
-// const connect = require('gulp-connect')
 const prefixer = require('gulp-autoprefixer')
 const gulpBabel = require('gulp-babel')
 const del = require('del')
 const webserver = require('gulp-webserver')
 /**压缩index.html */
-task('handleHtml', function () {
+function handleHtml() {
     return src('src/*.html')
         .pipe(gulpHtmlmin())
         .pipe(dest('dist'))
-})
-task('pages', function () {
+}
+
+function handlePages() {
     return src('src/pages/**/*')
         .pipe(gulpHtmlmin({
             collapseWhitespace: true, //移除空格
@@ -30,70 +29,51 @@ task('pages', function () {
             removeScriptTypeAttributes: true
         }))
         .pipe(dest('dist/pages'))
-})
+}
+
 /**压缩less */
-task('minLess', function () {
+function lessHandle() {
     return src('src/assets/styles/*.less')
         .pipe(gulpLess()) //转码
         .pipe(prefixer()) //加前缀
         .pipe(gulpCssmin()) //压缩
         .pipe(dest('dist/assets/styles'))
+}
 
-});
-/**压缩css */
-task('mincss', function () {
-    return src('src/assets/styles/*.css')
-        .pipe(prefixer()) //加前缀
-        .pipe(gulpCssmin()) //   .pipe(concat('main.min.css'))
-        .pipe(dest('dist/assets/styles'))
-
-})
 /**压缩js */
-task('minjs', function () {
+function jsHandle() {
     return src('src/utils/*.js')
-        .pipe(gulpBabel({
-            presets: ['es2015']
-        })) //转码
+        .pipe(gulpBabel()) //转码
         .pipe(gulpUglify()) //压缩
         .pipe(dest('dist/utils'))
+}
 
-})
 /**压缩image*/
-task('minImage', function () {
+function imageHandle() {
     return src('src/assets/images/*') //所有图片
         .pipe(gulpImagem({ progressive: true }))
         .pipe(dest('dist/assets/images'))
+}
 
-})
 /**lib */
-task('copylib', function () {
+function copyLib() {
     return src('src/lib/**')
         .pipe(dest('dist/lib'))
+}
 
-})
 
 /**监听文件变化 */
-task("watchFileChange", async () => {
-  console.log("---**监听文件是否变化**---");
-  watch("src/*.html", task("concatHtml"));
-  watch("src/assets/styles/*.less", task("minLess"));
-  watch("src/utils/*.js", task("minjs"));
-  watch("src/assets/images/*", task("minImage"));
-});
-
-/**清空dist文件夹 */
-task("clean", function () {
-  return src(["dist/*"]).pipe(clean());
-});
-
-/**压缩 */
-task('zip', function () {
-    return src('dist').pipe()
-})
+function watchFileChange() {
+    console.log("---**监听文件是否变化**---");
+    watch("src/*.html", handleHtml);
+    watch("src/assets/styles/*.less", lessHandle);
+    watch("src/utils/*.js", jsHandle);
+    watch("src/assets/images/*", imageHandle);
+}
 
 /**启动服务器 */
-task('connect', function () {
-    src('./dist')
+function connect() {
+    src('./dist') //启动dist
         .pipe(webserver({
             host: 'localhost',
             port: '8080',
@@ -110,18 +90,25 @@ task('connect', function () {
                 }
             ]
         }));
-});
+}
 
 /**创建删除dist文件夹的任务 */
-task('deleteHandler', async function () {
+async function deleteHandler() {
     await del(['dist/'])
-});
-
-
-
+}
+/**导出任务 */
+module.exports = handleHtml
+module.exports = handlePages
+module.exports = deleteHandler
+module.exports = lessHandle
+module.exports = jsHandle
+module.exports = copyLib
+module.exports = imageHandle
+module.exports = watchFileChange
 //执行所有任务
-exports.default = series(
-    'deleteHandler', //删除dist
-    parallel('handleHtml', 'copylib', 'minjs', 'minImage', 'minLess', 'pages'),
-    'connect', 'watchFileChange'
+module.exports.default = series(
+    deleteHandler,
+    parallel(handleHtml, copyLib, jsHandle, imageHandle, lessHandle, handlePages),
+    connect,
+    watchFileChange
 )
