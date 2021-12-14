@@ -2,7 +2,6 @@ const gulpLess = require("gulp-less");
 const { parallel, series, src, dest, task, watch } = require("gulp");
 const gulpUglify = require("gulp-uglify"); //压缩js文件
 const gulpCssmin = require("gulp-minify-css"); //css压缩
-const gulpImagem = require("gulp-imagemin"); //图片压缩
 const gulpHtmlmin = require("gulp-htmlmin"); //压缩html文件
 const prefixer = require("gulp-autoprefixer");
 const babel = require("gulp-babel");
@@ -34,9 +33,9 @@ function handlePages() {
         )
         .pipe(
             gulpHtmlmin({
-                // collapseWhitespace: true, //移除空格
+                collapseWhitespace: true, //移除空格
+                removeEmptyAttributes: true, // 移除空属性
                 // removeAttributeQuotes: true, //移除属性双引号
-                // removeEmptyAttributes: true, // 移除空属性
                 // collapseBooleanAttributes: true, //移除类似checked boolean值属性,
                 // minifyCSS: true,
                 // removeStyleLinkTypeAttributes: true,
@@ -56,16 +55,6 @@ function lessHandle() {
 }
 
 /**压缩js */
-// const  jsHandler = () =>  { 
-//     return  src("src/utils/*.js")
-//     .pipe(
-//       babel({
-//         presets: ["@babel/preset-env"],
-//       })
-//     ) //转码
-//     .pipe(gulpUglify()) //压缩
-//     .pipe(dest("dist/utils"));
-// }
 function jsHandle() {
     return src("src/utils/*.js")
         .pipe(babel({ presets: ["@babel/env"] })) //转码
@@ -81,12 +70,10 @@ function imageHandle() {
             .pipe(dest("dist/assets/images"))
     );
 }
-
 /**lib */
 function copyLib() {
     return src("src/lib/**").pipe(dest("dist/lib"));
 }
-
 /**监听文件变化 */
 async function watchFileChange() {
     console.log("---**监听文件是否变化**---");
