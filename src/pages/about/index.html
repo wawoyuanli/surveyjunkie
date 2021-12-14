@@ -1,225 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cohesion</title>
-    <link rel="shortcut icon" href="../../assets/images/icon.png" />
 
-    <link rel="stylesheet" href="../../assets/styles/about.css" />
-    <link rel="stylesheet" href="../../assets/styles/footer.css" />
-    <link
-      rel="stylesheet"
-      href="../../lib/bootstrap4.6.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../../lib/font-awesome/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="../../assets/styles/home.css" />
-    <script src="../../lib/jquery/jquery-3.6.0.min.js"></script>
-    <script src="./lib/bootstrap4.6.1/js/bootstrap.bundle.min.js"></script>
-    <script src="../../lib/bootstrap4.6.1/js/bootstrap.js"></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cohesion</title>
+  <link rel="shortcut icon" href="../../assets/images/icon.png" />
 
-  <body>
-    <!-- header组件引入 -->
-    @-@include('./header.html', { logo:'../../assets/images/logo.png' ,
-    contact:'../contact/index.html', iPhone:'../../assets/images/iPhone.png',
-    chrome:'../../assets/images/chrome.png',
-    welcome:'../../assets/images/welcome-one-img-1.png',
-    login:'../login/index.html' })
-    <!--middle content-->
-    <div class="about__title d-flex align-items-center">
-      <p class="col-md-3 text-right">About Us</p>
-    </div>
-    <div class="about__bg mt-5">
-      <div class="container">
-        <div class="row pt-5 pb-5">
-          <div class="col-md-12">
-            <p class="text-center">付出行动，获取一份收益</p>
-            <p class="text-center">我们将你与各大品牌联系起来</p>
-            <p class="text-center">请将你的意见分享在每一个产品中</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 d-flex flex-column align-items-center">
-            <img src="../../assets/images/share-opinion.png" alt="" />
-            <p class="text-center mt-4">Share Your Opinion</p>
-          </div>
-          <div class="col-md-4 d-flex flex-column align-items-center">
-            <img src="../../assets/images/influence-change.png" alt="" />
-            <p class="text-center mt-4">Influence Change</p>
-          </div>
-          <div class="col-md-4 d-flex flex-column align-items-center">
-            <img src="../../assets/images/get-paid.png" alt="" />
-            <p class="text-center mt-4">Get Paid</p>
-          </div>
-        </div>
-        <div class="row mt-4">
-          <div class="col-md-12">
-            <p class="text-left">
-              We open the window of communication between you and the brands you
-              love. See your opinions and suggestions reflected in the products
-              and services of tomorrow.
-            </p>
-          </div>
+  <link rel="stylesheet" href="../../assets/styles/about.css" />
+  <link rel="stylesheet" href="../../assets/styles/footer.css" />
+  <link rel="stylesheet" href="../../lib/bootstrap4.6.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../lib/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="../../assets/styles/home.css" />
+  <script src="../../lib/jquery/jquery-3.6.0.min.js"></script>
+  <script src="../../lib/bootstrap4.6.1/js/bootstrap.bundle.min.js"></script>
+  <script src="../../lib/bootstrap4.6.1/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="./index.html">
+</head>
+
+<body>
+  <!-- header组件引入 -->
+  @-@include('./header.html',
+  {
+  back_url:'../../index.html',
+  logo:'../../assets/images/logo.png' ,
+  contact:'../contact/index.html', iPhone:'../../assets/images/iPhone.png',
+  chrome:'../../assets/images/chrome.png',
+  welcome:'../../assets/images/welcome-one-img-1.png',
+  login:'../login/index.html' ,
+  marketplace_url:"../service/index.html",
+  technology_url:"../service/index.html",
+  mony_url:"../service/index.html",
+  about_url:"../about/index.html",
+  blog_url:"../resources/blog/index.html",
+  esomar_url:"../resources/esomar/index.html",
+  careers_url:'../resources/careers/index.html'
+  })
+  <!--middle content-->
+  <div class="about__title d-flex align-items-center">
+    <p class="col-md-3 text-right">About Us</p>
+  </div>
+  <div class="about__bg mt-5">
+    <div class="container">
+      <div class="row pt-5 pb-5">
+        <div class="col-md-12">
+          <p class="text-center">付出行动，获取一份收益</p>
+          <p class="text-center">我们将你与各大品牌联系起来</p>
+          <p class="text-center">请将你的意见分享在每一个产品中</p>
         </div>
       </div>
-    </div>
-    <div class="container mt-5 mb-5">
       <div class="row">
-        <div class="col-md-6">
-          <div class="border p-4">
-            <p class="h4 pt-3 pb-3">
-              Complete profiles to get matching surveys
-            </p>
-            <p>
-              “Even though I've only been with Survey Junkie a short time, I've
-              already fallen in love with their surveys. And plan to stay with
-              them for a very long time...” Kathleen Buda-Gozy
-            </p>
-          </div>
+        <div class="col-md-4 d-flex flex-column align-items-center">
+          <img src="../../assets/images/share-opinion.png" alt="" />
+          <p class="text-center mt-4">Share Your Opinion</p>
         </div>
-        <div class="col-md-6">
-          <div class="border p-4">
-            <p class="h4 pt-3 pb-3">
-              Take online surveys anywhere, anytime, and on any device.
-            </p>
-            <p></p>
-          </div>
+        <div class="col-md-4 d-flex flex-column align-items-center">
+          <img src="../../assets/images/influence-change.png" alt="" />
+          <p class="text-center mt-4">Influence Change</p>
+        </div>
+        <div class="col-md-4 d-flex flex-column align-items-center">
+          <img src="../../assets/images/get-paid.png" alt="" />
+          <p class="text-center mt-4">Get Paid</p>
         </div>
       </div>
-      <div class="row mt-5">
-        <div class="col-md-6">
-          <div class="border p-4">
-            <p class="h4 pt-3 pb-3">Take online surveys anywhere,</p>
-            <p>Earn points by successfully completing each survey.</p>
-            <p>
-              “They give you points where deserved and respect and care for your
-              opinion.” Cassie Patton
-            </p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="border p-4">
-            <p class="h4 pt-3 pb-3">Take online surveys anywhere,</p>
-            <p>
-              Redeem your points instantly for cash via PayPal or e-Giftcards.
-            </p>
-            <p>
-              “The surveys aren't complicated, and Im very comfortable with this
-              service.” Bobbie J.
-            </p>
-          </div>
+      <div class="row mt-4">
+        <div class="col-md-12">
+          <p class="text-left">
+            We open the window of communication between you and the brands you
+            love. See your opinions and suggestions reflected in the products
+            and services of tomorrow.
+          </p>
         </div>
       </div>
     </div>
-    <!--footer 底部-->
-    @-@include('./footer.html')
-
-    <!-- <footer>
-      <div class="container">
-        <div class="row pt-5">
-          <div class="col-md-4 text-left nav_title">Support</div>
-          <div class="col-md-4 text-left nav_title">Contact</div>
-          <div class="col-md-4 text-left nav_title">Sign up for newsletter</div>
-        </div>
-        <div class="row pt-5">
-          <div class="col-md-4">
-            <ul class="list-unstyled text-left">
-              <li class="mt-2">
-                <a
-                  href="../../pages/contact/index.html"
-                  class="text-light text-decoration-none"
-                  >Contact Us</a
-                >
-              </li>
-              <li class="mt-2">
-                <a
-                  href="../../pages/terms/index.html"
-                  class="text-light text-decoration-none"
-                  >Terms</a
-                >
-              </li>
-              <li class="mt-2">
-                <a
-                  href="../../pages/privacy/index.html"
-                  class="text-light text-decoration-none"
-                  >Privacy Policy</a
-                >
-              </li>
-              <li class="mt-2">Do Not Sell My Personal Information</li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-unstyled text-left">
-              <li>HEADQUARTERS</li>
-              <li class="mt-2">125 Lakeshore Road E</li>
-              <li class="mt-2">Suite 305</li>
-              <li class="mt-2">Oakville, ON</li>
-              <li class="mt-2">Canada L6J 1H3</li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-unstyled text-left">
-              <li><input type="text" /><label>Your Email</label></li>
-            </ul>
-          </div>
+  </div>
+  <div class="container mt-5 mb-5">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="border p-4">
+          <p class="h4 pt-3 pb-3">
+            Complete profiles to get matching surveys
+          </p>
+          <p>
+            “Even though I've only been with Survey Junkie a short time, I've
+            already fallen in love with their surveys. And plan to stay with
+            them for a very long time...” Kathleen Buda-Gozy
+          </p>
         </div>
       </div>
-      <div class="container">
-        <div class="row mt-5">
-          <div class="col-md-6">
-            Copyright 2021, Quest Mindshare. All Rights Reserved.
-          </div>
-          <div class="col-md-6 d-flex">
-            <p>Follow Us:</p>
-            <a class="h3 ml-4 text-light" href="https://twitter.com/mondegains"
-              ><i class="fa fa-twitter" aria-hidden="true"></i
-            ></a>
-          </div>
+      <div class="col-md-6">
+        <div class="border p-4">
+          <p class="h4 pt-3 pb-3">
+            Take online surveys anywhere, anytime, and on any device.
+          </p>
+          <p></p>
         </div>
       </div>
-    </footer> -->
-    <script type="module">
-      import { showToast, route } from "../../utils/index.js";
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <div class="border p-4">
+          <p class="h4 pt-3 pb-3">Take online surveys anywhere,</p>
+          <p>Earn points by successfully completing each survey.</p>
+          <p>
+            “They give you points where deserved and respect and care for your
+            opinion.” Cassie Patton
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="border p-4">
+          <p class="h4 pt-3 pb-3">Take online surveys anywhere,</p>
+          <p>
+            Redeem your points instantly for cash via PayPal or e-Giftcards.
+          </p>
+          <p>
+            “The surveys aren't complicated, and Im very comfortable with this
+            service.” Bobbie J.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--footer 底部-->
+  @-@include('./footer.html',{
+  contactUrl:'../../pages/contact/index.html',
+  termsUrl:'../../pages/terms/index.html',
+  privacyUrl:'../../pages/privacy/index.html',
+  esomarUrl:"../../pages/resources/esomar/index.html",
+  blogUrl:"../../pages/resources/blog/index.html",
+  careersUrl:"../../pages/resources/careers/index.html"
+  })
+  <!-- <script type="module">
+    import { showToast, route } from "../../utils/index.js";
       showToast("phone");
       showToast("chrome");
 
       route("logo", "../../index.html");
-      route("marketplace", "../../pages/service/index.html");
-      route("technology", "../../pages/service/index.html");
-      route("make_money", "../../pages/service/index.html");
-      route("services", "../../pages/service/index.html");
+      route("marketplace", "../.../service/index.html");
+      route("technology", "../.../service/index.html");
+      route("make_money", "../.../service/index.html");
+      route("services", "../.../service/index.html");
       route("about_us", "../../pages/about/index.html");
       route("join_our", "../../pages/contact/index.html");
       route("blog", "../../pages/resources/blog/index.html");
       route("esomar", "../../pages/resources/esomar/index.html");
       route("careers", "../../pages/resources/careers/index.html");
-    </script>
-    <script>
-      $("#services").on("show.bs.collapse", function () {
-        $("#affiliates").collapse("hide");
-        $("#about").collapse("hide");
-        $("#resources").collapse("hide");
-      });
-      $("#affiliates").on("show.bs.collapse", function () {
-        $("#services").collapse("hide");
-        $("#about").collapse("hide");
-        $("#resources").collapse("hide");
-      });
-      $("#about").on("show.bs.collapse", function () {
-        $("#services").collapse("hide");
-        $("#affiliates").collapse("hide");
-        $("#resources").collapse("hide");
-      });
-      $("#resources").on("show.bs.collapse", function () {
-        $("#services").collapse("hide");
-        $("#affiliates").collapse("hide");
-        $("#about").collapse("hide");
-      });
-    </script>
-  </body>
+    </script> -->
+  <script>
+    $("#services").on("show.bs.collapse", function () {
+      $("#affiliates").collapse("hide");
+      $("#about").collapse("hide");
+      $("#resources").collapse("hide");
+    });
+    $("#affiliates").on("show.bs.collapse", function () {
+      $("#services").collapse("hide");
+      $("#about").collapse("hide");
+      $("#resources").collapse("hide");
+    });
+    $("#about").on("show.bs.collapse", function () {
+      $("#services").collapse("hide");
+      $("#affiliates").collapse("hide");
+      $("#resources").collapse("hide");
+    });
+    $("#resources").on("show.bs.collapse", function () {
+      $("#services").collapse("hide");
+      $("#affiliates").collapse("hide");
+      $("#about").collapse("hide");
+    });
+  </script>
+</body>
+
 </html>
