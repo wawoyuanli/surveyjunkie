@@ -7,16 +7,7 @@ function login() {
   if (!valideInput("password")) {
     alert("请输入密码");
   }
-  requestAjax({
-    method: 'POST',
-    url: "/manager/authorization/sys/login",
-    data: {
-      username: 'hyl',
-      password:'123456'
-    }
-  }, function (res) { 
-    console.log(res)
-  })
+  
   var ajaxObj = new XMLHttpRequest();
   ajaxObj.open('POST', '/manager/authorization/sys/login')
   ajaxObj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
