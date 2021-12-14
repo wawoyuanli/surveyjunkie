@@ -43,9 +43,8 @@
               <div class="form-group">
                 <input type="password" class="form-control" id="password" placeholder="Password" />
               </div>
-              <button type="submit" class="btn__liner col-md-12 mt-3 mb-3" id="login_btn">
-                Log in
-              </button>
+              <!--登陆按钮-->
+              <input type='button' class="btn__liner col-md-12 mt-3 mb-3" onclick="login()" value="Login" />
               <a href="" class="text-decoration-none">
                 <p>I forgot my password</p>
               </a>
@@ -60,28 +59,7 @@
       </div>
     </div>
   </div>
-  <script type="text/javascript">
-    document.getElementById('login_btn').addEventListener('click', function () {
-      var ajaxObj = new XMLHttpRequest();
-      ajaxObj.open('POST', '/manager/authorization/sys/login')
-      ajaxObj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      ajaxObj.send('username=hyl&password=123456');
-      debugger
-      ajaxObj.onreadystatechange = function () {
-        debugger
-        // 为了保证 数据 完整返回，我们一般会判断 两个值
-        if (ajaxObj.readyState == 4 && ajaxObj.status == 200) {
-          // 如果能够进到这个判断 说明 数据 完美的回来了,并且请求的页面是存在的
-          // 5.在注册的事件中 获取 返回的 内容 并修改页面的显示
-          console.log('数据返回成功');
-          // 数据是保存在 异步对象的 属性中
-          console.log(ajaxObj.responseText);
-        }
-      }
-    })
-  </script>
 </body>
-<!-- <script type="text/javascript" src="../../utils/login.js">
-   </script> -->
-
+<script type="text/javascript" src="../../utils/login.js">
+</script>
 </html>
