@@ -41,7 +41,8 @@
       <div class="col-md-4">
         <ul class="list-unstyled text-left">
           <li class="mt-5">
-            <input type="text" placeholder="email" /><label class="ml-4">Your Email</label>
+            <input type="text" placeholder="email" id='email' />
+            <input type="button" value="submit" class="btn btn-danger" id='submit_btn' onclick="submit()">
           </li>
         </ul>
       </div>
@@ -60,3 +61,11 @@
     </div>
   </div>
 </footer>
+<script type="text/javascript">
+  function submit() {
+    var email = document.getElementById('email')
+    if(email.value){
+      email.value=''
+    }
+  }
+</script>

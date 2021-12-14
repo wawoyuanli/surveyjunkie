@@ -79,10 +79,10 @@ async function watchFileChange() {
     console.log("---**监听文件是否变化**---");
     watch("src/*.html", handleHtml);
     watch("src/pages/**/*", handlePages);
-    watch("src/components/*.html", handleComponent);
     watch("src/assets/styles/*.less", lessHandle);
     watch("src/utils/*.js", jsHandle);
     watch("src/assets/images/*", imageHandle);
+    watch("src/components/*.html", handleComponent);
 }
 
 /**启动服务器 */
