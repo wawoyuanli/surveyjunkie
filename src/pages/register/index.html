@@ -10,9 +10,7 @@
   <link rel="stylesheet" href="../../assets/styles/footer.css" />
   <script src="../../lib/jquery/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="../../lib/bootstrap4.6.1/css/bootstrap.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-  </script>
+  <script src="../../lib/bootstrap4.6.1/js/bootstrap.bundle.min.js"></script>
   <script src="../../lib/bootstrap4.6.1/js/bootstrap.js"></script>
   <title>Cohesion</title>
   <link rel="shortcut icon" href="../../assets/images/icon.png">
@@ -98,107 +96,20 @@
             </p>
           </div>
         </div>
-        <button class="btn btn-warning col-md-10 mt-4 mb-4" id="registerbtn">
-          register
-        </button>
+        <input type="button" onclick="registerHandler()" value="register" id="registerbtn">
       </div>
     </div>
-    <footer>
-      <div class="container">
-        <div class="row pt-5">
-          <div class="col-md-4 text-left nav_title">Support</div>
-          <div class="col-md-4 text-left nav_title">Contact</div>
-          <div class="col-md-4 text-left nav_title">
-            Sign up for newsletter
-          </div>
-        </div>
-        <div class="row pt-5">
-          <div class="col-md-4">
-            <ul class="list-unstyled text-left">
-              <li class="mt-2">
-                <a href="../../pages/contact/index.html" class="text-light text-decoration-none">Contact Us</a>
-              </li>
-              <li class="mt-2">
-                <a href="../../pages/terms/index.html" class="text-light text-decoration-none">Terms</a>
-              </li>
-              <li class="mt-2">
-                <a href="../../pages/privacy/index.html" class="text-light text-decoration-none">Privacy Policy</a>
-              </li>
-              <li class="mt-2">Do Not Sell My Personal Information</li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-unstyled text-left">
-              <li>HEADQUARTERS</li>
-              <li class="mt-2">125 Lakeshore Road E</li>
-              <li class="mt-2">Suite 305</li>
-              <li class="mt-2">Oakville, ON</li>
-              <li class="mt-2">Canada L6J 1H3</li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-unstyled text-left">
-              <li><input type="text" /><label>Your Email</label></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row mt-5">
-          <div class="col-md-6">
-            Copyright 2021, Quest Mindshare. All Rights Reserved.
-          </div>
-          <div class="col-md-6 d-flex">
-            <p>Follow Us:</p>
-            <a class="h3 ml-4 text-light" href="https://twitter.com/mondegains"><i class="fa fa-twitter"
-                aria-hidden="true"></i></a>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <!--底部组件引入-->
+    @-@include('./footer.html',{
+    contactUrl:'../../pages/contact/index.html',
+    termsUrl:'../../pages/terms/index.html',
+    privacyUrl:'../../pages/privacy/index.html',
+    esomarUrl:"../../pages/resources/esomar/index.html",
+    blogUrl:"../../pages/resources/blog/index.html",
+    careersUrl:"../../pages/resources/careers/index.html"
+    })
   </div>
-  <script type="module">
-    import {
-        showToast,
-        route,
-      } from "../../utils/index.js";
-      import { requestAjax } from "../../utils/request.js";
-      showToast("phone");
-      showToast("chrome");
-      /*路由跳转*/
-      route('logo','../../index.html')
-      route("marketplace", "../../pages/service/index.html");
-      route("technology", "../../pages/service/index.html");
-      route("make_money", "../../pages/service/index.html");
-      route("services", "../../pages/service/index.html");
-      route("about_us", "../../pages/about/index.html");
-      route("join_our", "../../pages/contact/index.html");
-      route("blog", "../../pages/resources/blog/index.html");
-      route("esomar", "../../pages/resources/esomar/index.html");
-      route("careers", "../../pages/resources/careers/index.html");
-      /*
-     注册接口
-     */
-      $("#registerbtn").click(function () {
-        /*
-        VALIDATE DATA IS CORRECT
-         */
-        requestAjax({
-          url: "https://www.salientsurveys.com/manager/authorization/sys/register/100",
-          async: true,
-          method: "POST",
-          data: {
-            //传入信息
-            username: getInputvalueById("username"),
-            password: getInputvalueById("passworSd"),
-          },
-          success: function (data) {
-            //返回接受信息
-            console.log(data);
-          },
-        });
-      });
-    </script>
+ 
   <script>
     $('#services').on('show.bs.collapse', function () {
       $('#affiliates').collapse('hide')
@@ -221,6 +132,7 @@
       $('#about').collapse('hide')
     })
   </script>
+  <script src="../../utils/register.js"></script>
 </body>
 
 </html>

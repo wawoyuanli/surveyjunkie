@@ -21,7 +21,7 @@
     <!-- header组件引入 -->
     @-@include('./header.html',
     {
-    back_url:'../../index.html',
+    back_url:'../../../index.html',
     logo:'../../../assets/images/logo.png' ,
     contact:'../../contact/index.html', iPhone:'../../../assets/images/iPhone.png',
     chrome:'../../../assets/images/chrome.png',
@@ -134,81 +134,16 @@
             </div>
         </div>
     </div>
-    <footer>
-        <div class="container">
-            <div class="row pt-5">
-                <div class="col-md-4 text-left nav_title">Support</div>
-                <div class="col-md-4 text-left nav_title">Contact</div>
-                <div class="col-md-4 text-left nav_title">Sign up for newsletter</div>
-            </div>
-            <div class="row pt-5">
-                <div class="col-md-4">
-                    <ul class="list-unstyled text-left">
-                        <li class="mt-2">
-                            <a href="../../../pages/contact/index.html" class="text-light text-decoration-none">Contact
-                                Us</a>
-                        </li>
-                        <li class="mt-2">
-                            <a href="../../../pages/terms/index.html" class="text-light text-decoration-none">Terms</a>
-                        </li>
-                        <li class="mt-2">
-                            <a href="../../../pages/privacy/index.html" class="text-light text-decoration-none">Privacy
-                                Policy</a>
-                        </li>
-                        <li class="mt-2">Do Not Sell My Personal Information</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-unstyled text-left">
-                        <li>HEADQUARTERS</li>
-                        <li class="mt-2">125 Lakeshore Road E</li>
-                        <li class="mt-2">Suite 305</li>
-                        <li class="mt-2">Oakville, ON</li>
-                        <li class="mt-2">Canada L6J 1H3</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-unstyled text-left">
-                        <li>
-                            <input type="text"><label>Your Email</label>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row mt-5">
-                <div class="col-md-6">
-                    Copyright 2021, Quest Mindshare. All Rights Reserved.
-                </div>
-                <div class="col-md-6 d-flex">
-                    <p>Follow Us:</p>
-                    <a class="h3 ml-4 text-light" href="https://twitter.com/mondegains"><i class="fa fa-twitter"
-                            aria-hidden="true"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
     <!--footer 底部-->
+    @-@include('./footer.html',{
+    contactUrl:'../../../pages/contact/index.html',
+    termsUrl:'../../../pages/terms/index.html',
+    privacyUrl:'../../../pages/privacy/index.html',
+    esomarUrl:"../../../pages/resources/esomar/index.html",
+    blogUrl:"../../../pages/resources/blog/index.html",
+    careersUrl:"../../../pages/resources/careers/index.html"
+    })
 
-    <script type="module">
-        import {showToast,route} from '../../../utils/index.js'
-        showToast('phone')
-        showToast('chrome')
-        /*路由跳转*/
-        route('logo','../../../index.html')
-        route('marketplace','../../../pages/service/index.html')
-        route('technology','../../../pages/service/index.html')
-        route('make_money','../../../pages/service/index.html')
-        // route('contact','../../../pages/contact/index.html')
-        route('services','../../../pages/service/index.html')
-        route('about_us','../../../pages/about/index.html')
-        route('join_our','../../../pages/contact/index.html')
-
-        route('blog','../../../pages/resources/blog/index.html')
-        route('esomar','../../../pages/resources/esomar/index.html')
-        route('careers','../../../pages/resources/careers/index.html')
-   </script>
     <script>
         $('#services').on('show.bs.collapse', function () {
             $('#affiliates').collapse('hide')
