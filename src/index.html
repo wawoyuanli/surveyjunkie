@@ -20,6 +20,7 @@
   <script src="./lib/bootstrap4.6.1/js/bootstrap.bundle.min.js"></script>
   <script src="./lib/bootstrap4.6.1/js/bootstrap.js"></script>
   <script src="./lib/jquery/jquery.i18n.properties.min.js"></script>
+
 </head>
 
 <body>
@@ -85,7 +86,19 @@
   </div>
   @-@include('./popup.html')
   @-@include('./dialog.html')
-
+  <script>
+    function getCookie(name) {
+      var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+      if (arr = document.cookie.match(reg))
+        return unescape(arr[2]);
+      else
+        return null;
+    }
+    var accept_cookie = getCookie('accept_cookie')
+    if (accept_cookie) {
+      document.getElementById('cookiebar').classList.add('isAccept')
+    }
+  </script>
   <script type="text/javascript">
     $("#services").on("show.bs.collapse", function () {
       $("#affiliates").collapse("hide");
@@ -154,7 +167,7 @@
   </script>
   <script src="./utils/cookie.js"></script>
   <script>
-    function a(){
+    function a() {
       document.getElementById('cookiebar').classList.add('isAccept')
     }
   </script>
