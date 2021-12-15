@@ -1,249 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cohesion</title>
-    <link rel="shortcut icon" href="./assets/images/icon.png" />
-    <link rel="stylesheet" href="../../assets/styles/service.css" />
-    <link rel="stylesheet" href="../../assets/styles/home.css" />
-    <link rel="stylesheet" href="../../assets/styles/footer.css" />
-    <link
-      rel="stylesheet"
-      href="../../lib/bootstrap4.6.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../../lib/font-awesome/css/font-awesome.min.css"
-    />
-    <script src="../../lib/jquery/jquery-3.6.0.min.js"></script>
-    <script src="../../lib/bootstrap4.6.1/js/bootstrap.js"></script>
-    <script src="../../lib/bootstrap4.6.1/js/bootstrap.bundle.min.js"></script>
-  </head>
 
-  <body>
-    <!-- header组件引入 -->
-    @-@include('./header.html', { back_url:'../../index.html',
-    logo:'../../assets/images/logo.png' , contact:'../contact/index.html',
-    iPhone:'../../assets/images/iPhone.png',
-    chrome:'../../assets/images/chrome.png',
-    welcome:'../../assets/images/welcome-one-img-1.png',
-    login:'../login/index.html' , marketplace_url:"../service/index.html",
-    technology_url:"../service/index.html", mony_url:"../service/index.html",
-    about_url:"../about/index.html", blog_url:"../resources/blog/index.html",
-    esomar_url:"../resources/esomar/index.html",
-    careers_url:'../resources/careers/index.html' })
-    <!--middle content-->
-    <div class="marketplace__title d-flex align-items-center">
-      <p class="col-md-3 text-right">marketplace</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cohesion</title>
+  <link rel="shortcut icon" href="./assets/images/icon.png" />
+  <link rel="stylesheet" href="../../assets/styles/service.css" />
+  <link rel="stylesheet" href="../../assets/styles/home.css" />
+  <link rel="stylesheet" href="../../assets/styles/footer.css" />
+  <link rel="stylesheet" href="../../lib/bootstrap4.6.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../lib/font-awesome/css/font-awesome.min.css" />
+  <script src="../../lib/jquery/jquery-3.6.0.min.js"></script>
+  <script src="../../lib/bootstrap4.6.1/js/bootstrap.js"></script>
+  <script src="../../lib/bootstrap4.6.1/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <!-- header组件引入 -->
+  @-@include('./header.html', { back_url:'../../index.html',
+  logo:'../../assets/images/logo.png' , contact:'../contact/index.html',
+  iPhone:'../../assets/images/iPhone.png',
+  chrome:'../../assets/images/chrome.png',
+  welcome:'../../assets/images/welcome-one-img-1.png',
+  login:'../login/index.html' , marketplace_url:"../service/index.html",
+  technology_url:"../service/index.html", mony_url:"../service/index.html",
+  about_url:"../about/index.html", blog_url:"../resources/blog/index.html",
+  esomar_url:"../resources/esomar/index.html",
+  careers_url:'../resources/careers/index.html' })
+  <!--middle content-->
+  <div class="marketplace__title d-flex align-items-center">
+    <p class="col-md-3 text-right">marketplace</p>
+  </div>
+  <div class="service__bg mt-5">
+    <div class="container">
+      <div class="row pt-5">
+        <div class="col-md-10 pt-5">
+          <p class="text-light __left_text pt-5">
+            Tools for Online Market Research and more. Everyone benefits from
+            data-driven knowledge. Our customers come to us for online
+            research tools to empower their insights. Lucid’s survey solutions
+            deliver powerful answers from real people – for market research,
+            advertising campaign measurement and more.
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="service__bg mt-5">
-      <div class="container">
-        <div class="row pt-5">
-          <div class="col-md-10 pt-5">
-            <p class="text-light __left_text pt-5">
-              Tools for Online Market Research and more. Everyone benefits from
-              data-driven knowledge. Our customers come to us for online
-              research tools to empower their insights. Lucid’s survey solutions
-              deliver powerful answers from real people – for market research,
-              advertising campaign measurement and more.
+  </div>
+  <div class="market__card mt-5 mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="p-4 _card_text shadow">
+            <p class="_title pb-3">Marketplace Buyers</p>
+            <p>
+              Marketplace buyers may be consulting firms, market researchers,
+              policy researchers, academics, or anyone else who needs to
+              survey a specific audience. When you use our survey sampling
+              tools, Lucid’s intuitive platform will connect you with
+              respondents who match your desired survey criteria.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="shadow p-4 _card_text">
+            <div class="_title pb-3">Marketplace Supply</div>
+            <p>
+              If you have an online community that can participate in paid
+              surveys, you could be a Marketplace supplier. Lucid’s community
+              of suppliers are often survey panels, loyalty or rewards
+              programs, online apps, or website publishers that want to engage
+              users with survey opportunities.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="shadow p-4 _card_text">
+            <div class="_title pb-3">Media Measurement</div>
+            <p>
+              Lucid helps agencies, brands, and media buyers measure the
+              effectiveness of their advertising. Impact Measurement, Lucid’s
+              real-time analytics product, uses a survey-based methodology to
+              measure the impact of digital advertising on brand lift, so you
+              can optimize a campaign while it’s in-flight.
             </p>
           </div>
         </div>
       </div>
     </div>
-    <div class="market__card mt-5 mb-5">
-      <div class="container">
+  </div>
+  <!--technonogy 锚点-->
+  <span id='technonogy'></span>
+  <div class="container _technonogy">
+    <div class="row">
+      <div class="col-md-6">
+        <p class="technonogy_title">
+          Providing Daily Work For Your Customers To Make Them Busy On Your
+          Site.
+        </p>
+        <p class="technonogy_line1">
+          Every day we will provide survey / tasks for your customers to make
+          them remain busy on your site/apps.
+        </p>
+        <p class="technonogy_line1">
+          Videos and app installations with Signup offers too. Paying a good
+          amount of comission to your for the task your customers do.
+        </p>
+      </div>
+      <div class="col-md-6">
         <div class="row">
-          <div class="col-md-4">
-            <div class="p-4 _card_text shadow">
-              <p class="_title pb-3">Marketplace Buyers</p>
-              <p>
-                Marketplace buyers may be consulting firms, market researchers,
-                policy researchers, academics, or anyone else who needs to
-                survey a specific audience. When you use our survey sampling
-                tools, Lucid’s intuitive platform will connect you with
-                respondents who match your desired survey criteria.
-              </p>
+          <button class="col-md-12 collapseone border-0" type="button" data-toggle="collapse"
+            data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <div class="pt-1 pb-1 Off_wall text-light">Offwall</div>
+          </button>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body offwall_body col-md-12">
+              Some placeholder content for the collapse component. This panel
+              is hidden by default but revealed when the user activates the
+              relevant trigger.
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="shadow p-4 _card_text">
-              <div class="_title pb-3">Marketplace Supply</div>
-              <p>
-                If you have an online community that can participate in paid
-                surveys, you could be a Marketplace supplier. Lucid’s community
-                of suppliers are often survey panels, loyalty or rewards
-                programs, online apps, or website publishers that want to engage
-                users with survey opportunities.
-              </p>
+        </div>
+        <div class="row mt-5">
+          <button class="col-md-12 collapseone border-0" type="button" data-toggle="collapse" data-target="#offerApi"
+            aria-expanded="false" aria-controls="offerApi">
+            <div class="pt-1 pb-1 Off_wall text-light">Offer API</div>
+          </button>
+          <div class="collapse" id="offerApi">
+            <div class="card card-body offwall_body col-md-12">
+              We also allow selected publishers to hand pick our offers.
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="shadow p-4 _card_text">
-              <div class="_title pb-3">Media Measurement</div>
-              <p>
-                Lucid helps agencies, brands, and media buyers measure the
-                effectiveness of their advertising. Impact Measurement, Lucid’s
-                real-time analytics product, uses a survey-based methodology to
-                measure the impact of digital advertising on brand lift, so you
-                can optimize a campaign while it’s in-flight.
-              </p>
+        </div>
+        <div class="row mt-5">
+          <button class="col-md-12 collapseone border-0" type="button" data-toggle="collapse" data-target="#mobile_sdk"
+            aria-expanded="false" aria-controls="mobile_sdk">
+            <div class="pt-1 pb-1 Off_wall text-light">Mobile SDK</div>
+          </button>
+          <div class="collapse" id="mobile_sdk">
+            <div class="card card-body offwall_body col-md-12">
+              Monetize your apps with our this service.
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <button class="col-md-12 collapseone border-0" type="button" data-toggle="collapse"
+            data-target="#marker_research" aria-expanded="false" aria-controls="marker_research">
+            <div class="pt-1 pb-1 Off_wall text-light">Market Research</div>
+          </button>
+          <div class="collapse" id="marker_research">
+            <div class="card card-body offwall_body">
+              We thrive to supply your web/app with the best rewarded surveys
+              available.
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!--technonogy-->
-    <div class="container _technonogy">
-      <div class="row">
-        <div class="col-md-6">
-          <p class="technonogy_title">
-            Providing Daily Work For Your Customers To Make Them Busy On Your
-            Site.
-          </p>
-          <p class="technonogy_line1">
-            Every day we will provide survey / tasks for your customers to make
-            them remain busy on your site/apps.
-          </p>
-          <p class="technonogy_line1">
-            Videos and app installations with Signup offers too. Paying a good
-            amount of comission to your for the task your customers do.
-          </p>
-        </div>
-        <div class="col-md-6">
-          <div class="row">
-            <button
-              class="col-md-12 collapseone border-0"
-              type="button"
-              data-toggle="collapse"
-              data-target="#collapseExample"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-            >
-              <div class="pt-1 pb-1 Off_wall text-light">Offwall</div>
-            </button>
-            <div class="collapse" id="collapseExample">
-              <div class="card card-body offwall_body col-md-12">
-                Some placeholder content for the collapse component. This panel
-                is hidden by default but revealed when the user activates the
-                relevant trigger.
-              </div>
-            </div>
-          </div>
-          <div class="row mt-5">
-            <button
-              class="col-md-12 collapseone border-0"
-              type="button"
-              data-toggle="collapse"
-              data-target="#offerApi"
-              aria-expanded="false"
-              aria-controls="offerApi"
-            >
-              <div class="pt-1 pb-1 Off_wall text-light">Offer API</div>
-            </button>
-            <div class="collapse" id="offerApi">
-              <div class="card card-body offwall_body col-md-12">
-                We also allow selected publishers to hand pick our offers.
-              </div>
-            </div>
-          </div>
-          <div class="row mt-5">
-            <button
-              class="col-md-12 collapseone border-0"
-              type="button"
-              data-toggle="collapse"
-              data-target="#mobile_sdk"
-              aria-expanded="false"
-              aria-controls="mobile_sdk"
-            >
-              <div class="pt-1 pb-1 Off_wall text-light">Mobile SDK</div>
-            </button>
-            <div class="collapse" id="mobile_sdk">
-              <div class="card card-body offwall_body col-md-12">
-                Monetize your apps with our this service.
-              </div>
-            </div>
-          </div>
-          <div class="row mt-5">
-            <button
-              class="col-md-12 collapseone border-0"
-              type="button"
-              data-toggle="collapse"
-              data-target="#marker_research"
-              aria-expanded="false"
-              aria-controls="marker_research"
-            >
-              <div class="pt-1 pb-1 Off_wall text-light">Market Research</div>
-            </button>
-            <div class="collapse" id="marker_research">
-              <div class="card card-body offwall_body">
-                We thrive to supply your web/app with the best rewarded surveys
-                available.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--how to mak money-->
+  </div>
+  <!--how to mak money-->
+  <span id='makemoney'></span>
+  <div class="to_make_money pt-5 pb-5 mb-3">
     <div class="container mb-5">
       <p class="make_money text-center">How to make money?</p>
       <p class="text-cente encourage">
         Encourage your users to complete offers, such as surveys by rewarding
         them with virtual currency or in-game items.
       </p>
-      <div class="row">
+      <div class="row pt-5">
         <div class="col-md-6">
-          <img
-            src="../../assets/images/BenCoats.jpeg"
-            alt=""
-            class=""
-            width="300px"
-          />
+          <img src="../../assets/images/hand.png" alt="" class="col-md-10" />
         </div>
         <di v class="col-md-6">
-          <p>Partners</p>
-          <p>
+          <p class="_partners">Partners</p>
+          <p class="_partners_content">
             In the SurveyXa world there are no affiliates, only partners. We
             strongly believe that each and every relationship we build becomes a
             partner for life.
           </p>
-          <p>Advertiser</p>
-          <p>SurveyXa has been delivering quality leads for our strategic partners for years. Working directly with partners on both sides of the network allows us to continually optimize campaigns, drive costs down, increase quality and deliver as much, or as little as needed.</p>
-        </div>
+          <p class="_advertiser">Advertiser</p>
+          <p class="_advertiser_content">SurveyXa has been delivering quality leads for our strategic partners for
+            years. Working directly with partners on both sides of the network allows us to continually optimize
+            campaigns, drive costs down, increase quality and deliver as much, or as little as needed.</p>
       </div>
     </div>
-    <!--footer 底部-->
-    @-@include('./footer.html',{ contactUrl:'../../pages/contact/index.html',
-    termsUrl:'../../pages/terms/index.html',
-    privacyUrl:'../../pages/privacy/index.html',
-    esomarUrl:"../../pages/resources/esomar/index.html",
-    blogUrl:"../../pages/resources/blog/index.html",
-    careersUrl:"../../pages/resources/careers/index.html" })
+  </div>
+  </div>
 
-    <script>
-      $("#services").on("show.bs.collapse", function () {
-        $("#affiliates").collapse("hide");
-        $("#about").collapse("hide");
-        $("#resources").collapse("hide");
-      });
-      $("#affiliates").on("show.bs.collapse", function () {
-        $("#services").collapse("hide");
-        $("#about").collapse("hide");
-        $("#resources").collapse("hide");
-      });
-      $("#about").on("show.bs.collapse", function () {
-        $("#services").collapse("hide");
-        $("#affiliates").collapse("hide");
-        $("#resources").collapse("hide");
-      });
-      $("#resources").on("show.bs.collapse", function () {
-        $("#services").collapse("hide");
-        $("#affiliates").collapse("hide");
-        $("#about").collapse("hide");
-      });
-    </script>
-  </body>
+  <!--footer 底部-->
+  @-@include('./footer.html',{ contactUrl:'../../pages/contact/index.html',
+  termsUrl:'../../pages/terms/index.html',
+  privacyUrl:'../../pages/privacy/index.html',
+  esomarUrl:"../../pages/resources/esomar/index.html",
+  blogUrl:"../../pages/resources/blog/index.html",
+  careersUrl:"../../pages/resources/careers/index.html" })
+
+  <script>
+    $("#services").on("show.bs.collapse", function () {
+      $("#affiliates").collapse("hide");
+      $("#about").collapse("hide");
+      $("#resources").collapse("hide");
+    });
+    $("#affiliates").on("show.bs.collapse", function () {
+      $("#services").collapse("hide");
+      $("#about").collapse("hide");
+      $("#resources").collapse("hide");
+    });
+    $("#about").on("show.bs.collapse", function () {
+      $("#services").collapse("hide");
+      $("#affiliates").collapse("hide");
+      $("#resources").collapse("hide");
+    });
+    $("#resources").on("show.bs.collapse", function () {
+      $("#services").collapse("hide");
+      $("#affiliates").collapse("hide");
+      $("#about").collapse("hide");
+    });
+  </script>
+</body>
+
 </html>
