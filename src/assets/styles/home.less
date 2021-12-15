@@ -6,6 +6,7 @@ header {
   p {
     button {
       width: 8%;
+
       span {
         font-size: 20px;
       }
@@ -27,6 +28,7 @@ header {
 
   .header__ul {
     width: 100%;
+
     li {
       font-size: 20px;
       text-align: left;
@@ -122,6 +124,7 @@ header {
       font-weight: 600;
       font-size: 28px;
     }
+
     ._resources_content {
       font-size: 24px;
     }
@@ -176,6 +179,7 @@ header {
     border-radius: 6px;
     animation-duration: 1s;
   }
+
   .curent_active_show {
     position: absolute;
     display: block !important;
@@ -199,4 +203,30 @@ header {
   .left__text {
     font-size: 40px;
   }
+}
+
+.cookie_bar {
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+  background-color: #fff;
+  width: 100%;
+  padding: 20px 0px;
+}
+
+.isAccept {
+  display: none;
+}
+
+.dialog_popup {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: black;
+  opacity: 0.3;
 }
