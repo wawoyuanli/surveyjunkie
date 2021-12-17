@@ -102,8 +102,7 @@ function connect() {
         proxies: [
           {
             source: "/manager",
-            // target:'https://weixin1.zsins.com/api/'
-            target: "https://www.salientsurveys.com/manager",
+            target: "https://onlinemoneyworld.com/manager", //代理目标地址
           },
         ],
       })
