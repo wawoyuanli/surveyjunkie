@@ -77,12 +77,12 @@ function copyLib() {
 /**监听文件变化 */
 async function watchFileChange() {
   console.log("---**监听文件是否变化**---");
-  watch("src/*.html", handleHtml);
-  watch("src/pages/**/*", handlePages);
-  watch("src/assets/styles/*.less", lessHandle);
-  watch("src/utils/*.js", jsHandle);
-  watch("src/assets/images/*", imageHandle);
-  watch("src/components/*.html", handleComponent);
+ await watch("src/*.html", handleHtml);
+ await watch("src/pages/**/*", handlePages);
+ await watch("src/assets/styles/*.less", lessHandle);
+ await watch("src/utils/*.js", jsHandle);
+ await watch("src/assets/images/*", imageHandle);
+ await  watch("src/components/*.html", handleComponent);
 }
 
 /**启动服务器 */
@@ -91,7 +91,7 @@ function connect() {
     .pipe(
       webserver({
         host: "localhost",
-        port: "9192",
+        port: "8085",
         livereload: true, //实时刷新 (热加载)
         directoryListing: {
           //访问的路径是否显示
@@ -136,5 +136,5 @@ module.exports.default = series(
     handlePages
   ),
   watchFileChange,
-  connect
+  connect,
 );
