@@ -17,23 +17,23 @@
 </head>
 
 <body>
+  @-@include('./header.html',
+  {
+  back_url:'../../index.html',
+  logo:'../../assets/images/logo_text.png' ,
+  contact:'../contact/index.html', iPhone:'../../assets/images/iPhone.png',
+  chrome:'../../assets/images/chrome.png',
+  welcome:'../../assets/images/welcome-one-img-1.png',
+  login:'../login/index.html' ,
+  marketplace_url:"../service/index.html",
+  technology_url:"../service/index.html#technonogy",
+  mony_url:"../service/index.html#makemoney",
+  about_url:"../about/index.html",
+  blog_url:"../resources/blog/index.html",
+  esomar_url:"../resources/esomar/index.html",
+  careers_url:'../resources/careers/index.html'
+  })
   <div class="register_container">
-    @-@include('./header.html',
-    {
-    back_url:'../../index.html',
-    logo:'../../assets/images/logo_text.png' ,
-    contact:'../contact/index.html', iPhone:'../../assets/images/iPhone.png',
-    chrome:'../../assets/images/chrome.png',
-    welcome:'../../assets/images/welcome-one-img-1.png',
-    login:'../login/index.html' ,
-    marketplace_url:"../service/index.html",
-    technology_url:"../service/index.html#technonogy",
-    mony_url:"../service/index.html#makemoney",
-    about_url:"../about/index.html",
-    blog_url:"../resources/blog/index.html",
-    esomar_url:"../resources/esomar/index.html",
-    careers_url:'../resources/careers/index.html'
-    })
     <div class="
           container
           d-flex
@@ -96,11 +96,12 @@
             </p>
           </div>
         </div>
-        <input type="button" onclick="registerHandler()" value="register" id="registerbtn">
+        <input type="button" onclick="registerHandler()" value="register" id="registerbtn" class="mb-5 mt-5 btn btn-warning col-md-5">
       </div>
     </div>
-    <!--底部组件引入-->
-    @-@include('./footer.html',{
+  </div>
+   <!--底部组件引入-->
+   @-@include('./footer.html',{
     contactUrl:'../../pages/contact/index.html',
     termsUrl:'../../pages/terms/index.html',
     privacyUrl:'../../pages/privacy/index.html',
@@ -108,8 +109,6 @@
     blogUrl:"../../pages/resources/blog/index.html",
     careersUrl:"../../pages/resources/careers/index.html"
     })
-  </div>
- 
   <script>
     $('#services').on('show.bs.collapse', function () {
       $('#affiliates').collapse('hide')
