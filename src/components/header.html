@@ -1,7 +1,7 @@
 <header>
-  <p class="pt-2">
-    <a href="@-@back_url" class="">
-      <img src="@-@logo" alt="" id="logo" class=" pr-5" />
+  <p class="m-0 d-flex justify-content-center align-content-center">
+    <a href="@-@back_url" class="col-md-2">
+      <img src="@-@logo" alt="" id="logo" class="" />
     </a>
     <button
       class="btn border-right"
@@ -11,6 +11,7 @@
       aria-expanded="false"
       aria-controls="services"
       id="services_btn"
+      style="height: 40px;margin-top: 18px;"
     >
       <span> Services</span>
     </button>
@@ -22,6 +23,7 @@
       aria-expanded="false"
       aria-controls="affiliates"
       id="affiliates_btn"
+      style="height: 40px;margin-top: 18px;"
     >
       <span> Affiliates</span>
     </button>
@@ -33,6 +35,7 @@
       aria-expanded="false"
       aria-controls="about"
       id="about_btn"
+      style="height: 40px;margin-top: 18px;"
     >
       <span> About</span>
     </button>
@@ -44,10 +47,11 @@
       aria-expanded="false"
       aria-controls="resources"
       id="resources_btn"
+      style="height: 40px;margin-top: 18px;"
     >
       <span>Resources</span>
     </button>
-    <button class="btn border-right mr-5" id="contact_btn">
+    <button class="btn border-right mr-5" id="contact_btn" style="height: 40px;margin-top: 18px;">
       <a
         href="@-@contact"
         class="text-decoration-none text-dark"
@@ -55,13 +59,15 @@
         >Contact</a
       >
     </button>
-    <select name="" id="" class="w-10 ml-5">
-      <option value="english">English</option>
-      <option value="chinese">中文</option>
-    </select>
-    <a class="btn btn-danger ml-5" href="@-@login" style="width: 8%">Login</a>
-    <img src="@-@iPhone" alt="" class="phone ml-4" id="phone" />
-    <img src="@-@chrome" alt="" class="chrome ml-4" id="chrome" />
+ 
+  <select name="" id="" class=" ml-5" style="margin-top:18px;font-size: 16px;">
+    <option value="english">English</option>
+    <option value="chinese">中文</option>
+  </select>
+ 
+    <a class="btn btn-danger ml-5 d-flex align-items-center justify-content-center" href="@-@login" style="width: 8%;height: 40px;margin-top:18px;font-size: 14px;">Login</a>
+    <!-- <img src="@-@iPhone" alt="" class="phone ml-4" id="phone" />
+    <img src="@-@chrome" alt="" class="chrome ml-4" id="chrome" /> -->
   </p>
   <div class="collapse" id="services">
     <div class="card-body">
