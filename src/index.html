@@ -26,7 +26,6 @@
       dataLayer.push(arguments);
     }
     gtag('js', new Date());
-
     gtag('config', 'G-QQ05X22STC');
   </script>
 </head>
@@ -57,17 +56,18 @@
         <div class="row">
           <div class="col-md-6">
             <p class="left__text m-0 text-left">
-              <b style="font-family: Arial">Refine Trusted Marketing Agency</b>
+              <b style="font-family: Arial" data-locale='refine'>Refine Trusted Marketing Agency</b>
             </p>
-            <p class="text-left m-0 h4">
+            <p class="text-left m-0 h4" data-locale='profitable'>
               We are becoming the most profitable network
             </p>
-            <p class="m-0 text-left" style="font-size: 20px">
+            <p class="m-0 text-left" style="font-size: 20px" data-locale='revenue'>
               Register as our member to earn commissions,integrate our API to
               make your website/app/game business more revenue
             </p>
             <button class="btn btn-danger text-center mt-5 col-md-5 float-left">
-              <a href="./pages/login/index.html" class="text-light h3 text-decoration-none">Let's Start</a>
+              <a href="./pages/login/index.html" class="text-light h3 text-decoration-none" data-locale="start">Let's
+                Start</a>
             </button>
           </div>
           <div class="col-md-6"></div>
@@ -171,21 +171,21 @@
     <div class="row d-flex justify-content-between align-items-center boost mt-5">
       <div class="boost_box1 p-5 rounded">
         <p class="text-center title">Accurate user</p>
-        <p class="text-center content p-5">
+        <p class="text-left content p-5">
           Perfect collection system, the formation of accurate user groups, in order to improve the task conversion
           rate.
         </p>
       </div>
       <div class="boost_box2 p-5 rounded">
         <p class="text-center title">High benefit</p>
-        <p class="text-center content p-5">
+        <p class="text-left content p-5">
           We only cooperate with top publishers, and the resources we obtain are also the top ones, so the benefits are
           also the highest.
         </p>
       </div>
       <div class="boost_box3 p-5 rounded">
         <p class="text-center title">Fraud prevention</p>
-        <p class="text-center content p-5">
+        <p class="text-left content p-4">
           Cooperate with Maxmind and deeply integrated development with our system.
           A complete anti-fraud system ensures the stable operation of the system and the interests of customers.
         </p>
@@ -282,59 +282,15 @@
       $("#affiliates").collapse("hide");
       $("#about").collapse("hide");
     });
-    /*
-    多语言配置
-    */
-    $("#english").change(function (res) {
-      var lang = res.target.value;
-      switch (lang) {
-        case "English":
-          loadProperties("en");
-          break;
-        case "中文":
-          loadProperties("zh");
-          break;
-        default:
-          loadProperties("en");
-      }
-    });
-    $("#chinese").change(function (res) {
-      var lang = res.target.value;
-      switch (lang) {
-        case "English":
-          loadProperties("en");
-          break;
-        case "中文":
-          loadProperties("zh");
-          break;
-        default:
-          loadProperties("en");
-      }
-    });
-
-    function loadProperties(lang) {
-      $.i18n.properties({
-        name: "lang", //属性文件名     命名格式： 文件名_国家代号.properties
-        path: "./utils/lang/", //这里路径是你属性文件的所在文件夹
-        mode: "map",
-        language: lang, //这就是国家代号 name+language刚好组成属性文件名：lang+zh -> lang_zh.properties
-        callback: function () {
-          $("[data-locale]").each(function () {
-            console.log($(this).data("locale"));
-            $(this).html($.i18n.prop($(this).data("locale")));
-          });
-        },
-      });
-    }
   </script>
+  <!--多语言配置文件引入-->
+  <script src="./utils/setlang.js"></script>
   <script src="./utils/cookie.js"></script>
   <script>
     function a() {
       document.getElementById("cookiebar").classList.add("isAccept");
     }
   </script>
-
-
 </body>
 
 </html>
