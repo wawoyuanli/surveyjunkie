@@ -77,12 +77,12 @@ function copyLib() {
 /**监听文件变化 */
 async function watchFileChange() {
   console.log("---**监听文件是否变化**---");
- await watch("src/*.html", handleHtml);
- await watch("src/pages/**/*", handlePages);
- await watch("src/assets/styles/*.less", lessHandle);
- await watch("src/utils/*.js", jsHandle);
- await watch("src/assets/images/*", imageHandle);
- await  watch("src/components/*.html", handleComponent);
+  await watch("src/*.html", handleHtml);
+  await watch("src/pages/**/*", handlePages);
+  await watch("src/assets/styles/*.less", lessHandle);
+  await watch("src/utils/*.js", jsHandle);
+  await watch("src/assets/images/*", imageHandle);
+  await watch("src/components/*.html", handleComponent);
 }
 
 /**启动服务器 */
@@ -108,6 +108,10 @@ function connect() {
       })
     );
 }
+const lang = () => {
+  return src('src/utils/lang/*')
+    .pipe(dest('dist/utils/lang'))
+}
 
 /**创建删除dist文件夹的任务 */
 async function deleteHandler() {
@@ -122,6 +126,7 @@ module.exports.jsHandle = jsHandle;
 module.exports.copyLib = copyLib;
 module.exports.imageHandle = imageHandle;
 module.exports.watchFileChange = watchFileChange;
+module.exports.lang=lang
 //执行所有任务
 module.exports.default = series(
   deleteHandler,
@@ -132,7 +137,8 @@ module.exports.default = series(
     jsHandle,
     imageHandle,
     lessHandle,
-    handlePages
+    handlePages,
+    lang
   ),
   watchFileChange,
   connect,
