@@ -1,74 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../assets/styles/login.css" />
+    <script src="../../lib/jquery/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="../../lib/bootstrap4.6.1/css/bootstrap.min.css"
+    />
+    <script src="../../lib/bootstrap4.6.1/js/bootstrap.bundle.min.js"></script>
+    <script src="../../lib/bootstrap4.6.1/js/bootstrap.js"></script>
+    <title>OnlineMoneyWorld</title>
+    <link rel="shortcut icon" href="../../assets/images/logo_04.png" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-222595522-1"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js" async></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../../assets/styles/login.css" />
-  <script src="../../lib/jquery/jquery-3.6.0.min.js"></script>
-  <link rel="stylesheet" href="../../lib/bootstrap4.6.1/css/bootstrap.min.css" />
-  <script src="../../lib/bootstrap4.6.1/js/bootstrap.bundle.min.js"></script>
-  <script src="../../lib/bootstrap4.6.1/js/bootstrap.js"></script>
-  <title>OnlineMoneyWorld</title>
-  <link rel="shortcut icon" href="../../assets/images/logo_04.png" />
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-222595522-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	
-	  gtag('config', 'UA-222595522-1');
-	</script>
-</head>
+      gtag("config", "UA-222595522-1");
+    </script>
+  </head>
 
-<body>
-  <div class="login_container">
-    <div class="container-fluid pt-5">
-      <div class="row d-flex align-items-center justify-content-around">
-        <div class="col-md-6">
-          <img src="../../assets/images/6_03.png" alt="" />
-        </div>
-        <div class="col-md-6">
-          <div class="
-                rounded-lg
-                col-md-9
-                d-flex
-                align-items-center
-                flex-column
-                card__bg
-                pt-4
-                pb-4
-              ">
-            <p class="pt-3 text-left col-md-8 welcome_back m-0 pb-2">
-              Welcome back
-            </p>
-            <p class="col-md-8 account">Login to your account</p>
-            <form class="col-md-8 mt-3">
-              <div class="form-group">
-                <input type="text" class="form-control col-md-12" id="username" placeholder="UserName" />
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control mt-3" id="password" placeholder="Password" style="margin-top: 10px;"/>
-              </div>
-              <!--登陆按钮-->
-              <input type='button' class="btn__liner col-md-12 mt-3 mb-3" onclick="login()" value="Login" />
-              <a href="" class="text-decoration-none">
-                <p>I forgot my password</p>
-              </a>
-              <p>
-                Not a member yet? Click
-                <a href="../register/index.html" class="text-decoration-none">here</a>
-                to register.
+  <body>
+    <div class="login_container">
+      <div class="container-fluid pt-5">
+        <div class="row d-flex align-items-center justify-content-around">
+          <div class="col-md-6">
+            <img src="../../assets/images/6_03.png" alt="" />
+          </div>
+          <div class="col-md-6">
+            <div
+              class="rounded-lg col-md-9 d-flex align-items-center flex-column card__bg pt-4 pb-4"
+            >
+              <p class="pt-3 text-left col-md-8 welcome_back m-0 pb-2">
+                Welcome back
               </p>
-            </form>
+              <p class="col-md-8 account">Login to your account</p>
+              <form class="col-md-8 mt-3">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control col-md-12"
+                    id="username"
+                    placeholder="UserName"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="password"
+                    class="form-control mt-3"
+                    id="password"
+                    placeholder="Password"
+                    style="margin-top: 10px"
+                  />
+                </div>
+                <!--登陆按钮-->
+                <input
+                  type="button"
+                  class="btn__liner col-md-12 mt-3 mb-3"
+                  onclick="login()"
+                  value="Login"
+                />
+                <a href="" class="text-decoration-none">
+                  <p>I forgot my password</p>
+                </a>
+                <p>
+                  Not a member yet? Click
+                  <a href="../register/index.html" class="text-decoration-none"
+                    >here</a
+                  >
+                  to register.
+                </p>
+              </form>
+            </div>
           </div>
         </div>
       </div>
+      <div class="s-popup">
+        <div class="s-popup-title">
+        <p> 提示111</p>
+        </div>
+      </div>
     </div>
-  </div>
-</body>
-<script type="text/javascript" src="../../utils/login.js">
-</script>
+  </body>
+  <script>
+    function login() {
+      /*
+    校验信息
+    */
+      let username = document.getElementById("username").value;
+      let password = document.getElementById("password").value;
+
+      if (!username) {
+        $('#modal').modal('show')
+        return;
+      }
+      if (!password) {
+        return;
+      }
+      axios({
+        method: "POST", //提交方法
+        url: "/panel/online_money/pages/login", //提交地址
+        data: {
+          username:username,
+          password: password,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          alert("提交成功！");
+        })
+        .catch();
+    }
+  </script>
 </html>

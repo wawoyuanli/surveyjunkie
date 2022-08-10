@@ -16,6 +16,8 @@
   <link rel="shortcut icon" href="../../assets/images/logo_04.png">
   <!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-222595522-1"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js" async></script>
+
 	<script>
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
@@ -61,9 +63,9 @@
             col-md-6
           ">
         <p class="text-light h4 pt-2">register</p>
-        <input type="text" class="col-md-10 border-0 m-3 p-1 rounded-lg" placeholder="Username" />
+        <input type="text" class="col-md-10 border-0 m-3 p-1 rounded-lg" placeholder="Username" id='username'/>
         <div class="col-md-10 d-flex p-0">
-          <input type="text" class="col-md-6 border-0 rounded-lg p-1 m-0" placeholder="Email" />
+          <input type="text" class="col-md-6 border-0 rounded-lg p-1 m-0" placeholder="Email" id='email'/>
           <button class="btn btn-warning col-md-6 ml-1">
             get vertification code
           </button>
@@ -105,7 +107,7 @@
             </p>
           </div>
         </div>
-        <input type="button" onclick="registerHandler()" value="register" id="registerbtn" class="mb-5 mt-5 btn btn-warning col-md-5">
+        <input type="button" onclick="register()" value="register" id="registerbtn" class="mb-5 mt-5 btn btn-warning col-md-5">
       </div>
     </div>
   </div>
@@ -140,7 +142,31 @@
       $('#about').collapse('hide')
     })
   </script>
-  <script src="../../utils/register.js"></script>
 </body>
-
+<script type="text/javascript">
+ let loginName  =document.getElementById('loginName')
+ let email=document.getElementById('email')
+ let password  =document.getElementById('password')
+ let sex=document.getElementById('sex')
+ let surveyBirthdayYear=document.getElementById('surveyBirthdayYear')
+  function register(){
+    axios({
+        method: "POST", //提交方法
+        url: "/panel/online_money/pages/login", //提交地址
+        data: {
+          loginName:loginName,
+          email: email,
+          password:password,
+          sex :sex ,
+          surveyBirthdayYear:surveyBirthdayYear
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          alert("提交成功！");
+        })
+        .catch();
+  }
+     
+</script>
 </html>

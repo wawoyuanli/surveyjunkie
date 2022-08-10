@@ -91,7 +91,7 @@ function connect() {
     .pipe(
       webserver({
         host: "localhost",
-        port: "8085",
+        port: "9091",
         livereload: true, //实时刷新 (热加载)
         directoryListing: {
           //访问的路径是否显示
@@ -101,8 +101,8 @@ function connect() {
         open: "./index.html", //默认打开页面
         proxies: [
           {
-            source: "/manager",
-            target: "https://onlinemoneyworld.com/manager", //代理目标地址
+            source: "/panel",
+            target: "https://onlinemoneyworld.com/panel", //代理目标地址
           },
         ],
       })
