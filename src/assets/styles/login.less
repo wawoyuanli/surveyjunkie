@@ -46,3 +46,23 @@ body {
     }
    
 }
+.popup-box {
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    display: none;
+    .content {
+      width: 400px;
+      background-color: #fff;
+      border-radius: 4px;
+      margin: 0 auto;
+      margin-top: 200px;
+      &-title {
+        border-bottom: 1px solid #f3f1f1;
+      }
+    }
+  }

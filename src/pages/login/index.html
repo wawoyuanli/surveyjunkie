@@ -1,126 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../assets/styles/login.css" />
-    <script src="../../lib/jquery/jquery-3.6.0.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="../../lib/bootstrap4.6.1/css/bootstrap.min.css"
-    />
-    <script src="../../lib/bootstrap4.6.1/js/bootstrap.bundle.min.js"></script>
-    <script src="../../lib/bootstrap4.6.1/js/bootstrap.js"></script>
-    <title>OnlineMoneyWorld</title>
-    <link rel="shortcut icon" href="../../assets/images/logo_04.png" />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-222595522-1"
-    ></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js" async></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
 
-      gtag("config", "UA-222595522-1");
-    </script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../assets/styles/login.css" />
+  <script src="../../lib/jquery/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="../../lib/bootstrap4.6.1/css/bootstrap.min.css" />
+  <script src="../../lib/bootstrap4.6.1/js/bootstrap.bundle.min.js"></script>
+  <script src="../../lib/bootstrap4.6.1/js/bootstrap.js"></script>
+  <title>OnlineMoneyWorld</title>
+  <link rel="shortcut icon" href="../../assets/images/logo_04.png" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-222595522-1"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js" async></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-  <body>
-    <div class="login_container">
-      <div class="container-fluid pt-5">
-        <div class="row d-flex align-items-center justify-content-around">
-          <div class="col-md-6">
-            <img src="../../assets/images/6_03.png" alt="" />
-          </div>
-          <div class="col-md-6">
-            <div
-              class="rounded-lg col-md-9 d-flex align-items-center flex-column card__bg pt-4 pb-4"
-            >
-              <p class="pt-3 text-left col-md-8 welcome_back m-0 pb-2">
-                Welcome back
-              </p>
-              <p class="col-md-8 account">Login to your account</p>
-              <form class="col-md-8 mt-3">
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control col-md-12"
-                    id="username"
-                    placeholder="UserName"
-                  />
-                </div>
-                <div class="form-group">
-                  <input
-                    type="password"
-                    class="form-control mt-3"
-                    id="password"
-                    placeholder="Password"
-                    style="margin-top: 10px"
-                  />
-                </div>
-                <!--登陆按钮-->
-                <input
-                  type="button"
-                  class="btn__liner col-md-12 mt-3 mb-3"
-                  onclick="login()"
-                  value="Login"
-                />
-                <a href="" class="text-decoration-none">
-                  <p>I forgot my password</p>
-                </a>
-                <p>
-                  Not a member yet? Click
-                  <a href="../register/index.html" class="text-decoration-none"
-                    >here</a
-                  >
-                  to register.
-                </p>
-              </form>
-            </div>
-          </div>
+    gtag("config", "UA-222595522-1");
+  </script>
+  <script src="https://www.recaptcha.net/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=en" async
+    defer></script>
+</head>
+
+<body>
+  <div class="login_container">
+    <div class="container-fluid pt-5">
+      <div class="row d-flex align-items-center justify-content-around">
+        <div class="col-md-6">
+          <img src="../../assets/images/6_03.png" alt="" />
         </div>
-      </div>
-      <div class="s-popup">
-        <div class="s-popup-title">
-        <p> 提示111</p>
+        <div class="col-md-6">
+          <div class="rounded-lg col-md-9 d-flex align-items-center flex-column card__bg pt-4 pb-4">
+            <p class="pt-3 text-left col-md-8 welcome_back m-0 pb-2">
+              Welcome back
+            </p>
+            <p class="col-md-8 account">Login to your account</p>
+            <form class="col-md-8 mt-3">
+              <div class="form-group">
+                <input type="text" class="form-control col-md-12" id="username" placeholder="UserName" />
+              </div>
+              <div style="display:none" id="validate_code">
+                <div class="col-md-10 d-flex p-0">
+                  <input type="text" class="col-md-8 rounded-lg p-1 m-0" placeholder="email" id='email'
+                    style="border: 1px solid gray" />
+                  <button class="btn btn-warning col-md-6 ml-1" onclick="getValidateCode()">
+                    get code
+                  </button>
+                </div>
+              </div>
+              <div style="display:none" id="code">
+                <div class="form-group">
+                  <input class="form-control mt-3" id="codevalue" placeholder="code" style="margin-top: 10px" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <input type="password" class="form-control mt-3" id="password" placeholder="Password"
+                  style="margin-top: 10px" />
+              </div>
+              <div id="robot"></div>
+              <!--登陆按钮-->
+              <input type="button" class="btn__liner col-md-12 mt-3 mb-3" onclick="login()" value="Login"
+                id='login_btn' />
+              <input type="button" class="btn__liner col-md-12 mt-3 mb-3" onclick="changeClick()" value="confirm"
+                id='change_btn' style="display:none !important" />
+              <p style="color: red;cursor:pointer" onclick="changePwd()">I forgot my password ?</p>
+              <p>
+                Not a member yet? Click
+                <a href="../register/index.html" class="text-decoration-none">here</a>
+                to register.
+              </p>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </body>
-  <script>
-    function login() {
-      /*
-    校验信息
-    */
-      let username = document.getElementById("username").value;
-      let password = document.getElementById("password").value;
+  </div>
+  <div class="popup-box" id="show1">
+    <div class="content shadow">
+      <p class="text-center p-3 content-title">tips</p>
+      <div class="content-tip text-center p-4" id="tip">
+      </div>
+      <button type="button" class="btn btn-info" style="width: 100%" id="close">确定</button>
+    </div>
+  </div>
+</body>
+<script>
+  function changePwd() {
+    document.getElementById('validate_code').style.display = 'block'
+    document.getElementById('code').style.display = 'block'
+    document.getElementById('change_btn').style.display = 'block'
+    document.getElementById('login_btn').style.display = 'none'
 
-      if (!username) {
-        $('#modal').modal('show')
-        return;
-      }
-      if (!password) {
-        return;
-      }
+  }
+  function login() {
+    /*
+  校验信息
+  */
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+
+    if (!username) {
+      let show1 = document.getElementById('show1')
+      show1.style.display = 'block'
+      let tip = document.getElementById('tip')
+      tip.innerHTML = 'please input username'
+      return
+    }
+    if (!password) {
+      let show1 = document.getElementById('show1')
+      show1.style.display = 'block'
+      let tip = document.getElementById('tip')
+      tip.innerHTML = 'please input password'
+      return
+    }
+    var responseToken = grecaptcha.getResponse(widgetId);
+    if (responseToken.length == 0) {
+      let show1 = document.getElementById('show1')
+      let tip = document.getElementById('tip')
+      tip.innerHTML = 'Please verify if it is a human machine'
+      show1.style.display = 'block'
+      return
+    }
+    axios({
+      method: "POST", //提交方法
+      url: "/panel/online_money/pages/login", //提交地址
+      data: {
+        username: username,
+        password: password,
+      },
+    })
+      .then((res) => {
+        if (res.data.code == 0) {
+          let show1 = document.getElementById('show1')
+          show1.style.display = 'block'
+          let tip = document.getElementById('tip')
+          tip.innerHTML = 'Submitted successfully'
+        } else {
+          let show1 = document.getElementById('show1')
+          show1.style.display = 'block'
+          let tip = document.getElementById('tip')
+          tip.innerHTML = res.data.msg
+        }
+
+      })
+      .catch(err => {
+        let show1 = document.getElementById('show1')
+        show1.style.display = 'block'
+        let tip = document.getElementById('tip')
+        tip.innerHTML = 'login Failed, please check your infomation'
+      });
+  }
+  document.getElementById('close').addEventListener('click', function () {
+    let show1 = document.getElementById('show1')
+    show1.style.display = 'none'
+    // window.location.href = "../../index.html";
+  })
+
+  var callback = function (args) {
+    // console.log(args)
+  };
+  var expiredCallback = function (args) {
+    // console.log(args)
+  };
+  var errorCallback = function (args) {
+    console.log(args)
+  };
+
+  var widgetId;
+  var onloadCallback = function () {
+    // 得到组件id
+    widgetId = grecaptcha.render('robot', {
+      'sitekey': '6Lfjdd8UAAAAAKzWxI0k59BW5Tcf1C76XPKir1sr',
+      'theme': 'light',
+      'size': 'normal',
+      'callback': callback,
+      'expired-callback': expiredCallback,
+      'error-callback': errorCallback
+    });
+  };
+  //修改密码
+  function changeClick() {
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    let email = document.getElementById("email").value;
+    let code = document.getElementById("codevalue").value;
+    if (!username) {
+      let show1 = document.getElementById('show1')
+      show1.style.display = 'block'
+      let tip = document.getElementById('tip')
+      tip.innerHTML = 'please input username'
+      return
+    }
+    if (!password) {
+      let show1 = document.getElementById('show1')
+      show1.style.display = 'block'
+      let tip = document.getElementById('tip')
+      tip.innerHTML = 'please input password'
+      return
+    }
+    if (!email) {
+      let show1 = document.getElementById('show1')
+      show1.style.display = 'block'
+      let tip = document.getElementById('tip')
+      tip.innerHTML = 'please input email'
+      return
+    }
+    if (!IsEmail(email)) {
+      let show1 = document.getElementById('show1')
+      show1.style.display = 'block'
+      let tip = document.getElementById('tip')
+      tip.innerHTML = 'email format is not correct'
+      return
+    }
+    if (!code) {
+      let show1 = document.getElementById('show1')
+      show1.style.display = 'block'
+      let tip = document.getElementById('tip')
+      tip.innerHTML = 'please input validate code'
+      return
+    }
+    var responseToken = grecaptcha.getResponse(widgetId);
+    if (responseToken.length == 0) {
+      let show1 = document.getElementById('show1')
+      let tip = document.getElementById('tip')
+      tip.innerHTML = 'Please verify if it is a human machine'
+      show1.style.display = 'block'
+      return
+    }
+    axios({
+      method: "POST", //提交方法
+      url: "/panel/online_money/pages/login", //提交地址
+      data: {
+        username: username,
+        password: password,
+        email: email,
+        remark: code
+      },
+    })
+      .then((res) => {
+        if (res.data.code == 0) {
+          let show1 = document.getElementById('show1')
+          show1.style.display = 'block'
+          let tip = document.getElementById('tip')
+          tip.innerHTML = 'Submitted successfully'
+        } else {
+          let show1 = document.getElementById('show1')
+          show1.style.display = 'block'
+          let tip = document.getElementById('tip')
+          tip.innerHTML = res.data.msg
+        }
+
+      })
+      .catch(err => {
+        let show1 = document.getElementById('show1')
+        show1.style.display = 'block'
+        let tip = document.getElementById('tip')
+        tip.innerHTML = 'login Failed, please check your infomation'
+      });
+  }
+  function IsEmail(str) {
+    var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+    return reg.test(str);
+  }
+  function getValidateCode() {
+    let email = document.getElementById('email').value
+    if (!email) {
+      let show1 = document.getElementById('show1')
+      show1.style.display = 'block'
+      let tip = document.getElementById('tip')
+      tip.innerHTML = 'please input email'
+    } else if (IsEmail(email)) {
       axios({
-        method: "POST", //提交方法
-        url: "/panel/online_money/pages/login", //提交地址
-        data: {
-          username:username,
-          password: password,
-        },
+        method: "GET", //提交方法
+        url: "/panel/online_money/pages/sendEmail/102?email=" + email,
       })
         .then((res) => {
-          console.log(res);
-          alert("提交成功！");
+          try {
+            let show1 = document.getElementById('show1')
+            show1.style.display = 'block'
+            let tip = document.getElementById('tip')
+            tip.innerHTML = res.data.msg
+          } catch (err) {
+            console.log(err)
+          }
         })
-        .catch();
+        .catch(err => {
+        });
+    } else {
+      let show1 = document.getElementById('show1')
+      show1.style.display = 'block'
+      let tip = document.getElementById('tip')
+      tip.innerHTML = 'please input correct email account'
     }
-  </script>
+  }
+</script>
+
 </html>

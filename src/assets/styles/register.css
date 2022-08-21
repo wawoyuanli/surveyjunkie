@@ -1,0 +1,31 @@
+.register_container {
+  width: 100%;
+  min-height: 62vh;
+  background-image: url('../images/registerbg.png');
+  background-repeat: repeat;
+}
+.register_container .form_box {
+  background-color: #6899ff;
+  border-radius: 50px;
+  box-shadow: 2px 4px 18px #210530;
+}
+.popup-box {
+  width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  display: none;
+}
+.popup-box .content {
+  width: 400px;
+  background-color: #fff;
+  border-radius: 4px;
+  margin: 0 auto;
+  margin-top: 200px;
+}
+.popup-box .content-title {
+  border-bottom: 1px solid #f3f1f1;
+}

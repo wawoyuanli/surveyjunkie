@@ -25,6 +25,8 @@
 
     gtag('config', 'UA-222595522-1');
   </script>
+  <script src="https://www.recaptcha.net/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=en" async
+    defer></script>
 </head>
 
 <body>
@@ -84,21 +86,23 @@
         <input type="text" class="col-md-10 border-0 m-3 p-1 rounded-lg" placeholder="birthday"
           id='surveyBirthdayYear' />
         <p class="col-md-10 text-light">Vertification:</p>
-        <div class="col-md-10 d-flex p-0 align-items-center flex-column">
+        <!-- 人机验证 -->
+        <div id="robot"></div>
+        <div class="col-md-10 d-flex p-0 align-items-center flex-column pt-3">
           <div class="d-flex align-items-center col-md-12">
-            <input type="checkbox" />
+            <input type="checkbox" onclick="checkHandler1(1)" />
             <p class="m-0 pl-2 text-light">
-              I have read and accepted Terms And Conditions *
+              I have read and accepted <a href="../../pages/terms/index.html">Terms</a> And Conditions *
             </p>
           </div>
           <div class="d-flex align-items-center col-md-12">
-            <input type="checkbox" />
+            <input type="checkbox" onclick="checkHandler2()" />
             <p class="m-0 pl-2 text-light">
-              I have read and accepted Privacy Policy *
+              I have read and accepted <a href="../../pages/privacy/index.html">Privacy Policy</a> *
             </p>
           </div>
           <div class="d-flex align-items-center col-md-12">
-            <input type="checkbox" />
+            <input type="checkbox" onclick="checkHandler3()" />
             <p class="m-0 pl-2 text-light">
               I want to receive marketing communication
             </p>
@@ -107,6 +111,14 @@
         <input type="button" onclick="register()" value="register" id="registerbtn"
           class="mb-5 mt-5 btn btn-warning col-md-5">
       </div>
+    </div>
+  </div>
+  <div class="popup-box" id="show1">
+    <div class="content shadow">
+      <p class="text-center p-3 content-title">tips</p>
+      <div class="content-tip text-center p-4" id="tip">
+      </div>
+      <button type="button" class="btn btn-info" style="width: 100%" id="close">确定</button>
     </div>
   </div>
   <!--底部组件引入-->
@@ -143,22 +155,38 @@
 </body>
 <script type="text/javascript">
   let _sex = ''
+  let check1 = false
+  let check2 = false
+  let check3 = false
   function getValidateCode() {
     let email = document.getElementById('email').value
     if (!email) {
-      alert('请输入邮箱账号')
+      let show1 = document.getElementById('show1')
+      show1.style.display = 'block'
+      let tip = document.getElementById('tip')
+      tip.innerHTML = 'please input email'
     } else if (IsEmail(email)) {
       axios({
         method: "GET", //提交方法
         url: "/panel/online_money/pages/sendEmail/102?email=" + email,
       })
         .then((res) => {
-          console.log(res);
-          alert("提交成功！");
+          try {
+            let show1 = document.getElementById('show1')
+            show1.style.display = 'block'
+            let tip = document.getElementById('tip')
+            tip.innerHTML = res.data.msg
+          } catch (err) {
+            console.log(err)
+          }
         })
-        .catch();
+        .catch(err => {
+        });
     } else {
-      alert("请输入正确的邮箱")
+      let show1 = document.getElementById('show1')
+      show1.style.display = 'block'
+      let tip = document.getElementById('tip')
+      tip.innerHTML = 'please input correct email account'
     }
   }
   function register() {
@@ -168,12 +196,30 @@
     let surveyBirthdayYear = document.getElementById('surveyBirthdayYear').value
     let remark = document.getElementById('remark').value
     if (!loginName || !email || !password || !surveyBirthdayYear || !remark) {
-      alert('请完善注册信息')
+      let show1 = document.getElementById('show1')
+      let tip = document.getElementById('tip')
+      tip.innerHTML = 'Please complete the registration information '
+      show1.style.display = 'block'
+      return
+    }
+    var responseToken = grecaptcha.getResponse(widgetId);
+    if (responseToken.length == 0) {
+      let show1 = document.getElementById('show1')
+      let tip = document.getElementById('tip')
+      tip.innerHTML = 'Please verify if it is a human machine'
+      show1.style.display = 'block'
+      return
+    }
+    if (!check1 || !check2 || !check3) {
+      let show1 = document.getElementById('show1')
+      let tip = document.getElementById('tip')
+      tip.innerHTML = 'please read protocol'
+      show1.style.display = 'block'
       return
     }
     axios({
       method: "POST", //提交方法
-      url: "/panel/online_money/pages/login", //提交地址
+      url: "/panel/online_money/pages/register/102", //提交地址
       data: {
         loginName: loginName,
         email: email,
@@ -184,8 +230,17 @@
       },
     })
       .then((res) => {
-        console.log(res);
-        alert("提交成功！");
+        try {
+          let show1 = document.getElementById('show1')
+          let tip = document.getElementById('tip')
+          tip.innerHTML = res.data.msg
+          show1.style.display = 'block'
+        } catch (err) {
+          let show1 = document.getElementById('show1')
+          let tip = document.getElementById('tip')
+          tip.innerHTML =err
+          show1.style.display = 'block'
+        }
       })
       .catch();
   }
@@ -195,6 +250,43 @@
   }
   function checkradio(sex) {
     _sex = sex
+  }
+
+  var callback = function (args) {
+    // console.log(args)
+  };
+  var expiredCallback = function (args) {
+    // console.log(args)
+  };
+  var errorCallback = function (args) {
+    console.log(args)
+  };
+
+  let widgetId;
+  var onloadCallback = function () {
+    // 得到组件id
+    widgetId = grecaptcha.render('robot', {
+      'sitekey': '6Lfjdd8UAAAAAKzWxI0k59BW5Tcf1C76XPKir1sr',
+      'theme': 'light',
+      'size': 'normal',
+      'callback': () => { },
+      'expired-callback': () => { },
+      'error-callback': () => { }
+    });
+  };
+  document.getElementById('close').addEventListener('click', function () {
+    let show1 = document.getElementById('show1')
+    show1.style.display = 'none'
+  })
+
+  function checkHandler1() {
+    check1 = !check1
+  }
+  function checkHandler2() {
+    check2 = !check2
+  }
+  function checkHandler3() {
+    check3 = !check3
   }
 </script>
 

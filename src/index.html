@@ -15,10 +15,14 @@
   <link rel="stylesheet" href="./assets/styles/cookie.css" />
   <link rel="stylesheet" href="./assets/styles/popup.css" />
   <link rel="stylesheet" href="./assets/styles/bubble.css" />
+  <link rel="stylesheet" href="./assets/styles/common.css" />
+
   <link rel="stylesheet" href="./lib/font-awesome/css/font-awesome.min.css" />
   <link rel="stylesheet" href="./lib/bootstrap4.6.1/css/bootstrap.min.css" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-222595522-1"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js" async></script>
+
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
@@ -231,7 +235,14 @@
           <a class="h4 text-decoration-none text-light" href="./pages/contact/index.html">Request a Consulation</a>
         </button></div>
     </div>
-
+  </div>
+  <div class="popup-box" id="show1">
+    <div class="content shadow">
+      <p class="text-center p-3 content-title">tips</p>
+      <div class="content-tip text-center p-4" id="tip">
+      </div>
+      <button type="button" class="btn btn-info" style="width: 100%" id="close">确定</button>
+    </div>
   </div>
   <!--footer 底部 组件引入-->
   @-@include('./footer.html',{ contactUrl:'./pages/contact/index.html',
@@ -289,6 +300,43 @@
     function a() {
       document.getElementById("cookiebar").classList.add("isAccept");
     }
+    function submit() {
+      var email = document.getElementById('email')
+      if (email.value) {
+        if (IsEmail(email.value)) {
+          axios({
+            method: "GET", //提交方法
+            url: "/panel/online_money/pages/subscribeInfo?email=" + email.value, //提交地址
+          })
+            .then((res) => {
+              let show1 = document.getElementById('show1')
+              show1.style.display = 'block'
+              let tip = document.getElementById('tip')
+              tip.innerHTML = res.data.msg
+            })
+            .catch(err => {
+              let show1 = document.getElementById('show1')
+              show1.style.display = 'block'
+              let tip = document.getElementById('tip')
+              tip.innerHTML = 'fail'
+            });
+        } else {
+          alert('email format is not correct')
+        }
+      } else {
+        alert('please input email')
+      }
+    }
+    function IsEmail(str) {
+      var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+      return reg.test(str);
+    }
+    document.getElementById('close').addEventListener('click', function () {
+      let show1 = document.getElementById('show1')
+      show1.style.display = 'none'
+      window.location.href = "../../index.html";
+    })
+
   </script>
 </body>
 
