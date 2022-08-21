@@ -16,14 +16,18 @@
     <script src="../../lib/bootstrap4.6.1/js/bootstrap.bundle.min.js"></script>
     <script src="../../lib/bootstrap4.6.1/js/bootstrap.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-222595522-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	
-	  gtag('config', 'UA-222595522-1');
-	</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-222595522-1"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js" async></script>
+    <script src="https://www.recaptcha.net/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=en" async
+        defer></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-222595522-1');
+    </script>
 </head>
 
 <body>
@@ -63,44 +67,55 @@
                     <div class="col-md-6">
                         <div class="mt-2">
                             <p class="m-0 _label">First Name <span style="color:red">*</span></p>
-                            <input type="text" class="col-md-12  p-1">
+                            <input type="text" class="col-md-12  p-1" id="firstName">
                         </div>
                         <div class="mt-2">
                             <p class="m-0 _label">Organisation Name <span style="color:red">*</span></p>
-                            <input type="text" class="col-md-12  p-1">
+                            <input type="text" class="col-md-12  p-1" id="organisationName">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="mt-2">
                             <p class="m-0 _label">Last Name <span style="color:red">*</span></p>
-                            <input type="text" class="col-md-12  p-1">
+                            <input type="text" class="col-md-12  p-1" id="lastName">
                         </div>
                         <div class="mt-2">
                             <p class="m-0 _label">Organisation Email Address <span style="color:red">*</span></p>
-                            <input type="text" class="col-md-12  p-1">
+                            <input type="text" class="col-md-12  p-1" id="organisationEmailAddress">
                         </div>
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12">
                         <p>How Can We Help You? <span style="color:red">*</span></p>
-                        <textarea name="" id="" cols="58" rows="6" placeholder="please edit"></textarea>
+                        <textarea name="" id="leaveMsg" cols="58" rows="6" placeholder="please edit"></textarea>
                     </div>
                 </div>
                 <div class="row mt-4 rounded">
                     <div class="col-md-12">
-
+                        <div id="robot"></div>
                         <div class="d-flex">
-                            <input type="checkbox" class="mt-2">
-                            <p class="ml-3 agree"> I agree to OnlineMoneyWorld’s <a href="../../pages/terms/index.html">General Terms </a>and consent to the collection of personal
+                            <input type="checkbox" class="mt-2" onchange="changeState()">
+                            <p class="ml-3 agree"> I agree to OnlineMoneyWorld’s <a
+                                    href="../../pages/terms/index.html">General Terms </a>and consent to the collection
+                                of personal
                                 data pursuant
                                 to
-                                OnlineMoneyWorld’s <a href="../../pages/privacy/index.html">Privacy Policy</a> and Cookie Policy. *</p>
+                                OnlineMoneyWorld’s <a href="../../pages/privacy/index.html">Privacy Policy</a> and
+                                Cookie Policy. *</p>
                         </div>
-                        <button class="btn btn-warning col-md-6">提交</button>
+                        <button class="btn btn-warning col-md-6" onclick="commitInfo()">提交</button>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="popup-box" id="show1">
+        <div class="content shadow">
+            <p class="text-center p-3 content-title">tips</p>
+            <div class="content-tip text-center p-4" id="tip">
+            </div>
+            <button type="button" class="btn btn-info" style="width: 100%" id="close">确定</button>
         </div>
     </div>
     <!--footer 底部-->
@@ -113,6 +128,7 @@
     careersUrl:"../../pages/resources/careers/index.html"
     })
     <script>
+        let checked = false
         $('#services').on('show.bs.collapse', function () {
             $('#affiliates').collapse('hide')
             $('#about').collapse('hide')
@@ -132,6 +148,91 @@
             $('#services').collapse('hide')
             $('#affiliates').collapse('hide')
             $('#about').collapse('hide')
+        })
+        var callback = function (args) {
+            console.log(args)
+            console.log('验证成功');
+        };
+        var expiredCallback = function (args) {
+            console.log(args)
+            console.log('验证过期');
+        };
+        var errorCallback = function (args) {
+            console.log(args)
+            console.log('验证失败');
+        };
+
+        var widgetId;
+        var onloadCallback = function () {
+            // 得到组件id
+            widgetId = grecaptcha.render('robot', {
+                'sitekey': '6Lfjdd8UAAAAAKzWxI0k59BW5Tcf1C76XPKir1sr',
+                'theme': 'light',
+                'size': 'normal',
+                'callback': callback,
+                'expired-callback': expiredCallback,
+                'error-callback': errorCallback
+            });
+        };
+        function commitInfo() {
+            let firstName = document.getElementById('firstName').value
+            let lastName = document.getElementById('lastName').value
+            let organisationName = document.getElementById('organisationName').value
+            let organisationEmailAddress = document.getElementById('organisationEmailAddress').value
+            let LeaveMsg = document.getElementById('leaveMsg').value
+            if (!firstName || !lastName || !organisationName || !organisationEmailAddress || !LeaveMsg) {
+                let show1 = document.getElementById('show1')
+                let tip = document.getElementById('tip')
+                tip.innerHTML = 'Please complete the submission information'
+                show1.style.display = 'block'
+                return
+            }
+            if (!checked) {
+                let show1 = document.getElementById('show1')
+                let tip = document.getElementById('tip')
+                tip.innerHTML = 'Please read the tick agreement'
+                show1.style.display = 'block'
+                return
+            }
+            var responseToken = grecaptcha.getResponse(widgetId);
+            if (responseToken.length == 0) {
+                let show1 = document.getElementById('show1')
+                let tip = document.getElementById('tip')
+                tip.innerHTML = 'Please verify if it is a human machine'
+                show1.style.display = 'block'
+                return 
+            } 
+            axios({
+                method: "POST", //提交方法
+                url: "/panel/online_money/pages/leaveMsg", //提交地址
+                data: {
+                    firstName: firstName,
+                    lastName: lastName,
+                    organisationName: organisationName,
+                    organisationEmailAddress: organisationEmailAddress,
+                    LeaveMsg: LeaveMsg
+                },
+            })
+                .then((res) => {
+                    let show1 = document.getElementById('show1')
+                    show1.style.display = 'block'
+                    let tip = document.getElementById('tip')
+                    tip.innerHTML = 'Submitted successfully'
+
+                })
+                .catch(err => {
+                    let show1 = document.getElementById('show1')
+                    show1.style.display = 'block'
+                    let tip = document.getElementById('tip')
+                    tip.innerHTML = 'Submission Failed!'
+                });
+        }
+        function changeState() {
+            checked = !checked
+        }
+        document.getElementById('close').addEventListener('click', function () {
+            let show1 = document.getElementById('show1')
+            show1.style.display = 'none'
         })
     </script>
 </body>

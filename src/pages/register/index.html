@@ -15,16 +15,16 @@
   <title>OnlineMoneyWorld</title>
   <link rel="shortcut icon" href="../../assets/images/logo_04.png">
   <!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-222595522-1"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-222595522-1"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js" async></script>
 
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	
-	  gtag('config', 'UA-222595522-1');
-	</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-222595522-1');
+  </script>
 </head>
 
 <body>
@@ -63,24 +63,26 @@
             col-md-6
           ">
         <p class="text-light h4 pt-2">register</p>
-        <input type="text" class="col-md-10 border-0 m-3 p-1 rounded-lg" placeholder="Username" id='username'/>
+        <input type="text" class="col-md-10 border-0 m-3 p-1 rounded-lg" placeholder="Username" id='loginName' />
         <div class="col-md-10 d-flex p-0">
-          <input type="text" class="col-md-6 border-0 rounded-lg p-1 m-0" placeholder="Email" id='email'/>
-          <button class="btn btn-warning col-md-6 ml-1">
+          <input type="text" class="col-md-6 border-0 rounded-lg p-1 m-0" placeholder="Email" id='email' />
+          <button class="btn btn-warning col-md-6 ml-1" onclick="getValidateCode()">
             get vertification code
           </button>
         </div>
-        <input type="email" class="col-md-10 border-0 m-3 p-1 rounded-lg" placeholder="Email Vertification Code" />
-        <input type="password" class="col-md-10 border-0 p-1 rounded-lg" placeholder="Password" />
+        <input type="email" class="col-md-10 border-0 m-3 p-1 rounded-lg" placeholder="Email Vertification Code"
+          id='remark' />
+        <input type="password" class="col-md-10 border-0 p-1 rounded-lg" placeholder="Password" id='password' />
         <div class="col-md-10 d-flex p-0 m-3">
         </div>
         <div class="col-md-10 d-flex p-0 align-items-center">
-          <input type="radio" class="col-md-1" value="male" />
+          <input type="radio" class="col-md-1" value="0" id='male' onclick="checkradio('0')" />
           <label for="" class="col-md-5 m-0 text-light">male</label>
-          <input type="radio" class="col-md-1" value="female" />
+          <input type="radio" class="col-md-1" value="1" id='female' onclick="checkradio('1')" />
           <label for="" class="col-md-5 m-0 text-light">female</label>
         </div>
-        <input type="text" class="col-md-10 border-0 m-3 p-1 rounded-lg" placeholder="birthday" />
+        <input type="text" class="col-md-10 border-0 m-3 p-1 rounded-lg" placeholder="birthday"
+          id='surveyBirthdayYear' />
         <p class="col-md-10 text-light">Vertification:</p>
         <div class="col-md-10 d-flex p-0 align-items-center flex-column">
           <div class="d-flex align-items-center col-md-12">
@@ -102,19 +104,20 @@
             </p>
           </div>
         </div>
-        <input type="button" onclick="register()" value="register" id="registerbtn" class="mb-5 mt-5 btn btn-warning col-md-5">
+        <input type="button" onclick="register()" value="register" id="registerbtn"
+          class="mb-5 mt-5 btn btn-warning col-md-5">
       </div>
     </div>
   </div>
-   <!--底部组件引入-->
-   @-@include('./footer.html',{
-    contactUrl:'../../pages/contact/index.html',
-    termsUrl:'../../pages/terms/index.html',
-    privacyUrl:'../../pages/privacy/index.html',
-    esomarUrl:"../../pages/resources/esomar/index.html",
-    blogUrl:"../../pages/resources/blog/index.html",
-    careersUrl:"../../pages/resources/careers/index.html"
-    })
+  <!--底部组件引入-->
+  @-@include('./footer.html',{
+  contactUrl:'../../pages/contact/index.html',
+  termsUrl:'../../pages/terms/index.html',
+  privacyUrl:'../../pages/privacy/index.html',
+  esomarUrl:"../../pages/resources/esomar/index.html",
+  blogUrl:"../../pages/resources/blog/index.html",
+  careersUrl:"../../pages/resources/careers/index.html"
+  })
   <script>
     $('#services').on('show.bs.collapse', function () {
       $('#affiliates').collapse('hide')
@@ -139,29 +142,60 @@
   </script>
 </body>
 <script type="text/javascript">
- let loginName  =document.getElementById('loginName')
- let email=document.getElementById('email')
- let password  =document.getElementById('password')
- let sex=document.getElementById('sex')
- let surveyBirthdayYear=document.getElementById('surveyBirthdayYear')
-  function register(){
-    axios({
-        method: "POST", //提交方法
-        url: "/panel/online_money/pages/login", //提交地址
-        data: {
-          loginName:loginName,
-          email: email,
-          password:password,
-          sex :sex ,
-          surveyBirthdayYear:surveyBirthdayYear
-        },
+  let _sex = ''
+  function getValidateCode() {
+    let email = document.getElementById('email').value
+    if (!email) {
+      alert('请输入邮箱账号')
+    } else if (IsEmail(email)) {
+      axios({
+        method: "GET", //提交方法
+        url: "/panel/online_money/pages/sendEmail/102?email=" + email,
       })
         .then((res) => {
           console.log(res);
           alert("提交成功！");
         })
         .catch();
+    } else {
+      alert("请输入正确的邮箱")
+    }
   }
-     
+  function register() {
+    let loginName = document.getElementById('loginName').value
+    let email = document.getElementById('email').value
+    let password = document.getElementById('password').value
+    let surveyBirthdayYear = document.getElementById('surveyBirthdayYear').value
+    let remark = document.getElementById('remark').value
+    if (!loginName || !email || !password || !surveyBirthdayYear || !remark) {
+      alert('请完善注册信息')
+      return
+    }
+    axios({
+      method: "POST", //提交方法
+      url: "/panel/online_money/pages/login", //提交地址
+      data: {
+        loginName: loginName,
+        email: email,
+        password: password,
+        sex: _sex,
+        surveyBirthdayYear: surveyBirthdayYear,
+        remark: remark
+      },
+    })
+      .then((res) => {
+        console.log(res);
+        alert("提交成功！");
+      })
+      .catch();
+  }
+  function IsEmail(str) {
+    var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+    return reg.test(str);
+  }
+  function checkradio(sex) {
+    _sex = sex
+  }
 </script>
+
 </html>

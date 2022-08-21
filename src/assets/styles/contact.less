@@ -1,21 +1,41 @@
 .contact__title {
-    min-height: 150px;
-    background-color: #b93539;
-    color: #fff;
-    font-size: 40px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 150px;
+  background-color: #b93539;
+  color: #fff;
+  font-size: 40px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .contact__input {
-    .contact_input_info {
-        font-size: 20px;
-    }
+  .contact_input_info {
+    font-size: 20px;
+  }
 
-    ._label {
-        font-size: 18px;
-    }
+  ._label {
+    font-size: 18px;
+  }
 
-    .agree {
-        font-size: 18px;
+  .agree {
+    font-size: 18px;
+  }
+}
+.popup-box {
+  width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  display: none;
+  .content {
+    width: 400px;
+    background-color: #fff;
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-top: 200px;
+    &-title {
+      border-bottom: 1px solid #f3f1f1;
     }
+  }
 }
