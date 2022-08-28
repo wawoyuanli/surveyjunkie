@@ -31,8 +31,7 @@
 
 <body>
   <div class="login_container">
-    <p class="p-3 text-right"> <a href="../../index.html" class="text-decoration-none"> <i class="fa fa-home pr-1"
-          aria-hidden="true"></i>首页</a></p>
+    <p class="p-3 text-right"> <a href="../login/index.html" class="text-decoration-none"> <i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></p>
     <div class="container-fluid">
       <div class="row d-flex align-items-center justify-content-around">
         <div class="col-md-6">
@@ -43,25 +42,34 @@
             <p class="pt-3 text-left col-md-8 welcome_back m-0 pb-2">
               Welcome back
             </p>
-            <p class="col-md-8 account">Login to your account</p>
+            <p class="col-md-8 account">change your password</p>
             <form class="col-md-8 mt-3">
               <div class="form-group">
                 <input type="text" class="form-control col-md-12" id="username" placeholder="UserName" />
               </div>
+              <div id="validate_code">
+                <div class="col-md-10 d-flex p-0">
+                  <input type="text" class="col-md-8 rounded-lg p-1 m-0" placeholder="email" id='email'
+                    style="border: 1px solid gray" />
+                  <button class="btn btn-warning col-md-6 ml-1" onclick="getValidateCode()">
+                    get code
+                  </button>
+                </div>
+              </div>
+              <div id="code">
+                <div class="form-group">
+                  <input class="form-control mt-3" id="codevalue" placeholder="code" style="margin-top: 10px" />
+                </div>
+              </div>
+
               <div class="form-group">
                 <input type="password" class="form-control mt-3" id="password" placeholder="Password"
                   style="margin-top: 10px" />
               </div>
               <div id="robot"></div>
               <!--登陆按钮-->
-              <input type="button" class="btn__liner col-md-12 mt-3 mb-3" onclick="login()" value="Login"
-                id='login_btn' />
-              <a href="../login/forgetPwd.html" class="text-decoration-none">I forgot my password ?</a>
-              <p>
-                Not a member yet? Click
-                <a href="../register/index.html" class="text-decoration-none">here</a>
-                to register.
-              </p>
+              <input type="button" class="btn__liner col-md-12 mt-3 mb-3" onclick="changeClick()" value="confirm"
+                id='change_btn' />
             </form>
           </div>
         </div>
@@ -73,78 +81,21 @@
       <p class="text-center p-3 content-title">tips</p>
       <div class="content-tip text-center p-4" id="tip">
       </div>
-      <button type="button" class="btn btn-info" style="width: 100%" id="close">ok</button>
+      <div style="display: flex">
+        <button type="button" class="btn btn-info" style="width: 100%;" id="close">ok</button>
+        <button type="button" class="btn btn-info" style="width: 100%;display:none" id="go_login">go login</button>
+      </div>
     </div>
   </div>
 </body>
 <script>
-  function changePwd() {
-    document.getElementById('code').style.display = 'block'
-    document.getElementById('login_btn').style.display = 'none'
-
-  }
-  function login() {
-    /*
-  校验信息
-  */
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-
-    if (!username) {
-      let show1 = document.getElementById('show1')
-      show1.style.display = 'block'
-      let tip = document.getElementById('tip')
-      tip.innerHTML = 'please input username'
-      return
-    }
-    if (!password) {
-      let show1 = document.getElementById('show1')
-      show1.style.display = 'block'
-      let tip = document.getElementById('tip')
-      tip.innerHTML = 'please input password'
-      return
-    }
-    var responseToken = grecaptcha.getResponse(widgetId);
-    if (responseToken.length == 0) {
-      let show1 = document.getElementById('show1')
-      let tip = document.getElementById('tip')
-      tip.innerHTML = 'Please verify if it is a human machine'
-      show1.style.display = 'block'
-      return
-    }
-    axios({
-      method: "POST", //提交方法
-      url: "/panel/online_money/pages/login", //提交地址
-      data: {
-        username: username,
-        password: password,
-      },
-    })
-      .then((res) => {
-        if (res.data.code == 0) {
-          let show1 = document.getElementById('show1')
-          show1.style.display = 'block'
-          let tip = document.getElementById('tip')
-          tip.innerHTML = 'Submitted successfully'
-        } else {
-          let show1 = document.getElementById('show1')
-          show1.style.display = 'block'
-          let tip = document.getElementById('tip')
-          tip.innerHTML = res.data.msg
-        }
-
-      })
-      .catch(err => {
-        let show1 = document.getElementById('show1')
-        show1.style.display = 'block'
-        let tip = document.getElementById('tip')
-        tip.innerHTML = 'login Failed, please check your infomation'
-      });
-  }
   document.getElementById('close').addEventListener('click', function () {
     let show1 = document.getElementById('show1')
     show1.style.display = 'none'
-    // window.location.href = "../../index.html";
+  })
+  document.getElementById('go_login').addEventListener('click', function () {
+    window.location.href = "../../index.html";
+
   })
 
   var callback = function (args) {
@@ -232,6 +183,8 @@
         if (res.data.code == 0) {
           let show1 = document.getElementById('show1')
           show1.style.display = 'block'
+          document.getElementById('ok').style.display = 'none!important'
+          document.getElementById('go_login').style.display = 'block'
           let tip = document.getElementById('tip')
           tip.innerHTML = 'Submitted successfully'
         } else {
