@@ -51,7 +51,7 @@
                 <div class="col-md-10 d-flex p-0">
                   <input type="text" class="col-md-8 rounded-lg p-1 m-0" placeholder="email" id='email'
                     style="border: 1px solid gray" />
-                  <button class="btn btn-warning col-md-6 ml-1" onclick="getValidateCode()">
+                  <button class="btn btn-warning col-md-6 ml-1" onclick="getValidateCode()" type="button">
                     get code
                   </button>
                 </div>
@@ -89,6 +89,8 @@
   </div>
 </body>
 <script>
+  function getCode(){
+  }
   document.getElementById('close').addEventListener('click', function () {
     let show1 = document.getElementById('show1')
     show1.style.display = 'none'
