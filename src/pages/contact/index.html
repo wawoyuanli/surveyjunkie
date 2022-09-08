@@ -151,22 +151,22 @@
         })
         var callback = function (args) {
             console.log(args)
-            console.log('验证成功');
+            console.log('Validation successful');
         };
         var expiredCallback = function (args) {
             console.log(args)
-            console.log('验证过期');
+            console.log('Validation expired');
         };
         var errorCallback = function (args) {
             console.log(args)
-            console.log('验证失败');
+            console.log('Validation fails');
         };
 
         var widgetId;
         var onloadCallback = function () {
             // 得到组件id
             widgetId = grecaptcha.render('robot', {
-                'sitekey': '6Lfjdd8UAAAAAKzWxI0k59BW5Tcf1C76XPKir1sr',
+                'sitekey': '6LeIZOEhAAAAAPvjmu6G6aSIWPQCouZYRs7KHzuP',
                 'theme': 'light',
                 'size': 'normal',
                 'callback': callback,
